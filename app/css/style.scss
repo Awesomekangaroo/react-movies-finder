@@ -1,4 +1,10 @@
 * {
-	border: 1px solid;
+	box-sizing: border-box;
+}
+
+.index-container {
+	display: block;
+	margin: 0 15px;
 	width: 100%;
+	border: 1px solid #eee;
 }

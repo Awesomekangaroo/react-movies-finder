@@ -1,5 +1,10 @@
 * {
-  border: 1px solid;
-  width: 100%; }
+  box-sizing: border-box; }
+
+.index-container {
+  display: block;
+  margin: 0 15px;
+  width: 100%;
+  border: 1px solid #eee; }
 
 /*# sourceMappingURL=style.css.map */
