@@ -42,7 +42,8 @@ table {
   border-spacing: 0; }
 
 a {
-  text-decoration: none; }
+  text-decoration: none;
+  color: inherit; }
 
 * {
   box-sizing: border-box;
@@ -127,5 +128,50 @@ a {
   .attribute-credits img {
     width: 100%;
     padding: 20px; }
+
+.index-container {
+  margin: 0 auto;
+  padding: 40px 15px;
+  display: block;
+  width: 100%; }
+
+.index-movies--title {
+  color: red;
+  font-family: Helvetica, sans-serif;
+  font-size: 18px;
+  margin-bottom: 10px; }
+
+.index-tile__container {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+  box-shadow: 0px 4px 3px 0px rgba(0, 0, 0, 0.3);
+  min-height: 200px;
+  max-height: 350px;
+  border: 1px solid #eee;
+  background-image: url("https://image.tmdb.org/t/p/original/vNCeqxbKyDHL9LUza03V2Im16wB.jpg");
+  background-size: cover; }
+
+.index-tile__overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 10px 15px;
+  color: #ffffff;
+  font-family: Helvetica, sans-serif;
+  background-color: rgba(0, 0, 0, 0.4); }
+
+.index-tile__overlay--title {
+  margin-bottom: 5px; }
+  .index-tile__overlay--title a {
+    font-size: 17px;
+    text-transform: capitalize; }
+
+.index-tile__overlay--cast span {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 300; }
 
 /*# sourceMappingURL=style.css.map */
