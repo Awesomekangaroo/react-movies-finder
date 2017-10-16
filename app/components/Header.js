@@ -4,10 +4,12 @@ import NavMenu from './NavMenu';
 class Header extends React.Component {
 	constructor() {
 		super();
+		// check if search and menu have active class
 		this.state= { isActiveOn: false, isActiveOn2: true }
 		// this.addActiveClass = this.addActiveClass.bind(this);
 	}
 	addActiveClass(e) {
+		// add or remove class on click
 		this.setState(prevState=> ({
 			isActiveOn: !prevState.isActiveOn,
 			isActiveOn2: !prevState.isActiveOn2
