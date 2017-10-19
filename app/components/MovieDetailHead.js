@@ -27,7 +27,7 @@ class MovieDetailHead extends React.Component {
 						</div>
 					</div>
 					<div className="mobile-head__toggle">
-						<button>INFO</button>
+						<button className="active">INFO</button>
 						<button>TRAILERS</button>
 					</div>
 				</div>
