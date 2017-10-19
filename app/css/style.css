@@ -177,4 +177,54 @@ img {
   font-size: 13px;
   font-weight: 300; }
 
+.movie__head {
+  padding-top: 5px; }
+
+.movie__head--genre span {
+  color: #EB5757;
+  font-weight: 300;
+  font-family: Helvetica, sans-serif;
+  font-size: 14px; }
+.movie__head--genre hr {
+  width: 30px;
+  height: 2px;
+  border: none;
+  margin-left: 0;
+  background-color: #aaa; }
+
+.movie__head--title {
+  font-family: Helvetica, sans-serif;
+  font-size: 26px;
+  line-height: 115%;
+  color: #555; }
+
+.movie__head--meta {
+  width: 100%;
+  padding: 10px 0; }
+  .movie__head--meta:after {
+    content: '';
+    visibility: hidden;
+    clear: both; }
+
+.movie__head--score {
+  display: inline-block;
+  font-family: Helvetica, sans-serif;
+  vertical-align: middle; }
+  .movie__head--score .btn-score {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    border: 2px solid #BB4040;
+    border-radius: 50%; }
+  .movie__head--score .user-score {
+    margin-left: 5px;
+    font-size: 13px;
+    vertical-align: -webkit-baseline-middle; }
+
+.movie__head--rating {
+  float: right; }
+
 /*# sourceMappingURL=style.css.map */

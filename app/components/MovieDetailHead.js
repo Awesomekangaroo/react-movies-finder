@@ -19,7 +19,7 @@ class MovieDetailHead extends React.Component {
 					</header>
 					<div className="movie__head--meta">
 						<div className="movie__head--score">
-							<span className="btn-score">94%</span>
+							<div className="btn-score"><span>94%</span></div>
 							<span className="user-score">User Score</span>
 						</div>
 						<div className="movie__head--rating">
