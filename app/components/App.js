@@ -3,6 +3,8 @@ import Header from './Header';
 import MovieIndexFeed from './MovieIndexFeed';
 import TVIndexFeed from './TVIndexFeed';
 import MovieDetailHead from './MovieDetailHead';
+import MovieDetailCast from './MovieDetailCast';
+import MovieDetailBodyInfo from './MovieDetailBodyInfo';
 
 class App extends React.Component {
 	render() {
@@ -13,6 +15,8 @@ class App extends React.Component {
 					{/*<MovieIndexFeed />
 					<TVIndexFeed /> */}
 					<MovieDetailHead />
+					<MovieDetailCast />
+					<MovieDetailBodyInfo />
 				</div>
 			</div>
 		)

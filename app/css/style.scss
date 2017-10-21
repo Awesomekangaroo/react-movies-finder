@@ -56,10 +56,17 @@ img {
 
 $font-stack-sans: Helvetica, sans-serif;
 
+.container {
+	display: block;
+	width: 100%;
+	margin-bottom: 20px;
+}
+
 .index-container {
 	display: block;
 	width: 100%;
 }
+
 
 .nav-header {
 	display: block;
@@ -208,11 +215,7 @@ $font-stack-sans: Helvetica, sans-serif;
 		font-size: 13px;
 		font-weight: 300;
 	}
-}
-
-.movie__hero--container {
-
-}
+}s
 
 .movie__head {
 	padding-top: 5px;
@@ -304,5 +307,54 @@ $font-stack-sans: Helvetica, sans-serif;
 	}
 	.active {
 		background-color: #F2504A;
+	}
+}
+
+.carousel-cast__container {
+	border-top: 1px solid #eee;
+	padding: 15px 0;
+}
+
+.carousel-cast__item {
+	display: inline-block;
+	width: 50%;
+	img {
+		display: inline-block;
+		width: 35px;
+		height: 35px;
+		border: 1px solid #000;
+		border-radius: 50%;
+	}
+}
+
+.carousel-cast__names--info {
+	display: inline-block;
+	width: 60%;
+	margin-left: 10px;
+	vertical-align: super;
+	h3 {
+		font: bold 14px/12px $font-stack-sans;
+	}
+	span {
+		font: lighter 10px $font-stack-sans;
+		color: #777;
+	}
+}
+
+.movie-body__information {
+	padding: 15px 0;
+	font-family: $font-stack-sans;
+	h3 {
+		font-size: 17px;
+		line-height: 30px;
+		color: #777;
+		letter-spacing: 1px;
+		margin-bottom: 15px;
+		border-bottom: 1px solid #eee;
+	}
+	p {
+		margin-bottom: 20px;
+		font-size: 13px;
+		line-height: 140%;
 	}
 }

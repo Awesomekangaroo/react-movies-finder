@@ -3,7 +3,7 @@ import React from 'react';
 class MovieDetailHead extends React.Component {
 	render() {
 		return(
-			<section>				
+			<section className="container">
 				<div className="movie__hero--container">
 					<img src="https://image.tmdb.org/t/p/w640/xGWVjewoXnJhvxKW619cMzppJDQ.jpg" alt="Hero image"/>
 				</div>
