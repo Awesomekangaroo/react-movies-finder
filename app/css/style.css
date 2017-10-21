@@ -299,5 +299,56 @@ s
     margin-bottom: 20px;
     font-size: 13px;
     line-height: 140%; }
+    .movie-body__information p:last-child {
+      margin-bottom: 0; }
+
+.movie-body__meta--container {
+  font-family: Helvetica, sans-serif;
+  border-bottom: 1px solid #eee; }
+  .movie-body__meta--container > h3 {
+    font-size: 17px;
+    line-height: 30px;
+    letter-spacing: 1px;
+    color: red;
+    border-bottom: 1px solid #eee; }
+
+.movie-body__meta--items {
+  margin-left: 20px; }
+  .movie-body__meta--items li {
+    margin: 25px 0; }
+    .movie-body__meta--items li span {
+      font-size: 14px;
+      color: #777; }
+      .movie-body__meta--items li span:first-child {
+        font-weight: bold;
+        color: #000; }
+
+.movie-trailers__container {
+  font-family: Helvetica, sans-serif;
+  border-bottom: 1px solid #eee;
+  margin-top: 40px; }
+  .movie-trailers__container > h3 {
+    font-size: 17px;
+    line-height: 30px;
+    letter-spacing: 1px;
+    color: red;
+    border-bottom: 1px solid #eee; }
+
+.movie-trailers__carousel {
+  padding: 20px 0;
+  min-height: 150px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: center;
+  background-color: #eee; }
+
+.movie-trailers__carousel--item {
+  display: inline-block;
+  width: 120px;
+  height: 120px;
+  margin: 0 5px;
+  background-color: #ffffff; }
+  .movie-trailers__carousel--item:first-child {
+    margin-left: 0; }
 
 /*# sourceMappingURL=style.css.map */

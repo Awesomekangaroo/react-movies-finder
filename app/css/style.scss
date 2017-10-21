@@ -356,5 +356,68 @@ $font-stack-sans: Helvetica, sans-serif;
 		margin-bottom: 20px;
 		font-size: 13px;
 		line-height: 140%;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.movie-body__meta--container {
+	font-family: $font-stack-sans;
+	border-bottom: 1px solid #eee;
+	> h3 {
+		font-size: 17px;
+		line-height: 30px;
+		letter-spacing: 1px;
+		color: red;
+		border-bottom: 1px solid #eee;
+	}
+}
+
+.movie-body__meta--items {
+	margin-left: 20px;
+	li {
+		margin: 25px 0;
+		span {
+			font-size: 14px;
+			color: #777;
+			&:first-child {
+				font-weight: bold;
+				color: #000;
+			}
+		}
+	}
+}
+
+.movie-trailers__container {
+	font-family: $font-stack-sans;
+	border-bottom: 1px solid #eee;
+	margin-top: 40px;
+	> h3 {
+		font-size: 17px;
+		line-height: 30px;
+		letter-spacing: 1px;
+		color: red;
+		border-bottom: 1px solid #eee;
+	}
+}
+
+.movie-trailers__carousel {
+	padding: 20px 0;
+	min-height: 150px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-align: center;
+	background-color: #eee;
+}
+
+.movie-trailers__carousel--item {
+	display: inline-block;
+	width: 120px;
+	height: 120px;
+	margin: 0 5px;
+	background-color: #ffffff;
+	&:first-child {
+		margin-left: 0;
 	}
 }

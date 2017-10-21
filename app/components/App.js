@@ -5,6 +5,8 @@ import TVIndexFeed from './TVIndexFeed';
 import MovieDetailHead from './MovieDetailHead';
 import MovieDetailCast from './MovieDetailCast';
 import MovieDetailBodyInfo from './MovieDetailBodyInfo';
+import MovieDetailBodyMeta from './MovieDetailBodyMeta';
+import MovieDetailBodyTrailers from './MovieDetailBodyTrailers';
 
 class App extends React.Component {
 	render() {
@@ -17,6 +19,8 @@ class App extends React.Component {
 					<MovieDetailHead />
 					<MovieDetailCast />
 					<MovieDetailBodyInfo />
+					<MovieDetailBodyMeta />
+					<MovieDetailBodyTrailers />
 				</div>
 			</div>
 		)
