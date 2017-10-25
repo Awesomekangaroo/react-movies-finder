@@ -1,4 +1,5 @@
 import React from 'react';
+import { Router, Route, Link, IndexRoute, hashHistory, browserHistory } from 'react-router';
 import Header from './Header';
 import MovieIndexFeed from './MovieIndexFeed';
 import TVIndexFeed from './TVIndexFeed';
