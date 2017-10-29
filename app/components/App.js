@@ -4,8 +4,25 @@ import Header from './Header';
 import MovieIndexFeed from './MovieIndexFeed';
 import TVIndexFeed from './TVIndexFeed';
 import MovieDetail from './MovieDetail';
+import sampleMovies from '../../sample-movies';
 
 class App extends React.Component {
+	constructor() {
+		super();
+		this.loadMovies = this.loadMovies.bind(this);
+
+		// initial state
+		this.state = {
+			movies: {}
+		};
+	}
+
+	loadMovies() {
+		this.setState({
+			movies: sampleMovies
+		});
+	}
+
 	render() {
 		return(
 			<div className="react-app">
@@ -13,7 +30,7 @@ class App extends React.Component {
 				<div className="index-container">
 					{/*<MovieIndexFeed />
 					<TVIndexFeed /> */}
-					<MovieDetail />
+					<MovieDetail loadMovies={this.loadMovies} />
 				</div>
 			</div>
 		)

@@ -3,7 +3,7 @@ import React from 'react';
 class NavMenu extends React.Component {
 	render() {
 		return(
-			<div className="nav-menu__container">
+			<div className={"nav-menu__container" + (this.props.addActiveClass ? ' active' : '')}>
 				<ul className="nav-menu__main">
 					<li>
 						<a href="">Search</a>

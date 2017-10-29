@@ -5,27 +5,28 @@ class Header extends React.Component {
 	constructor() {
 		super();
 		// check if search and menu have active class
-		this.state= { isActiveOn: false, isActiveOn2: true }
-		// this.addActiveClass = this.addActiveClass.bind(this);
+		this.state= { isActiveOn: false }
+		this.addActiveClass = this.addActiveClass.bind(this);
 	}
+
 	addActiveClass(e) {
 		// add or remove class on click
 		this.setState(prevState=> ({
-			isActiveOn: !prevState.isActiveOn,
-			isActiveOn2: !prevState.isActiveOn2
+			isActiveOn: !prevState.isActiveOn
 		}));
 	}
+
 	render() {
 		return(
 			<div className="nav-header">
-				<div className={"search-container" + (this.state.isActiveOn ? ' active' : '')} onClick={e=> this.addActiveClass(e)}>
+				<div className="search-container">
 					<i className="fa fa-search" aria-hidden="hidden"></i>
 				</div>
 				<nav>
-					<div id="mobile-menu" className={this.state.isActiveOn2 ? 'active' : ''} onClick={e=> this.addActiveClass(e)} >
+					<div id="mobile-menu" className={this.state.isActiveOn ? 'active' : ''} onClick={e=> this.addActiveClass(e)} >
 						<i className="fa fa-bars" aria-hidden="hidden"></i>
 					</div>
-					<NavMenu />
+					<NavMenu addActiveClass={ this.state.isActiveOn } />
 				</nav>
 			</div>
 		)
