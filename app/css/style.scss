@@ -120,6 +120,7 @@ $font-stack-sans: Helvetica, sans-serif;
 	background-color: rgba(8, 28, 36, 1);
 	&.active {
 		display: block;
+		z-index: 9999;
 	}
 }
 

@@ -28,8 +28,8 @@ class App extends React.Component {
 			<div className="react-app">
 				<Header />
 				<div className="index-container">
-					{/*<MovieIndexFeed />
-					<TVIndexFeed /> */}
+					<MovieIndexFeed />
+					<TVIndexFeed />
 					<MovieDetail loadMovies={this.loadMovies} />
 				</div>
 			</div>

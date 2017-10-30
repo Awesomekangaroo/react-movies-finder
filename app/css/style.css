@@ -105,7 +105,8 @@ img {
   padding: 60px 25px 15px;
   background-color: #081c24; }
   .nav-menu__container.active {
-    display: block; }
+    display: block;
+    z-index: 9999; }
 
 .nav-menu__main {
   font-family: Helvetica, sans-serif;
