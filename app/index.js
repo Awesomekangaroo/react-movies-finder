@@ -1,19 +1,20 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { BrowserRouter, Match, Miss } from 'react-router';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import App from './components/App';
+import IndexHome from './components/IndexHome';
 import NotFound from './components/NotFound';
 
 const Root = () => {
 	return(
 		<BrowserRouter>
-			<div>
-				<Match exactly pattern="/" component={MovieIndexFeed} />
-				<Miss component={NotFound} />
-			</div>
+			<Switch>
+					<Route path="/" exact scomponent={IndexHome} />
+					<Route component={NotFound} />
+			</Switch>
 		</BrowserRouter>
 	)
 }
 
-render(<App />, document.getElementById('app'));
+render(<Root />, document.getElementById('app'));
