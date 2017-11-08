@@ -10,7 +10,7 @@ const Root = () => {
 	return(
 		<BrowserRouter>
 			<Switch>
-					<Route path="/" exact scomponent={IndexHome} />
+					<Route path="/" exact component={App} />
 					<Route component={NotFound} />
 			</Switch>
 		</BrowserRouter>

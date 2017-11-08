@@ -1,7 +1,7 @@
 import React from 'react';
+import Routes from '../index';
 import Header from './Header';
 import IndexHome from './IndexHome';
-import sampleMovies from '../../sample-movies';
 
 class App extends React.Component {
 	constructor() {
