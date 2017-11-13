@@ -5,13 +5,15 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import App from './components/App';
 import IndexHome from './components/IndexHome';
 import NotFound from './components/NotFound';
+import MovieDetail from './components/MovieDetail';
 
 const Root = () => {
 	return(
 		<BrowserRouter>
 			<Switch>
-					<Route path="/" exact component={App} />
-					<Route component={NotFound} />
+				<Route exact path="/" component={App} />
+				<Route path="/movie" component={MovieDetail} />
+				<Route component={NotFound} />
 			</Switch>
 		</BrowserRouter>
 	)

@@ -8,6 +8,7 @@ import MovieDetailBodyReviews from './MovieDetailBodyReviews';
 
 class MovieDetail extends React.Component {
 	render() {
+		const { details, index } = this.props;
 		return(
 			<div className="container">
 				<MovieDetailHead />

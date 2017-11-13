@@ -43,6 +43,7 @@ class IndexHome extends React.Component {
 			{
 				Object.keys(this.state.movies).map(key => <MovieIndexFeed index={key} key={key} details={this.state.movies[key]} />)
 			}
+				{console.log(this.state.movies)}
 				{console.log(this.state.tv)}
 				<TVIndexFeed />
 			</div>

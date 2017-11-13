@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class MovieIndexFeed extends React.Component {
 	render() {
@@ -11,7 +12,7 @@ class MovieIndexFeed extends React.Component {
 					<div className="index-tile__overlay">
 						<section>
 							<h2 className="index-tile__overlay--title">
-								<a href="">{details.title}</a>
+								<Link to={ {pathname: '/movie', state: {details, index}} }>{details.title}</Link>
 							</h2>
 							<div className="index-tile__overlay--cast">
 								<span></span>

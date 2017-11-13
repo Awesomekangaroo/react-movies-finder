@@ -1,7 +1,7 @@
 {
   "name": "react-movies",
   "version": "1.0.0",
-  "description": "",
+  "description": "React movie finder",
   "main": "index.js",
   "scripts": {
     "build": "webpack",
@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/Awesomekangaroo/react-movies-finder.git"
   },
-  "author": "",
+  "author": "Eloy",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Awesomekangaroo/react-movies-finder/issues"
