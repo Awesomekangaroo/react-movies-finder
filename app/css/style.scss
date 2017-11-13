@@ -67,14 +67,13 @@ $font-stack-sans: Helvetica, sans-serif;
 	width: 100%;
 }
 
-
 .nav-header {
 	display: block;
 	width: 100%;
 	margin: 0 auto;
 	min-height: 50px;
 	border-bottom: 1px solid #eee;
-	background-color: rgba(0,0,0,0.05);
+	// background-color: rgba(0,0,0,0.05);
 	box-shadow: 0px -1px 9px 0px rgba(0,0,0, 0.6);
 	&:after {
 		content: '';
@@ -95,6 +94,30 @@ $font-stack-sans: Helvetica, sans-serif;
 		font-size: 20px;
 		color: #333;
 		line-height: 50px;
+	}
+}
+
+#header-search {
+	position: absolute;
+	top: 50px;
+	display: none;
+	width: 100%;
+	text-align: center;
+	padding: 20px 0;
+	background-color: #f1f1f1;
+	border-top: 1px solid #ebebeb;
+	border-bottom: 1px solid #ebebeb;
+	.header-search__input {
+		outline: none;
+		padding: 10px 15px;
+		font-size: 15px;
+		font-family: $font-stack-sans;
+		letter-spacing: 1px;
+		border-radius: 4px;
+		border: 1px solid #ebebeb;
+	}
+	&.active {
+		display: block;
 	}
 }
 
@@ -165,7 +188,7 @@ $font-stack-sans: Helvetica, sans-serif;
 
 .index-container {
 	margin: 0 auto;
-	padding: 40px 15px;
+	padding: 40px 10px;
 	display: block;
 	width: 100%;
 }
@@ -184,10 +207,6 @@ $font-stack-sans: Helvetica, sans-serif;
 	height: auto;
 	margin-bottom: 20px;
 	box-shadow: 0px 4px 3px 0px rgba(0, 0, 0, 0.3);
-	min-height: 200px;
-	max-height: 350px;
-	border: 1px solid #eee;
-	background-image: url('https://image.tmdb.org/t/p/original/vNCeqxbKyDHL9LUza03V2Im16wB.jpg');
 	background-size: cover;
 }
 
@@ -202,7 +221,7 @@ $font-stack-sans: Helvetica, sans-serif;
 }
 
 .index-tile__overlay--title {
-	margin-bottom: 5px;
+	padding: 5px 0;
 	a {
 		font-size: 17px;
 		text-transform: capitalize;

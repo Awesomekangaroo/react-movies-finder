@@ -67,7 +67,6 @@ img {
   margin: 0 auto;
   min-height: 50px;
   border-bottom: 1px solid #eee;
-  background-color: rgba(0, 0, 0, 0.05);
   box-shadow: 0px -1px 9px 0px rgba(0, 0, 0, 0.6); }
   .nav-header:after {
     content: '';
@@ -85,6 +84,27 @@ img {
     font-size: 20px;
     color: #333;
     line-height: 50px; }
+
+#header-search {
+  position: absolute;
+  top: 50px;
+  display: none;
+  width: 100%;
+  text-align: center;
+  padding: 20px 0;
+  background-color: #f1f1f1;
+  border-top: 1px solid #ebebeb;
+  border-bottom: 1px solid #ebebeb; }
+  #header-search .header-search__input {
+    outline: none;
+    padding: 10px 15px;
+    font-size: 15px;
+    font-family: Helvetica, sans-serif;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    border: 1px solid #ebebeb; }
+  #header-search.active {
+    display: block; }
 
 #mobile-menu {
   position: relative;
@@ -140,7 +160,7 @@ img {
 
 .index-container {
   margin: 0 auto;
-  padding: 40px 15px;
+  padding: 40px 10px;
   display: block;
   width: 100%; }
 
@@ -157,10 +177,6 @@ img {
   height: auto;
   margin-bottom: 20px;
   box-shadow: 0px 4px 3px 0px rgba(0, 0, 0, 0.3);
-  min-height: 200px;
-  max-height: 350px;
-  border: 1px solid #eee;
-  background-image: url("https://image.tmdb.org/t/p/original/vNCeqxbKyDHL9LUza03V2Im16wB.jpg");
   background-size: cover; }
 
 .index-tile__overlay {
@@ -173,7 +189,7 @@ img {
   background-color: rgba(0, 0, 0, 0.4); }
 
 .index-tile__overlay--title {
-  margin-bottom: 5px; }
+  padding: 5px 0; }
   .index-tile__overlay--title a {
     font-size: 17px;
     text-transform: capitalize; }

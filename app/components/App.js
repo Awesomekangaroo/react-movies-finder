@@ -6,18 +6,6 @@ import IndexHome from './IndexHome';
 class App extends React.Component {
 	constructor() {
 		super();
-		this.loadMovies = this.loadMovies.bind(this);
-
-		// initial state
-		this.state = {
-			movies: {}
-		};
-	}
-
-	loadMovies() {
-		this.setState({
-			movies: sampleMovies
-		});
 	}
 
 	render() {

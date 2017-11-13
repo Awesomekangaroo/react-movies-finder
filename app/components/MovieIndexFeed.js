@@ -2,24 +2,24 @@ import React from 'react';
 
 class MovieIndexFeed extends React.Component {
 	render() {
+		const { details, index } = this.props;
+		const baseUrl = "https://image.tmdb.org/t/p/w300";
 		return(
-			<div>
-				<h3 className="index-movies--title">Movies</h3>
-				<article>
-					<div className="index-tile__container">
-						<div className="index-tile__overlay">
-							<section>
-								<h2 className="index-tile__overlay--title">
-									<a href="">The Nice Guys</a>
-								</h2>
-								<div className="index-tile__overlay--cast">
-									<span>Ryan Gosling</span>
-								</div>
-							</section>
-						</div>
+			<article>
+				<div className="index-tile__container">
+					<img src={baseUrl + details.backdrop_path} alt={details.title}/>
+					<div className="index-tile__overlay">
+						<section>
+							<h2 className="index-tile__overlay--title">
+								<a href="">{details.title}</a>
+							</h2>
+							<div className="index-tile__overlay--cast">
+								<span></span>
+							</div>
+						</section>
 					</div>
-				</article>
-			</div>
+				</div>
+			</article>
 		)
 	}
 }
