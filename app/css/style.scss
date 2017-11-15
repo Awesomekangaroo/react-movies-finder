@@ -101,6 +101,7 @@ $font-stack-sans: Helvetica, sans-serif;
 	position: absolute;
 	top: 50px;
 	display: none;
+	z-index: 800;
 	width: 100%;
 	text-align: center;
 	padding: 20px 0;
@@ -221,11 +222,10 @@ $font-stack-sans: Helvetica, sans-serif;
 }
 
 .index-tile__overlay--title {
+	display: block;
 	padding: 5px 0;
-	a {
-		font-size: 17px;
-		text-transform: capitalize;
-	}
+	font-size: 17px;
+	text-transform: capitalize;
 }
 
 .index-tile__overlay--cast {
@@ -237,15 +237,16 @@ $font-stack-sans: Helvetica, sans-serif;
 }
 
 .movie__head {
-	padding-top: 5px;
+	padding-top: 10px;
 }
 
 .movie__head--genre {
-	span {
-		color: #EB5757;
+	p {
+		padding: 0 10px 5px;
 		font-weight: 300;
 		font-family: $font-stack-sans;
-		font-size: 14px;
+		font-size: 16px;
+		color: #EB5757;
 	}
 	hr {
 		width: 30px;
@@ -257,15 +258,17 @@ $font-stack-sans: Helvetica, sans-serif;
 }
 
 .movie__head--title {
+	padding: 0 10px;
 	font-family: $font-stack-sans;
 	font-size: 26px;
+	text-align: center;
 	line-height: 115%;
 	color: #555;
 }
 
 .movie__head--meta {
 	width: 100%;
-	padding: 10px 0;
+	padding: 10px 8px;
 	margin-bottom: 5px;
 	&:after {
 		content: '';
@@ -331,7 +334,7 @@ $font-stack-sans: Helvetica, sans-serif;
 
 .carousel-cast__container {
 	border-top: 1px solid #eee;
-	padding: 15px 0;
+	padding: 15px 10px;
 }
 
 .carousel-cast__item {
@@ -361,7 +364,7 @@ $font-stack-sans: Helvetica, sans-serif;
 }
 
 .movie-body__information {
-	padding: 15px 0;
+	padding: 15px;
 	font-family: $font-stack-sans;
 	h3 {
 		font-size: 17px;
@@ -382,7 +385,6 @@ $font-stack-sans: Helvetica, sans-serif;
 }
 
 .movie-body__meta--container {
-	font-family: $font-stack-sans;
 	border-bottom: 1px solid #eee;
 	> h3 {
 		font-size: 17px;
