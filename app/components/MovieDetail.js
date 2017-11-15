@@ -8,15 +8,15 @@ import MovieDetailBodyReviews from './MovieDetailBodyReviews';
 
 class MovieDetail extends React.Component {
 	render() {
-		const { details, index } = this.props;
+		const { details, index } = this.props.location.state;
 		return(
 			<div className="container">
-				<MovieDetailHead />
-				<MovieDetailCast />
-				<MovieDetailBodyInfo />
-				<MovieDetailBodyMeta />
-				<MovieDetailBodyTrailers />
-				<MovieDetailBodyReviews />
+				<MovieDetailHead info={details} />
+				<MovieDetailCast info={details} />
+				<MovieDetailBodyInfo info={details} />
+				<MovieDetailBodyMeta info={details} />
+				<MovieDetailBodyTrailers info={details} />
+				<MovieDetailBodyReviews info={details} />
 			</div>
 		)
 	}

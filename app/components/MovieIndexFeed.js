@@ -11,9 +11,7 @@ class MovieIndexFeed extends React.Component {
 					<img src={baseUrl + details.backdrop_path} alt={details.title}/>
 					<div className="index-tile__overlay">
 						<section>
-							<h2 className="index-tile__overlay--title">
-								<Link to={ {pathname: '/movie', state: {details, index}} }>{details.title}</Link>
-							</h2>
+							<Link className="index-tile__overlay--title" to={ {pathname: `/movie/${details.title}`, state: {details, index}} }>{details.title}</Link>
 							<div className="index-tile__overlay--cast">
 								<span></span>
 							</div>
