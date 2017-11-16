@@ -4,8 +4,10 @@
   "description": "React movie finder",
   "main": "index.js",
   "scripts": {
+    "start": "concurrently \"webpack-dev-server\" \"npm run watch\"",
     "build": "webpack",
-    "start": "webpack-dev-server"
+    "watch": "npm run build-scss",
+    "build-scss": "sass --watch ./app/css/style.scss:./app/css/style.css"
   },
   "repository": {
     "type": "git",
@@ -19,6 +21,7 @@
   "homepage": "https://github.com/Awesomekangaroo/react-movies-finder#readme",
   "dependencies": {
     "axios": "^0.17.0",
+    "concurrently": "^3.5.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-router-dom": "^4.2.2",
