@@ -6,16 +6,56 @@ import MovieDetailBodyMeta from './MovieDetailBodyMeta';
 import MovieDetailBodyTrailers from './MovieDetailBodyTrailers';
 import MovieDetailBodyReviews from './MovieDetailBodyReviews';
 
+const apiKey = "";
+
+
 class MovieDetail extends React.Component {
+
+	constructor(props) {
+		super(props);
+		this.state = {
+			movieVideos: false
+		}
+	}
+
+	componentDidMount() {
+
+		const movieId = this.props.location.state.details.id;
+		const getMovieTrailers = "https://api.themoviedb.org/3/movie/" + movieId + "/videos?api_key=" + apiKey;
+		
+		// Add movie detail info for videos, reviews, similar movies
+
+		//Search movie videos
+		fetch(getMovieTrailers)
+		.then(data => data.json())
+		.then(data => {
+			this.setState({
+				movieVideos: data.results
+			})
+		});
+
+		//Search movie reviews
+
+	}
+
 	render() {
-		const { details, index } = this.props.location.state;
+		const details = this.props.location.state.details;
 		return(
 			<div className="container">
 				<MovieDetailHead info={details} />
 				<MovieDetailCast info={details} />
 				<MovieDetailBodyInfo info={details} />
 				<MovieDetailBodyMeta info={details} />
-				<MovieDetailBodyTrailers info={details} />
+
+
+				{ // Conditional rendering of trailers
+					this.state.movieVideos != false ?
+						<MovieDetailBodyTrailers 
+							info={details} 
+							videos={this.state.movieVideos}
+						/> : false
+				}
+
 				<MovieDetailBodyReviews info={details} />
 			</div>
 		)

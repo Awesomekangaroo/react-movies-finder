@@ -28,13 +28,13 @@ class IndexHome extends React.Component {
 		});
 
 		//Search TV shows
-		fetch(tvUrl)
-		.then(data => data.json())
-		.then(data => {
-			this.setState({
-				tv: data.results
-			})
-		})
+		// fetch(tvUrl)
+		// .then(data => data.json())
+		// .then(data => {
+		// 	this.setState({
+		// 		tv: data.results
+		// 	})
+		// })
 	}
 
 	render() {
@@ -44,9 +44,6 @@ class IndexHome extends React.Component {
 				{
 					Object.keys(this.state.movies).map(key => <MovieIndexFeed index={key} key={key} details={this.state.movies[key]} />)
 				}
-
-				{console.log(this.state.movies)}
-				{console.log(this.state.tv)}
 				<TVIndexFeed />
 			</div>
 		)

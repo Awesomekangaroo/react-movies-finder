@@ -1,7 +1,9 @@
 import React from 'react';
 
 class MovieDetailBodyTrailers extends React.Component {
+
 	render() {
+		const trailers = this.props.videos;
 		return(
 			<div className="container">
 				<section>
@@ -9,15 +11,16 @@ class MovieDetailBodyTrailers extends React.Component {
 						<h3>Trailers</h3>
 						<div className="movie-trailers__carousel">
 							<ul>
-								<li className="movie-trailers__carousel--item">
-									<img src="" alt=""/>
-								</li>
-								<li className="movie-trailers__carousel--item">
-									<img src="" alt=""/>
-								</li>
-								<li className="movie-trailers__carousel--item">
-									<img src="" alt=""/>
-								</li>
+							{console.log(trailers)}
+
+								{ trailers.forEach(function(item) {
+									{console.log(item)}
+									<li className="movie-trailers__carousel--item">
+										<h2>Name here</h2>
+										<img src="" alt={item.name}/>
+									</li>
+								}) }
+
 							</ul>
 						</div>
 					</div>
