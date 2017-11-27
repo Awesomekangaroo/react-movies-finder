@@ -22,6 +22,7 @@ class MovieDetail extends React.Component {
 
 		const movieId = this.props.location.state.details.id;
 		const getMovieTrailers = "https://api.themoviedb.org/3/movie/" + movieId + "/videos?api_key=" + apiKey;
+		// const getMovieCast = "https://api.themoviedb.org/3/movie/" + movieId + "/credits?api_key=" + apiKey;
 		
 		// Add movie detail info for videos, reviews, similar movies
 
