@@ -6,7 +6,7 @@ import MovieDetailBodyMeta from './MovieDetailBodyMeta';
 import MovieDetailBodyTrailers from './MovieDetailBodyTrailers';
 import MovieDetailBodyReviews from './MovieDetailBodyReviews';
 
-const apiKey = "";
+const apiKey = "1ae83ca4d8a91826db50f652ef3e24de";
 
 
 class MovieDetail extends React.Component {
@@ -51,10 +51,20 @@ class MovieDetail extends React.Component {
 
 				{ // Conditional rendering of trailers
 					this.state.movieVideos != false ?
-						<MovieDetailBodyTrailers 
-							info={details} 
-							videos={this.state.movieVideos}
-						/> : false
+						<div className="container">
+							<section>
+								<div id="trailers" className="movie-trailers__container">
+									<h3>Trailers</h3>
+									<div className="movie-trailers__carousel">
+										<MovieDetailBodyTrailers 
+											info={details} 
+											videos={this.state.movieVideos}
+										/> 
+									</div>
+								</div>
+							</section>
+						</div>
+					: false
 				}
 
 				<MovieDetailBodyReviews info={details} />

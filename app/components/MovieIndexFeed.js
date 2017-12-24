@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 class MovieIndexFeed extends React.Component {
 	render() {
 		const { details, index } = this.props;
-		const baseUrl = "https://image.tmdb.org/t/p/w300";
+		const baseUrl = "https://image.tmdb.org/t/p/w600";
 		return(
 			<article>
 				<Link to={ {pathname: `/movie/${details.title}`, state: {details, index}} }>

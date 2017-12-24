@@ -2,7 +2,7 @@ import React from 'react';
 import MovieIndexFeed from './MovieIndexFeed';
 import TVIndexFeed from './TVIndexFeed';
 
-const apiKey = "";
+const apiKey = "1ae83ca4d8a91826db50f652ef3e24de";
 
 const moviesUrl = "https://api.themoviedb.org/3/discover/movie?page=1&include_video=false&include_adult=false&sort_by=popularity.desc&with_cast=&include_video=true&language=en-US&api_key=" + apiKey;
 
@@ -42,7 +42,13 @@ class IndexHome extends React.Component {
 			<div>
 				<h2>Discover Movies</h2>
 				{
-					Object.keys(this.state.movies).map(key => <MovieIndexFeed index={key} key={key} details={this.state.movies[key]} />)
+					Object.keys(this.state.movies).map(key => 
+						<MovieIndexFeed 
+							index={key}
+							key={key}
+							details={this.state.movies[key]}
+						/>
+					)
 				}
 				<TVIndexFeed />
 			</div>

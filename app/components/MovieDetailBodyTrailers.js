@@ -2,55 +2,61 @@ import React from 'react';
 import OpenModal from './OpenModal';
 
 class MovieDetailBodyTrailers extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = { activeModal: false, isOpen: false };
 
-	constructor() {
-		super();
-		this.openModal = this.openModal.bind(this);
-		this.displayTrailers = this.displayTrailers.bind(this);
-
-		this.state = {
-			showModal: false,
-			showOverlay: false
-		};
+		this.toggleModal = this.toggleModal.bind(this);
+		this.clickHandler = this.clickHandler.bind(this);
 	}
 
-	openModal(e) {
-		e.target.preventDefault();
-		console.log(e);
+	clickHandler(e, index) {
+		// If modal not active, remove backdrop
+		console.log(this.state);
+
+		this.setState({ 
+			activeModal: index,
+			isOpen: true
+		});
+
+		if (this.state.isOpen === false) {
+			const modalBackdrop = document.createElement('div');
+			modalBackdrop.className = "modal-backdrop";
+			document.body.appendChild(modalBackdrop);
+		} else {
+			const modalBackdrop = document.querySelector(".modal-backdrop");
+			modalBackdrop.parentNode.removeChild(modalBackdrop);
+		}
+
+		console.log(this.state);
+
+	}
+
+	toggleModal() {
 		// Change to show modal
-		this.setState(prevState => ({
-			showModal: !prevState.showModal
-		}));
-	}
-
-	displayTrailers(props) {
-		const trailers = [];
-		props.forEach(function(item) {
-			trailers.push(<li key={item} className="movie-trailers__carousel--item" onClick={ (e)=> this.openModal(e) }>
-					{/* Open modal on click */}
-					{/*<iframe src={"http://www.youtube.com/embed/" + item.key} allowfullscreen></iframe>*/}
-					<img src={"https://i.ytimg.com/vi/" + item.key + "/sddefault.jpg"} alt={item.site + item.type + " - " + item.name}/>
-				</li>)
-			}
-		)
-		return trailers;
+		this.setState({
+			activeModal: false,
+			isOpen: false
+		});
 	}
 
 	render() {
 		return(
-			<div className="container">
-				<section>
-					<div id="trailers" className="movie-trailers__container">
-						<h3>Trailers</h3>
-						<div className="movie-trailers__carousel">
-							<ul>
-								{ this.displayTrailers(this.props.videos) }
-								{ this.state.showModal ? <OpenModal details={this.props.videos} /> : false }
-							</ul>
-						</div>
-					</div>
-				</section>
-			</div>
+			<ul>
+				{
+					Object.keys(this.props.videos).map(key =>
+						<li key={key} className="movie-trailers__carousel--item" onClick={(e) => this.clickHandler(e, key)}>
+							{/* Open modal on click */}
+							<img src={"https://i.ytimg.com/vi/" + this.props.videos[key].key + "/sddefault.jpg"} alt={this.props.videos[key].name} />
+							<OpenModal
+								video={this.props.videos[key]}
+								show={this.state.activeModal === key}
+								onClick={this.toggleModal}
+							/>
+						</li>
+					)
+				}
+			</ul>
 		)
 	}
 }
