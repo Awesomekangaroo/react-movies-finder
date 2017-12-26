@@ -14,7 +14,8 @@ class MovieDetail extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			movieVideos: false
+			movieVideos: false,
+			movieCast: false
 		}
 	}
 
@@ -22,7 +23,7 @@ class MovieDetail extends React.Component {
 
 		const movieId = this.props.location.state.details.id;
 		const getMovieTrailers = "https://api.themoviedb.org/3/movie/" + movieId + "/videos?api_key=" + apiKey;
-		// const getMovieCast = "https://api.themoviedb.org/3/movie/" + movieId + "/credits?api_key=" + apiKey;
+		const getMovieCast = "https://api.themoviedb.org/3/movie/" + movieId + "/credits?api_key=" + apiKey;
 		
 		// Add movie detail info for videos, reviews, similar movies
 
@@ -35,7 +36,14 @@ class MovieDetail extends React.Component {
 			})
 		});
 
-		//Search movie reviews
+		//Search movie cast credits
+		fetch(getMovieCast)
+		.then(data => data.json())
+		.then(data => {
+			this.setState({
+				movieCast: data.cast
+			})
+		});
 
 	}
 
@@ -44,10 +52,18 @@ class MovieDetail extends React.Component {
 		return(
 			<div className="container">
 				<MovieDetailHead info={details} />
-				<MovieDetailCast info={details} />
+
+				{
+					this.state.movieCast != false ?
+						<MovieDetailCast
+							info={details}
+							profile={this.state.movieCast}
+						/>
+						: false
+				}
+
 				<MovieDetailBodyInfo info={details} />
 				<MovieDetailBodyMeta info={details} />
-
 
 				{ // Conditional rendering of trailers
 					this.state.movieVideos != false ?
