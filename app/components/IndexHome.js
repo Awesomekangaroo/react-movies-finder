@@ -40,7 +40,7 @@ class IndexHome extends React.Component {
 	render() {
 		return(
 			<div>
-				<h2>Discover Movies</h2>
+				<h2 className="index-movie__header">Discover Movies</h2>
 				{
 					Object.keys(this.state.movies).map(key => 
 						<MovieIndexFeed 

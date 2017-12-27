@@ -1,6 +1,21 @@
 import React from 'react';
 
 class MovieDetailHead extends React.Component {
+
+	constructor() {
+		super();
+
+		this.state = {
+			addActive: false
+		}
+
+		this.addActiveClass = this.addActiveClass.bind(this);
+	}
+
+	addActiveClass() {
+		
+	}
+
 	render() {
 		const details = this.props.info;
 		const baseBackdropUrl = "https://image.tmdb.org/t/p/w640";

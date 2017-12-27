@@ -11,22 +11,25 @@ class OpenModal extends React.Component {
 		
 		return(
 			<div className="trailer-modal">
-				<div className="trailer-modal__header">
-					<button>
-						<span>close</span>
-					</button>
-				</div>
+				<header>
+					<div className="trailer-modal__header">
+						<p>{this.props.video.name}</p>
+						<button onClick={this.toggleModal.bind(this)}>
+							<span>close</span>
+						</button>
+					</div>
+				</header>
 				<div className="trailer-modal__content">
 					<iframe src={"http://www.youtube.com/embed/" + this.props.video.key} allowFullScreen></iframe>
 				</div>
 			</div>
 		);
 	}
-}
 
-OpenModal.propTypes = {
-	show: PropTypes.bool,
-	children: PropTypes.node
-};
+	toggleModal(event) {
+		this.props.toggleModal(event);
+	}
+
+}
 
 export default OpenModal;

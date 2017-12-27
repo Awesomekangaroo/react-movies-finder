@@ -12,7 +12,6 @@ class MovieDetailBodyTrailers extends React.Component {
 
 	clickHandler(e, index) {
 		// If modal not active, remove backdrop
-		console.log(this.state);
 
 		this.setState({ 
 			activeModal: index,
@@ -32,12 +31,14 @@ class MovieDetailBodyTrailers extends React.Component {
 
 	}
 
-	toggleModal() {
+	toggleModal(event) {
 		// Change to show modal
 		this.setState({
 			activeModal: false,
 			isOpen: false
 		});
+		console.log('from body trailers');
+		console.log(this.state);
 	}
 
 	render() {
@@ -51,7 +52,8 @@ class MovieDetailBodyTrailers extends React.Component {
 							<OpenModal
 								video={this.props.videos[key]}
 								show={this.state.activeModal === key}
-								onClick={this.toggleModal}
+								isOpen={this.state.isOpen}
+								toggleModal={this.toggleModal}
 							/>
 						</li>
 					)
