@@ -6,19 +6,21 @@ class MovieDetailBodyMeta extends React.Component {
 		return(
 			<div className="container">
 				<div className="movie-body__meta--container movie-body__information">
-					<h3>Details</h3>
 					<ul className="movie-body__meta--items">
 						<li>
 							<span>Release Date: </span>
-							<span>{details.release_date}</span>
+							<span>{details.release_date} ({details.status})</span>
 						</li>
 						<li>
 							<span>Language: </span>
-							<span>{details.original_language}</span>
+							<span>{details.original_language === 'en' ? 'English' : details.original_language }</span>
 						</li>
 						<li>
 							<span>Country of Origin: </span>
 							<span>USA</span>
+						</li>
+						<li>
+							<a target="_blank" href={details.homepage}>Visit homepage</a>
 						</li>
 					</ul>
 				</div>

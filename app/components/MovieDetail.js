@@ -14,72 +14,43 @@ class MovieDetail extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			movieVideos: false,
-			movieCast: false
+			movieInfo: false
 		}
 	}
 
 	componentDidMount() {
-
 		const movieId = this.props.location.state.details.id;
-		const getMovieTrailers = "https://api.themoviedb.org/3/movie/" + movieId + "/videos?api_key=" + apiKey;
-		const getMovieCast = "https://api.themoviedb.org/3/movie/" + movieId + "/credits?api_key=" + apiKey;
-		
-		// Add movie detail info for videos, reviews, similar movies
+		const getMovieDetails = "https://api.themoviedb.org/3/movie/" + movieId + "?api_key=" + apiKey + "&append_to_response=videos,images,credits,releases";
 
-		//Search movie videos
-		fetch(getMovieTrailers)
+		// Get movie details on AJAX call
+		fetch(getMovieDetails)
 		.then(data => data.json())
 		.then(data => {
 			this.setState({
-				movieVideos: data.results
+				movieInfo: data
 			})
 		});
-
-		//Search movie cast credits
-		fetch(getMovieCast)
-		.then(data => data.json())
-		.then(data => {
-			this.setState({
-				movieCast: data.cast
-			})
-		});
-
 	}
 
 	render() {
-		const details = this.props.location.state.details;
+		const details = this.state.movieInfo;
 		return(
 			<div className="container">
 				<MovieDetailHead info={details} />
-
 				{
-					this.state.movieCast != false ?
-						<MovieDetailCast
-							info={details}
-							profile={this.state.movieCast}
-						/>
-						: false
+					this.state.movieInfo != false ?
+						<MovieDetailCast profile={details.credits.cast} />
+					: false
 				}
 
 				<MovieDetailBodyInfo info={details} />
 				<MovieDetailBodyMeta info={details} />
 
 				{ // Conditional rendering of trailers
-					this.state.movieVideos != false ?
-						<div className="container">
-							<section>
-								<div id="trailers" className="movie-trailers__container">
-									<h3>Trailers</h3>
-									<div className="movie-trailers__carousel">
-										<MovieDetailBodyTrailers 
-											info={details} 
-											videos={this.state.movieVideos}
-										/> 
-									</div>
-								</div>
-							</section>
-						</div>
+					this.state.movieInfo != false ?
+						<MovieDetailBodyTrailers
+							videos={details.videos}
+						/> 
 					: false
 				}
 

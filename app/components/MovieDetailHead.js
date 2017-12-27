@@ -4,16 +4,9 @@ class MovieDetailHead extends React.Component {
 
 	constructor() {
 		super();
-
 		this.state = {
 			addActive: false
 		}
-
-		this.addActiveClass = this.addActiveClass.bind(this);
-	}
-
-	addActiveClass() {
-		
 	}
 
 	render() {
@@ -32,6 +25,7 @@ class MovieDetailHead extends React.Component {
 					<header>
 						<div className="movie__head--title">
 							<h2>{details.title}</h2>
+							<p>{details.tagline}</p>
 						</div>
 					</header>
 					<div className="movie__head--meta">
@@ -40,12 +34,12 @@ class MovieDetailHead extends React.Component {
 							<span className="user-score">User Score</span>
 						</div>
 						<div className="movie__head--rating">
-							<span>Rated: </span><span>PG-13</span>
+							<span>Rated: </span><span> {details.release.countries.find(k => k === 'US' { return } )} </span>
 						</div>
 					</div>
 					<div className="mobile-head__toggle">
 						<a className="active">INFO</a>
-						<a href="#trailers">TRAILERS</a>
+						<a target="_blank" href={"https://www.google.com/search?q=" + details.title + "+showtimes"}>TICKETS</a>
 					</div>
 				</div>
 			</section>

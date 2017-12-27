@@ -4,15 +4,19 @@ import OpenModal from './OpenModal';
 class MovieDetailBodyTrailers extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { activeModal: false, isOpen: false };
+		this.state = {
+			activeModal: false,
+			isOpen: false
+		};
 
 		this.toggleModal = this.toggleModal.bind(this);
 		this.clickHandler = this.clickHandler.bind(this);
+		this.renderTrailerVideos = this.renderTrailerVideos.bind(this);
 	}
 
 	clickHandler(e, index) {
+		
 		// If modal not active, remove backdrop
-
 		this.setState({ 
 			activeModal: index,
 			isOpen: true
@@ -26,9 +30,6 @@ class MovieDetailBodyTrailers extends React.Component {
 			const modalBackdrop = document.querySelector(".modal-backdrop");
 			modalBackdrop.parentNode.removeChild(modalBackdrop);
 		}
-
-		console.log(this.state);
-
 	}
 
 	toggleModal(event) {
@@ -37,28 +38,38 @@ class MovieDetailBodyTrailers extends React.Component {
 			activeModal: false,
 			isOpen: false
 		});
-		console.log('from body trailers');
-		console.log(this.state);
+	}
+
+	renderTrailerVideos(key) {
+		const trailer = this.props.videos.results;
+		return(
+			<li key={key} className="movie-trailers__carousel--item" onClick={(e) => this.clickHandler(e, key)}>
+				{/* Open modal on click */}
+				<img src={"https://i.ytimg.com/vi/" + trailer[key].key + "/sddefault.jpg"} alt={trailer[key].name} />
+				<OpenModal
+					video={trailer[key]}
+					show={this.state.activeModal === key}
+					isOpen={this.state.isOpen}
+					toggleModal={this.toggleModal}
+				/>
+			</li>
+		)
 	}
 
 	render() {
 		return(
-			<ul>
-				{
-					Object.keys(this.props.videos).map(key =>
-						<li key={key} className="movie-trailers__carousel--item" onClick={(e) => this.clickHandler(e, key)}>
-							{/* Open modal on click */}
-							<img src={"https://i.ytimg.com/vi/" + this.props.videos[key].key + "/sddefault.jpg"} alt={this.props.videos[key].name} />
-							<OpenModal
-								video={this.props.videos[key]}
-								show={this.state.activeModal === key}
-								isOpen={this.state.isOpen}
-								toggleModal={this.toggleModal}
-							/>
-						</li>
-					)
-				}
-			</ul>
+			<div className="container">
+				<section>
+					<div id="trailers" className="movie-trailers__container">
+						<h3>Trailers</h3>
+						<div className="movie-trailers__carousel">
+							<ul>
+								{ Object.keys(this.props.videos.results).map(this.renderTrailerVideos) }
+							</ul>
+						</div>
+					</div>
+				</section>
+			</div>
 		)
 	}
 }

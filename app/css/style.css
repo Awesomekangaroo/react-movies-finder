@@ -263,6 +263,9 @@ img {
   font-size: 13px;
   font-weight: 300; }
 
+.movie__hero--container img {
+  max-height: 500px; }
+
 .movie__head {
   padding-top: 10px; }
 
@@ -280,16 +283,21 @@ img {
   background-color: #aaa; }
 
 .movie__head--title {
+  margin-top: 15px;
   padding: 0 10px;
   font-family: Helvetica, sans-serif;
   font-size: 26px;
   text-align: center;
   line-height: 115%;
   color: #555; }
+  .movie__head--title p {
+    color: #999;
+    font-size: 12px;
+    font-style: italic; }
 
 .movie__head--meta {
   width: 100%;
-  padding: 10px 8px;
+  padding: 15px 8px;
   margin-bottom: 10px; }
   .movie__head--meta:after {
     content: '';
@@ -309,7 +317,7 @@ img {
     font-weight: bold;
     text-align: center;
     vertical-align: -webkit-baseline-middle;
-    border: 2px solid #BB4040;
+    border: 3px solid #528437;
     border-radius: 50%; }
   .movie__head--score .user-score {
     margin-left: 7px;
@@ -359,17 +367,18 @@ img {
   min-height: 220px;
   margin-right: 20px;
   vertical-align: top;
-  border: 1px solid #eee; }
+  border: 1px solid #eee;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.6); }
   .carousel-cast__item img {
     display: inline-block;
     width: 100%; }
 
-.carousel-cast__names--info {
+.carousel-cast__info--names {
   white-space: normal;
   padding: 5px 7px; }
-  .carousel-cast__names--info p {
-    font: bold 13px/12px Helvetica, sans-serif; }
-  .carousel-cast__names--info span {
+  .carousel-cast__info--names p {
+    font: bold 13px/15px Helvetica, sans-serif; }
+  .carousel-cast__info--names span {
     font: normal 11px Helvetica, sans-serif;
     color: #777; }
 
@@ -391,16 +400,18 @@ img {
       margin-bottom: 0; }
 
 .movie-body__meta--container {
-  border-bottom: 1px solid #eee; }
+  border-bottom: 1px solid #eee;
+  padding: 0 0 15px 0; }
   .movie-body__meta--container h3 {
-    font-size: 18px;
+    font-size: 17px;
     line-height: 30px;
     letter-spacing: 1px;
     color: red;
     border-bottom: 1px solid #eee; }
 
 .movie-body__meta--items {
-  margin-left: 20px; }
+  margin-left: 25px;
+  padding: 10px 0; }
   .movie-body__meta--items li {
     margin: 25px 0; }
     .movie-body__meta--items li span {
@@ -409,6 +420,10 @@ img {
       .movie-body__meta--items li span:first-child {
         font-weight: bold;
         color: #000; }
+    .movie-body__meta--items li:first-child {
+      margin-top: 0; }
+    .movie-body__meta--items li:last-child {
+      margin-bottom: 0; }
 
 .movie-trailers__container {
   margin-top: 25px;

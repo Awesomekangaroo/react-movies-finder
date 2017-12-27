@@ -73,7 +73,6 @@ $font-stack-sans: Helvetica, sans-serif;
 	margin: 0 auto;
 	min-height: 50px;
 	border-bottom: 1px solid #eee;
-	// background-color: rgba(0,0,0,0.05);
 	box-shadow: 0px -1px 9px 0px rgba(0,0,0, 0.6);
 	&:after {
 		content: '';
@@ -311,6 +310,12 @@ $font-stack-sans: Helvetica, sans-serif;
 	}
 }
 
+.movie__hero--container {
+	img {
+		max-height: 500px;
+	}
+}
+
 .movie__head {
 	padding-top: 10px;
 }
@@ -333,17 +338,23 @@ $font-stack-sans: Helvetica, sans-serif;
 }
 
 .movie__head--title {
+	margin-top: 15px;
 	padding: 0 10px;
 	font-family: $font-stack-sans;
 	font-size: 26px;
 	text-align: center;
 	line-height: 115%;
 	color: #555;
+	p {
+		color: #999;
+		font-size: 12px;
+		font-style: italic;
+	}
 }
 
 .movie__head--meta {
 	width: 100%;
-	padding: 10px 8px;
+	padding: 15px 8px;
 	margin-bottom: 10px;
 	&:after {
 		content: '';
@@ -365,7 +376,7 @@ $font-stack-sans: Helvetica, sans-serif;
 		font-weight: bold;
 		text-align: center;
 		vertical-align: -webkit-baseline-middle;
-		border: 2px solid #BB4040;
+		border: 3px solid #528437;
 		border-radius: 50%;
 	}
 	.user-score {
@@ -425,17 +436,18 @@ $font-stack-sans: Helvetica, sans-serif;
 	margin-right: 20px;
 	vertical-align: top;
 	border: 1px solid #eee;
+	box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.6);
 	img {
 		display: inline-block;
 		width: 100%;
 	}
 }
 
-.carousel-cast__names--info {
+.carousel-cast__info--names {
 	white-space: normal;
 	padding: 5px 7px;
 	p {
-		font: bold 13px/12px $font-stack-sans;
+		font: bold 13px/15px $font-stack-sans;
 	}
 	span {
 		font: normal 11px $font-stack-sans;
@@ -466,8 +478,9 @@ $font-stack-sans: Helvetica, sans-serif;
 
 .movie-body__meta--container {
 	border-bottom: 1px solid #eee;
+	padding: 0 0 15px 0;
 	h3 {
-		font-size: 18px;
+		font-size: 17px;
 		line-height: 30px;
 		letter-spacing: 1px;
 		color: red;
@@ -476,7 +489,8 @@ $font-stack-sans: Helvetica, sans-serif;
 }
 
 .movie-body__meta--items {
-	margin-left: 20px;
+	margin-left: 25px;
+	padding: 10px 0;
 	li {
 		margin: 25px 0;
 		span {
@@ -486,6 +500,12 @@ $font-stack-sans: Helvetica, sans-serif;
 				font-weight: bold;
 				color: #000;
 			}
+		}
+		&:first-child {
+			margin-top: 0;
+		}
+		&:last-child {
+			margin-bottom: 0;
 		}
 	}
 }
