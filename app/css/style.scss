@@ -292,13 +292,16 @@ $font-stack-sans: Helvetica, sans-serif;
 	padding: 10px 15px;
 	color: #ffffff;
 	font-family: $font-stack-sans;
-	background-color: rgba(0, 0, 0, 0.4);
+	background-color: rgba(0, 0, 0, 0.5);
 }
 
 .index-tile__overlay--title {
-	display: block;
+	display: inline-block;
+	width: 180px;
 	padding: 5px 0;
-	font-size: 17px;
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 130%;
 	text-transform: capitalize;
 }
 
@@ -354,7 +357,7 @@ $font-stack-sans: Helvetica, sans-serif;
 
 .movie__head--meta {
 	width: 100%;
-	padding: 15px 8px;
+	padding: 10px 12px;
 	margin-bottom: 10px;
 	&:after {
 		content: '';

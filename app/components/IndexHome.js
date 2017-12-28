@@ -4,9 +4,7 @@ import TVIndexFeed from './TVIndexFeed';
 
 const apiKey = "1ae83ca4d8a91826db50f652ef3e24de";
 
-const moviesUrl = "https://api.themoviedb.org/3/discover/movie?page=1&include_video=false&include_adult=false&sort_by=popularity.desc&with_cast=&include_video=true&language=en-US&api_key=" + apiKey;
-
-const tvUrl = "https://api.themoviedb.org/3/discover/tv?page=1&include_video=false&include_adult=false&sort_by=popularity.desc&language=en-US&api_key=" + apiKey;
+const currentMoviesUrl = "https://api.themoviedb.org/3/movie/now_playing?api_key="+ apiKey + "&language=en-US&page=1";
 
 class IndexHome extends React.Component {
 	constructor() {
@@ -19,22 +17,13 @@ class IndexHome extends React.Component {
 
 	componentDidMount() {
 		//Search Latest Movies
-		fetch(moviesUrl)
+		fetch(currentMoviesUrl)
 		.then(data => data.json())
 		.then(data => {
 			this.setState({
 				movies: data.results
 			})
 		});
-
-		//Search TV shows
-		// fetch(tvUrl)
-		// .then(data => data.json())
-		// .then(data => {
-		// 	this.setState({
-		// 		tv: data.results
-		// 	})
-		// })
 	}
 
 	render() {

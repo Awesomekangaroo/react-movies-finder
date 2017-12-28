@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from './Header';
 import MovieDetailHead from './MovieDetailHead';
 import MovieDetailCast from './MovieDetailCast';
 import MovieDetailBodyInfo from './MovieDetailBodyInfo';
@@ -19,7 +20,17 @@ class MovieDetail extends React.Component {
 	}
 
 	componentDidMount() {
+
 		const movieId = this.props.location.state.details.id;
+
+		// Check if movie ID exists in localStorage and compare values
+
+		// const localStorageMovieID = localStorage.getItem(`movieID-${this.props.location.state.details.id}`);
+		// if ( localStorageMovieID != this.props.location.state.details.id ) {
+		// 	alert('I dont exist on localStorage');
+		// }
+		
+
 		const getMovieDetails = "https://api.themoviedb.org/3/movie/" + movieId + "?api_key=" + apiKey + "&append_to_response=videos,images,credits,releases";
 
 		// Get movie details on AJAX call
@@ -32,10 +43,17 @@ class MovieDetail extends React.Component {
 		});
 	}
 
+	componentWillUpdate(nextProps) {
+		// Set new props for movieID
+		console.log('this is next props: ', nextProps);
+		localStorage.setItem(`movieID-${this.props.location.state.details.id}`, nextProps.location.state.details.id)
+	}
+
 	render() {
 		const details = this.state.movieInfo;
 		return(
 			<div className="container">
+				<Header />
 				<MovieDetailHead info={details} />
 				{
 					this.state.movieInfo != false ?
