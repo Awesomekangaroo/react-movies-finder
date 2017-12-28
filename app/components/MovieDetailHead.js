@@ -34,7 +34,7 @@ class MovieDetailHead extends React.Component {
 							<span className="user-score">User Score</span>
 						</div>
 						<div className="movie__head--rating">
-							<span>Rated: </span><span> {details.release.countries.find(k => k === 'US' { return } )} </span>
+							<span>Rated: </span><span>PG</span>
 						</div>
 					</div>
 					<div className="mobile-head__toggle">
