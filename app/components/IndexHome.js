@@ -4,7 +4,7 @@ import TVIndexFeed from './TVIndexFeed';
 
 const apiKey = "1ae83ca4d8a91826db50f652ef3e24de";
 
-const currentMoviesUrl = "https://api.themoviedb.org/3/movie/now_playing?api_key="+ apiKey + "&language=en-US&page=1";
+const currentMoviesUrl = "https://api.themoviedb.org/3/movie/now_playing?api_key="+ apiKey + "&language=en-US&page=1&total_results=2";
 
 class IndexHome extends React.Component {
 	constructor() {
@@ -29,7 +29,7 @@ class IndexHome extends React.Component {
 	render() {
 		return(
 			<div>
-				<h2 className="index-movie__header">Discover Movies</h2>
+				<h2 className="index-movie__header">Now Playing</h2>
 				{
 					Object.keys(this.state.movies).map(key => 
 						<MovieIndexFeed 

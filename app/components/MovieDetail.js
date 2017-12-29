@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './Header';
+import DetailHeader from './DetailHeader';
 import MovieDetailHead from './MovieDetailHead';
 import MovieDetailCast from './MovieDetailCast';
 import MovieDetailBodyInfo from './MovieDetailBodyInfo';
@@ -29,7 +29,6 @@ class MovieDetail extends React.Component {
 		// if ( localStorageMovieID != this.props.location.state.details.id ) {
 		// 	alert('I dont exist on localStorage');
 		// }
-		
 
 		const getMovieDetails = "https://api.themoviedb.org/3/movie/" + movieId + "?api_key=" + apiKey + "&append_to_response=videos,images,credits,releases";
 
@@ -43,38 +42,26 @@ class MovieDetail extends React.Component {
 		});
 	}
 
-	componentWillUpdate(nextProps) {
-		// Set new props for movieID
-		console.log('this is next props: ', nextProps);
-		localStorage.setItem(`movieID-${this.props.location.state.details.id}`, nextProps.location.state.details.id)
-	}
-
 	render() {
 		const details = this.state.movieInfo;
-		return(
-			<div className="container">
-				<Header />
-				<MovieDetailHead info={details} />
-				{
-					this.state.movieInfo != false ?
-						<MovieDetailCast profile={details.credits.cast} />
-					: false
-				}
-
-				<MovieDetailBodyInfo info={details} />
-				<MovieDetailBodyMeta info={details} />
-
-				{ // Conditional rendering of trailers
-					this.state.movieInfo != false ?
-						<MovieDetailBodyTrailers
-							videos={details.videos}
-						/> 
-					: false
-				}
-
-				<MovieDetailBodyReviews info={details} />
-			</div>
-		)
+		// Conditional rendering of components until API request complete.
+		if (this.state.movieInfo != false) {
+			return(
+				<div className="container">
+					<DetailHeader />
+					<MovieDetailHead info={details} />
+					<MovieDetailCast profile={details.credits.cast} />
+					<MovieDetailBodyInfo info={details} />
+					<MovieDetailBodyMeta info={details} />
+					<MovieDetailBodyTrailers
+						videos={details.videos}
+					/> 
+					<MovieDetailBodyReviews info={details} />
+				</div>
+			)
+		} else {
+			return('')
+		}
 	}
 }
 

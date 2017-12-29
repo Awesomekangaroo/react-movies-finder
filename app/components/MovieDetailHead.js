@@ -19,7 +19,7 @@ class MovieDetailHead extends React.Component {
 				</div>
 				<div className="movie__head">
 					<div className="movie__head--genre">
-						<p>Action Adventure</p>
+						<p>{details.genres[0].name}</p>
 						<hr/>
 					</div>
 					<header>
