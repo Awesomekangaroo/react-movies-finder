@@ -1,5 +1,5 @@
 import React from 'react';
-import DetailHeader from './DetailHeader';
+// import DetailHeader from './DetailHeader';
 import MovieDetailHead from './MovieDetailHead';
 import MovieDetailCast from './MovieDetailCast';
 import MovieDetailBodyInfo from './MovieDetailBodyInfo';
@@ -48,7 +48,7 @@ class MovieDetail extends React.Component {
 		if (this.state.movieInfo != false) {
 			return(
 				<div className="container">
-					<DetailHeader />
+					{/*<DetailHeader />*/}
 					<MovieDetailHead info={details} />
 					<MovieDetailCast profile={details.credits.cast} />
 					<MovieDetailBodyInfo info={details} />

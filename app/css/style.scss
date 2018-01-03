@@ -506,7 +506,7 @@ $font-stack-sans: Helvetica, sans-serif;
 	margin-left: 25px;
 	padding: 10px 0;
 	li {
-		margin: 25px 0;
+		margin: 15px 0;
 		span {
 			font-size: 14px;
 			color: #777;
@@ -522,6 +522,11 @@ $font-stack-sans: Helvetica, sans-serif;
 			margin-bottom: 0;
 		}
 	}
+}
+
+.movie-body__meta--link {
+	font-size: inherit;
+	color: red;
 }
 
 .movie-trailers__container {

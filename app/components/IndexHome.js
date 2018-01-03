@@ -1,6 +1,5 @@
 import React from 'react';
 import MovieIndexFeed from './MovieIndexFeed';
-import TVIndexFeed from './TVIndexFeed';
 
 const apiKey = "1ae83ca4d8a91826db50f652ef3e24de";
 
@@ -39,7 +38,6 @@ class IndexHome extends React.Component {
 						/>
 					)
 				}
-				<TVIndexFeed />
 			</div>
 		)
 	}
