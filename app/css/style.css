@@ -146,6 +146,12 @@ img {
     font-size: 20px;
     line-height: 50px; }
 
+.header-search__form {
+  position: relative;
+  width: 80%;
+  max-width: 450px;
+  margin: 0 auto; }
+
 #header-search {
   position: absolute;
   top: 50px;
@@ -158,15 +164,44 @@ img {
   border-top: 1px solid #ebebeb;
   border-bottom: 1px solid #ebebeb; }
   #header-search .header-search__input {
-    outline: none;
+    width: 100%;
     padding: 10px 15px;
-    font-size: 14px;
-    font-family: Helvetica, sans-serif;
-    font-weight: bold;
+    font: bold 14px Helvetica, sans-serif;
     letter-spacing: 1px;
-    border: 1px solid #ccc; }
+    border: 1px solid #ccc;
+    outline: none; }
   #header-search.active {
     display: block; }
+
+.typeahead-form {
+  display: block;
+  width: 80%;
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 15px 0;
+  border: 1px solid #ccc;
+  border-top: none;
+  background-color: #ffffff;
+  overflow-y: scroll;
+  white-space: nowrap;
+  text-align: left; }
+  .typeahead-form p {
+    display: inline-block;
+    color: #000;
+    font-weight: bold;
+    font-family: Helvetica, sans-serif;
+    text-transform: capitalize;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; }
+  .typeahead-form li {
+    padding: 7px 0 3px 15px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px; }
+    .typeahead-form li i {
+      margin-right: 10px;
+      font-size: 12px;
+      vertical-align: top; }
 
 #mobile-menu {
   position: relative;
@@ -354,7 +389,7 @@ img {
     display: inline-block;
     color: #ffffff;
     background-color: #000;
-    padding: 14px 0;
+    padding: 12px 0;
     width: 100px;
     border: none;
     outline: none;
@@ -421,7 +456,7 @@ img {
   margin-left: 25px;
   padding: 10px 0; }
   .movie-body__meta--items li {
-    margin: 25px 0; }
+    margin: 15px 0; }
     .movie-body__meta--items li span {
       font-size: 14px;
       color: #777; }
@@ -432,6 +467,12 @@ img {
       margin-top: 0; }
     .movie-body__meta--items li:last-child {
       margin-bottom: 0; }
+
+.movie-body__meta--link {
+  color: red;
+  line-height: 135%; }
+  .movie-body__meta--link a {
+    font-size: 14px; }
 
 .movie-trailers__container {
   margin-top: 25px;
@@ -455,7 +496,7 @@ img {
 .movie-trailers__carousel--item {
   display: inline-block;
   border: 1px solid #000;
-  width: 180px;
+  width: 190px;
   height: 150px;
   margin: 5px;
   vertical-align: top; }

@@ -20,8 +20,9 @@ class MovieDetailBodyMeta extends React.Component {
 							<span>USA</span>
 						</li>
 						<li className="movie-body__meta--link">
+							<span>Visit homepage: </span>
 							<a target="_blank" href={details.homepage} title=
-							{"Visit homepage of" + details.name}>Visit homepage</a>
+							{"Visit homepage of" + details.title}>{details.title}</a>
 						</li>
 					</ul>
 				</div>

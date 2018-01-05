@@ -3,14 +3,13 @@ import MovieIndexFeed from './MovieIndexFeed';
 
 const apiKey = "1ae83ca4d8a91826db50f652ef3e24de";
 
-const currentMoviesUrl = "https://api.themoviedb.org/3/movie/now_playing?api_key="+ apiKey + "&language=en-US&page=1&total_results=2";
+const currentMoviesUrl = "https://api.themoviedb.org/3/movie/now_playing?api_key="+ apiKey + "&language=en-US&page=1";
 
 class IndexHome extends React.Component {
 	constructor() {
 		super();
-		this.state ={
-			movies: {},
-			tv: {}
+		this.state = {
+			movies: {}
 		};
 	}
 
@@ -30,7 +29,7 @@ class IndexHome extends React.Component {
 			<div>
 				<h2 className="index-movie__header">Now Playing</h2>
 				{
-					Object.keys(this.state.movies).map(key => 
+					Object.keys(this.state.movies).slice(0,5).map(key => 
 						<MovieIndexFeed 
 							index={key}
 							key={key}

@@ -1,6 +1,6 @@
 import React from 'react';
 import NavMenu from './NavMenu';
-import HeaderSearch from './HeaderSearch';
+import HeaderSearch from './Search/HeaderSearch';
 
 class Header extends React.Component {
 	constructor() {
