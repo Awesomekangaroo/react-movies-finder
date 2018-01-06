@@ -183,25 +183,25 @@ img {
   border-top: none;
   background-color: #ffffff;
   overflow-y: scroll;
-  white-space: nowrap;
   text-align: left; }
   .typeahead-form p {
     display: inline-block;
     color: #000;
-    font-weight: bold;
     font-family: Helvetica, sans-serif;
-    text-transform: capitalize;
+    text-transform: capitalize; }
+  .typeahead-form li {
+    padding: 7px 0 3px 20px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis; }
-  .typeahead-form li {
-    padding: 7px 0 3px 15px;
-    border-bottom: 1px solid #eee;
-    font-size: 14px; }
     .typeahead-form li i {
       margin-right: 10px;
       font-size: 12px;
       vertical-align: top; }
+    .typeahead-form li:last-child {
+      border-bottom: none; }
 
 #mobile-menu {
   position: relative;

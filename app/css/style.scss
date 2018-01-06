@@ -213,26 +213,27 @@ $font-stack-sans: Helvetica, sans-serif;
 	border-top: none;
 	background-color: #ffffff;
 	overflow-y: scroll;
-	white-space: nowrap;
 	text-align: left;
 	p {
 		display: inline-block;
 		color: #000;
-		font-weight: bold;
 		font-family: $font-stack-sans;
 		text-transform: capitalize;
+	}
+	li {
+		padding: 7px 0 3px 20px;
+		border-bottom: 1px solid #eee;
+		font-size: 14px;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
-	}
-	li {
-		padding: 7px 0 3px 15px;
-		border-bottom: 1px solid #eee;
-		font-size: 14px;
 		i {
 			margin-right: 10px;
 			font-size: 12px;
 			vertical-align: top;
+		}
+		&:last-child {
+			border-bottom: none;
 		}
 	}
 }

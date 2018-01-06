@@ -6,7 +6,8 @@ class HeaderSearch extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			characters: 0
+			characters: 0,
+			query: ''
 		}
 		this.getCharacterCount = this.getCharacterCount.bind(this);
 	}
@@ -15,17 +16,26 @@ class HeaderSearch extends React.Component {
 		return(
 			<div id="header-search" className={this.props.addActiveClass2 ? 'active': ''}>
 				<form className="header-search__form" role="search">
-					<input className="header-search__input" type="search" placeholder="Search ..." title="search movie database" ref={c => this.input = c} onChange={this.getCharacterCount} />
+					<input className="header-search__input" type="search" placeholder="Search ..." title="search movie database" ref={val => this.input = val} onChange={this.getCharacterCount} />
 				</form>
-				<TypeAhead />
+				{this.state.characters > 1 ? <TypeAhead query={this.state.query} /> : ''}
 			</div>
 		)
 	}
 
 	getCharacterCount(e) {
-		this.setState({
-			characters: this.input.value.length
-		})
+		// Allow search query on change
+		if (this.input.value.length > 1) {
+			this.setState({
+				characters: this.input.value.length,
+				query: this.input.value
+			})
+		} else {
+			this.setState({
+				characters: 0,
+				query: ''
+			})
+		}
 	}
 }
 
