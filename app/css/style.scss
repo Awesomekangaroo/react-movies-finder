@@ -491,6 +491,9 @@ $font-stack-sans: Helvetica, sans-serif;
 	padding: 25px 10px;
 	overflow: scroll;
 	white-space: nowrap;
+	&::-webkit-scrollbar {
+		display: none; 
+	}
 }
 
 .carousel-cast__item {

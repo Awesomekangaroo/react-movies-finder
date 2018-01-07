@@ -4,18 +4,22 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
 	entry: __dirname + '/app/index.js',
-	module: {
-		loaders: [
-			{
-				test: /\.js$/,
-				exclude: /node_modules/,
-				loader: 'babel-loader'
-			}
-		]
-	},
 	output: {
 		filename: 'app.js',
 		path: __dirname + '/build'
+	},
+	module: {
+		rules: [
+			{
+				test: /\.scss$/,
+				use: ['style-loader', 'css-loader', 'sass-loader']
+			},
+			{
+				test: /\.js$/,
+				exclude: /node_modules/,
+				use: 'babel-loader'
+			}
+		]
 	},
 	devServer: {
 		hot: true
@@ -26,11 +30,11 @@ module.exports = {
 			filename: 'index.html',
 			inject: 'body'
 		}),
-		new ExtractTextPlugin({
-			filename: 'style.css',
-			disable: true,
-			allChunks: true
-		}),
+		// new ExtractTextPlugin({
+		// 	filename: 'style.css',
+		// 	disable: true,
+		// 	allChunks: true
+		// }),
 		new webpack.HotModuleReplacementPlugin(),
 		new webpack.NamedModulesPlugin()
 	]
