@@ -183,11 +183,11 @@ img {
   border-top: none;
   background-color: #ffffff;
   overflow-y: scroll;
-  text-align: left; }
+  text-align: left;
+  font-family: Helvetica, sans-serif; }
   .typeahead-form p {
     display: inline-block;
     color: #000;
-    font-family: Helvetica, sans-serif;
     text-transform: capitalize; }
   .typeahead-form li {
     padding: 7px 0 3px 20px;
@@ -202,6 +202,14 @@ img {
       vertical-align: top; }
     .typeahead-form li:last-child {
       border-bottom: none; }
+  .typeahead-form h3 {
+    margin-left: 20px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; }
 
 #mobile-menu {
   position: relative;

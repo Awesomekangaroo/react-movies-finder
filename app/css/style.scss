@@ -214,10 +214,10 @@ $font-stack-sans: Helvetica, sans-serif;
 	background-color: #ffffff;
 	overflow-y: scroll;
 	text-align: left;
+	font-family: $font-stack-sans;
 	p {
 		display: inline-block;
 		color: #000;
-		font-family: $font-stack-sans;
 		text-transform: capitalize;
 	}
 	li {
@@ -235,6 +235,15 @@ $font-stack-sans: Helvetica, sans-serif;
 		&:last-child {
 			border-bottom: none;
 		}
+	}
+	h3 {
+		margin-left: 20px;
+		margin-bottom: 10px;
+		font-size: 15px;
+		font-weight: bold;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 }
 
