@@ -4,9 +4,8 @@
   "description": "React movie finder",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"webpack-dev-server\"",
-    "build": "webpack",
-    "build-scss": "sass --watch ./app/css/style.scss:./app/css/style.css"
+    "dev": "webpack-dev-server",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",

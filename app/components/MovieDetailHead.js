@@ -11,11 +11,11 @@ class MovieDetailHead extends React.Component {
 
 	render() {
 		const details = this.props.info;
-		const baseBackdropUrl = "https://image.tmdb.org/t/p/w640";
+		const baseBackdropUrl = "https://image.tmdb.org/t/p/";
 		return(
 			<section className="container">
 				<div className="movie__hero--container">
-					<img src={baseBackdropUrl + details.poster_path} alt={ details.title }/>
+					<img src={`${baseBackdropUrl}w640${details.poster_path}`} alt={ details.title }/>
 				</div>
 				<div className="movie__head">
 					<div className="movie__head--genre">
