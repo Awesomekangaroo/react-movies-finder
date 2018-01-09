@@ -10,7 +10,7 @@ class IndexHome extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			movies: {}
+			nowMovies: {}
 		};
 	}
 
@@ -20,7 +20,7 @@ class IndexHome extends React.Component {
 		.then(data => data.json())
 		.then(data => {
 			this.setState({
-				movies: data.results
+				nowMovies: data.results
 			})
 		});
 	}
@@ -31,11 +31,11 @@ class IndexHome extends React.Component {
 				<IndexHomeCarousel />
 				<h2 className="index-movie__header">Now Playing</h2>
 				{
-					Object.keys(this.state.movies).slice(0,5).map(key => 
+					Object.keys(this.state.nowMovies).slice(0,5).map(key => 
 						<MovieIndexFeed 
 							index={key}
 							key={key}
-							details={this.state.movies[key]}
+							details={this.state.nowMovies[key]}
 						/>
 					)
 				}
