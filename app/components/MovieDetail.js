@@ -20,17 +20,11 @@ class MovieDetail extends React.Component {
 	}
 
 	componentDidMount() {
-
 		const movieId = this.props.location.state.details.id;
 
 		// Check if movie ID exists in localStorage and compare values
 
-		// const localStorageMovieID = localStorage.getItem(`movieID-${this.props.location.state.details.id}`);
-		// if ( localStorageMovieID != this.props.location.state.details.id ) {
-		// 	alert('I dont exist on localStorage');
-		// }
-
-		const getMovieDetails = "https://api.themoviedb.org/3/movie/" + movieId + "?api_key=" + apiKey + "&append_to_response=videos,images,credits,releases";
+		const getMovieDetails = "https://api.themoviedb.org/3/movie/" + movieId + "?api_key=" + apiKey + "&append_to_response=videos,images,credits,releases,reviews";
 
 		// Get movie details on AJAX call
 		fetch(getMovieDetails)

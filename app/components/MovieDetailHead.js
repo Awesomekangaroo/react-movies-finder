@@ -15,7 +15,7 @@ class MovieDetailHead extends React.Component {
 		return(
 			<section className="container">
 				<div className="movie__hero--container">
-					<img src={`${baseBackdropUrl}w640${details.poster_path}`} alt={ details.title }/>
+					<img src={`${baseBackdropUrl}w640${details.backdrop_path}`} alt={ details.title }/>
 				</div>
 				<div className="movie__head">
 					<div className="movie__head--genre">

@@ -27,13 +27,13 @@ class IndexHomeCarousel extends React.Component {
 		const item = this.state.popularMovies;
 		return(
 			<li key={key} className="carousel-slider__item">
-				<img src={"https://image.tmdb.org/t/p/w640" + item[key].poster_path } alt={item[key].title} className="slide-item__featured--img"/>
-				<div className="slide-item__meta--container">
-					<p>{item[key].release_date}</p>
+				<img src={"https://image.tmdb.org/t/p/w640" + item[key].backdrop_path } alt={item[key].title} className="slide-item__featured--img"/>
+				<div className="slide-item__info--container">
+					<p className="slide-item__release">{item[key].release_date.substr(0,4)}</p>
 					<h3 className="slide-item__title">{item[key].title}</h3>
 					<div className="slide-item__meta--info">
-						<p className="slide-item__meta--time">{item[key].vote_count}</p>
-						<p className="slide-item__meta--rating">{item[key].vote_count}</p>
+						<span className="slide-item__meta--count">{item[key].vote_average}</span>
+						<span className="slide-item__meta--rating">{item[key].vote_count} votes</span>
 					</div>
 				</div>
 			</li>
