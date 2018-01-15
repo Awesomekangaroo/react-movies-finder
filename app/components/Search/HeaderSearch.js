@@ -16,7 +16,7 @@ class HeaderSearch extends React.Component {
 		return(
 			<div id="header-search" className={this.props.addActiveClass2 ? 'active': ''}>
 				<form className="header-search__form" role="search">
-					<input className="header-search__input" type="search" placeholder="Search ..." title="search movie database" ref={val => this.input = val} onChange={this.getCharacterCount} />
+					<input className="header-search__input" type="search" placeholder="Search" title="search movie database" ref={val => this.input = val} onChange={this.getCharacterCount} />
 				</form>
 				{this.state.characters > 1 ? <TypeAhead query={this.state.query} /> : ''}
 			</div>

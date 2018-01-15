@@ -1,7 +1,7 @@
 import React from 'react';
 
 const apiKey = "1ae83ca4d8a91826db50f652ef3e24de";
-const popularMoviesUrl = "https://api.themoviedb.org/3/movie/popular?api_key="+ apiKey + "&language=en-US&page=1";
+const popularMoviesUrl = "https://api.themoviedb.org/3/movie/popular?api_key="+ apiKey + "&append_to_response=genre,cast";
 
 class IndexHomeCarousel extends React.Component {
 	constructor() {
@@ -40,7 +40,6 @@ class IndexHomeCarousel extends React.Component {
 		)
 	}
 
-	// http://bashooka.com/wp-content/uploads/2016/06/movie-music-website-ui-50.jpg
 	render() {
 		if (this.state.popularMovies) {
 			return(
@@ -57,9 +56,7 @@ class IndexHomeCarousel extends React.Component {
 					</div>
 				</div>
 			)
-		} else {
-			return('');
-		}
+		} return('');
 	}
 
 }

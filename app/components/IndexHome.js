@@ -1,44 +1,27 @@
 import React from 'react';
 import MovieIndexFeed from './MovieIndexFeed';
 import IndexHomeCarousel from './IndexHomeCarousel';
-
-const apiKey = "1ae83ca4d8a91826db50f652ef3e24de";
-
-const currentMoviesUrl = "https://api.themoviedb.org/3/movie/now_playing?api_key="+ apiKey + "&language=en-US&page=1";
+import Footer from './Footer';
 
 class IndexHome extends React.Component {
-	constructor() {
-		super();
-		this.state = {
-			nowMovies: {}
-		};
-	}
-
-	componentDidMount() {
-		//Search Latest Movies
-		fetch(currentMoviesUrl)
-		.then(data => data.json())
-		.then(data => {
-			this.setState({
-				nowMovies: data.results
-			})
-		});
-	}
-
 	render() {
 		return(
 			<div>
 				<IndexHomeCarousel />
-				<h2 className="index-movie__header">Now Playing</h2>
-				{
-					Object.keys(this.state.nowMovies).slice(0,5).map(key => 
-						<MovieIndexFeed 
-							index={key}
-							key={key}
-							details={this.state.nowMovies[key]}
-						/>
-					)
-				}
+				<div className="banner-block index-promo red-gradient">
+					<h3>Discover new movies</h3>
+					<p>
+						<a href="">Find a new favorite.</a>
+					</p>
+				</div>
+				<div className="banner-block index-promo purple-gradient">
+					<h3>Find new collections</h3>
+					<p>
+						<a href="">Find a new favorite.</a>
+					</p>
+				</div>
+				<MovieIndexFeed />
+				<Footer />
 			</div>
 		)
 	}
