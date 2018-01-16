@@ -1,5 +1,6 @@
 import React from 'react';
 import MovieIndexFeed from './MovieIndexFeed';
+import UpcomingIndexFeed from './Index/UpcomingIndexFeed';
 import IndexHomeCarousel from './IndexHomeCarousel';
 import Footer from './Footer';
 
@@ -21,6 +22,7 @@ class IndexHome extends React.Component {
 					</p>
 				</div>
 				<MovieIndexFeed />
+				<UpcomingIndexFeed />
 				<Footer />
 			</div>
 		)
