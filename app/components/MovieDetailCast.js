@@ -1,7 +1,6 @@
 import React from 'react';
 
 class MovieDetailCast extends React.Component {
-
 	constructor() {
 		super();
 		this.renderCastMembers = this.renderCastMembers.bind(this);
@@ -21,13 +20,12 @@ class MovieDetailCast extends React.Component {
 	}
 
 	render() {
-		const castCount = this.props.profile.length > 100 ? alert('high count') : '';
 		return(
-			<div className="container">
+			<div className="container movie-detail__cast--container">
+				<h3>Top Cast</h3>
 				<ol className="carousel-cast__container">
 					{ Object.keys(this.props.profile.slice(0, 8)).map(this.renderCastMembers) }
 				</ol>
-				{ castCount }
 			</div>
 		)
 	}

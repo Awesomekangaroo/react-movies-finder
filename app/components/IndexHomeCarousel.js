@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const apiKey = "1ae83ca4d8a91826db50f652ef3e24de";
 const popularMoviesUrl = "https://api.themoviedb.org/3/movie/popular?api_key="+ apiKey + "&append_to_response=genre,cast";
@@ -30,7 +31,9 @@ class IndexHomeCarousel extends React.Component {
 				<img src={"https://image.tmdb.org/t/p/w640" + item[key].backdrop_path } alt={item[key].title} className="slide-item__featured--img"/>
 				<div className="slide-item__info--container">
 					<p className="slide-item__release">{item[key].release_date.substr(0,4)}</p>
-					<h3 className="slide-item__title">{item[key].title}</h3>
+					<Link to={ { pathname: `/movie/${item[key].id}/${item[key].title}`, state: item[key]} }>
+						<h3 className="slide-item__title">{item[key].title}</h3>
+					</Link>
 					<div className="slide-item__meta--info">
 						<span className="slide-item__meta--count">{item[key].vote_average}</span>
 						<span className="slide-item__meta--rating">{item[key].vote_count} votes</span>

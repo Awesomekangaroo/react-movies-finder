@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "60141436f5c0b10f69ea"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "00c0a6aeddc8170c5676"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -764,6 +764,125 @@ class App extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 
 /***/ }),
 
+/***/ "./app/components/DetailHeader.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("./node_modules/react/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__NavMenu__ = __webpack_require__("./app/components/NavMenu.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_router_dom__ = __webpack_require__("./node_modules/react-router-dom/es/index.js");
+
+
+
+
+class DetailHeader extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
+
+	constructor() {
+		super();
+		this.state = {
+			isNavActiveOn: false
+		};
+
+		this.addActiveClass = this.addActiveClass.bind(this);
+	}
+
+	addActiveClass() {
+		// add or remove class on click
+		this.setState(prevState => ({
+			isNavActiveOn: !prevState.isNavActiveOn
+		}));
+	}
+
+	render() {
+		return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			'div',
+			{ className: 'nav-header--detail' },
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'div',
+				{ className: 'mobile-return--btn' },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-chevron-left', 'aria-hidden': 'hidden' })
+			),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'nav',
+				null,
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'div',
+					{ id: 'mobile-menu', onClick: e => this.addActiveClass(e) },
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-bars', 'aria-hidden': 'hidden' })
+				),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__NavMenu__["a" /* default */], { addDetailClass: this.state.isNavActiveOn })
+			)
+		);
+	}
+
+}
+
+/* harmony default export */ __webpack_exports__["a"] = (DetailHeader);
+
+/***/ }),
+
+/***/ "./app/components/Footer.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("./node_modules/react/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+
+
+class Footer extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
+
+	render() {
+		return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			"footer",
+			null,
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				"div",
+				{ className: "footer-main" },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					"ul",
+					{ className: "footer-credits" },
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						"li",
+						null,
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							"button",
+							{ className: "footer-credits__cta--btn" },
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								"a",
+								{ href: "https://www.themoviedb.org/", target: "_blank" },
+								"Visit TMDB.org"
+							)
+						)
+					),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						"li",
+						null,
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							"a",
+							{ href: "https://developers.themoviedb.org", target: "_blank" },
+							"About API"
+						)
+					),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						"li",
+						null,
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							"a",
+							{ href: "" },
+							"About developer"
+						)
+					)
+				)
+			)
+		);
+	}
+}
+
+/* harmony default export */ __webpack_exports__["a"] = (Footer);
+
+/***/ }),
+
 /***/ "./app/components/Header.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -829,6 +948,76 @@ class Header extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 
 /***/ }),
 
+/***/ "./app/components/Index/UpcomingIndexFeed.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("./node_modules/react/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__("./node_modules/react-router-dom/es/index.js");
+
+
+
+const apiKey = "1ae83ca4d8a91826db50f652ef3e24de";
+const upcomingMoviesUrl = "https://api.themoviedb.org/3/movie/upcoming?api_key=" + apiKey + "&language=en-US&page=1";
+
+class UpcomingIndexFeed extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
+	constructor() {
+		super();
+		this.state = {
+			upcomingMovies: false
+		};
+		this.renderUpcomingFeed = this.renderUpcomingFeed.bind(this);
+	}
+
+	componentDidMount() {
+		//Search Latest Movies
+		fetch(upcomingMoviesUrl).then(data => data.json()).then(data => {
+			this.setState({
+				upcomingMovies: data.results
+			});
+		});
+	}
+
+	renderUpcomingFeed(key) {
+		const details = this.state.upcomingMovies;
+		const baseUrl = "https://image.tmdb.org/t/p/w154";
+		return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			'article',
+			{ key: key, className: 'index-tile__container' },
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+				{ to: { pathname: `/movie/${details[key].id}/${details[key].title}`, state: details[key] } },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: baseUrl + details[key].poster_path, alt: details[key].title }),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'h2',
+					{ className: 'index-tile--title' },
+					details[key].title
+				)
+			)
+		);
+	}
+
+	render() {
+		if (this.state.upcomingMovies) {
+			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'div',
+				{ className: 'carousel-slider--container' },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'h2',
+					{ className: 'index-movie__header' },
+					'Upcoming'
+				),
+				Object.keys(this.state.upcomingMovies).slice(0, 10).map(this.renderUpcomingFeed)
+			);
+		}return '';
+	}
+}
+
+/* harmony default export */ __webpack_exports__["a"] = (UpcomingIndexFeed);
+
+/***/ }),
+
 /***/ "./app/components/IndexHome.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -836,49 +1025,163 @@ class Header extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("./node_modules/react/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__MovieIndexFeed__ = __webpack_require__("./app/components/MovieIndexFeed.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Index_UpcomingIndexFeed__ = __webpack_require__("./app/components/Index/UpcomingIndexFeed.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__IndexHomeCarousel__ = __webpack_require__("./app/components/IndexHomeCarousel.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Footer__ = __webpack_require__("./app/components/Footer.js");
 
 
 
-const apiKey = "1ae83ca4d8a91826db50f652ef3e24de";
 
-const currentMoviesUrl = "https://api.themoviedb.org/3/movie/now_playing?api_key=" + apiKey + "&language=en-US&page=1";
+
 
 class IndexHome extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
-	constructor() {
-		super();
-		this.state = {
-			movies: {}
-		};
-	}
-
-	componentDidMount() {
-		//Search Latest Movies
-		fetch(currentMoviesUrl).then(data => data.json()).then(data => {
-			this.setState({
-				movies: data.results
-			});
-		});
-	}
-
 	render() {
 		return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 			'div',
 			null,
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__IndexHomeCarousel__["a" /* default */], null),
 			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-				'h2',
-				{ className: 'index-movie__header' },
-				'Now Playing'
+				'div',
+				{ className: 'banner-block index-promo red-gradient' },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'h3',
+					null,
+					'Discover new movies'
+				),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'p',
+					null,
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'a',
+						{ href: '' },
+						'Find a new favorite.'
+					)
+				)
 			),
-			Object.keys(this.state.movies).slice(0, 5).map(key => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__MovieIndexFeed__["a" /* default */], {
-				index: key,
-				key: key,
-				details: this.state.movies[key]
-			}))
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'div',
+				{ className: 'banner-block index-promo purple-gradient' },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'h3',
+					null,
+					'Find new collections'
+				),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'p',
+					null,
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'a',
+						{ href: '' },
+						'Find a new favorite.'
+					)
+				)
+			),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__MovieIndexFeed__["a" /* default */], null),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Index_UpcomingIndexFeed__["a" /* default */], null),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__Footer__["a" /* default */], null)
 		);
 	}
 }
 
 /* harmony default export */ __webpack_exports__["a"] = (IndexHome);
+
+/***/ }),
+
+/***/ "./app/components/IndexHomeCarousel.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("./node_modules/react/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+
+
+const apiKey = "1ae83ca4d8a91826db50f652ef3e24de";
+const popularMoviesUrl = "https://api.themoviedb.org/3/movie/popular?api_key=" + apiKey + "&append_to_response=genre,cast";
+
+class IndexHomeCarousel extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
+	constructor() {
+		super();
+		this.state = {
+			popularMovies: false
+		};
+		this.renderSlider = this.renderSlider.bind(this);
+	}
+
+	componentDidMount() {
+		// Get popular movies for carousel
+		fetch(popularMoviesUrl).then(data => data.json()).then(data => {
+			this.setState({
+				popularMovies: data.results
+			});
+		});
+	}
+
+	renderSlider(key) {
+		const item = this.state.popularMovies;
+		return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			"li",
+			{ key: key, className: "carousel-slider__item" },
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { src: "https://image.tmdb.org/t/p/w640" + item[key].backdrop_path, alt: item[key].title, className: "slide-item__featured--img" }),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				"div",
+				{ className: "slide-item__info--container" },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					"p",
+					{ className: "slide-item__release" },
+					item[key].release_date.substr(0, 4)
+				),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					"h3",
+					{ className: "slide-item__title" },
+					item[key].title
+				),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					"div",
+					{ className: "slide-item__meta--info" },
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						"span",
+						{ className: "slide-item__meta--count" },
+						item[key].vote_average
+					),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						"span",
+						{ className: "slide-item__meta--rating" },
+						item[key].vote_count,
+						" votes"
+					)
+				)
+			)
+		);
+	}
+
+	render() {
+		if (this.state.popularMovies) {
+			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				"div",
+				{ className: "carousel-slider--container" },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					"ul",
+					null,
+					Object.keys(this.state.popularMovies.slice(0, 4)).map(this.renderSlider)
+				),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					"div",
+					{ className: "carousel-slider--dots" },
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						"ul",
+						null,
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("li", null),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("li", null),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("li", null)
+					)
+				)
+			);
+		}return '';
+	}
+
+}
+
+/* harmony default export */ __webpack_exports__["a"] = (IndexHomeCarousel);
 
 /***/ }),
 
@@ -888,14 +1191,17 @@ class IndexHome extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("./node_modules/react/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__MovieDetailHead__ = __webpack_require__("./app/components/MovieDetailHead.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__MovieDetailCast__ = __webpack_require__("./app/components/MovieDetailCast.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__MovieDetailBodyInfo__ = __webpack_require__("./app/components/MovieDetailBodyInfo.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__MovieDetailBodyMeta__ = __webpack_require__("./app/components/MovieDetailBodyMeta.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__MovieDetailBodyTrailers__ = __webpack_require__("./app/components/MovieDetailBodyTrailers.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__MovieDetailBodyReviews__ = __webpack_require__("./app/components/MovieDetailBodyReviews.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__DetailHeader__ = __webpack_require__("./app/components/DetailHeader.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__MovieDetailHead__ = __webpack_require__("./app/components/MovieDetailHead.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__MovieDetailCast__ = __webpack_require__("./app/components/MovieDetailCast.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__MovieDetailBodyInfo__ = __webpack_require__("./app/components/MovieDetailBodyInfo.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__MovieDetailBodyMeta__ = __webpack_require__("./app/components/MovieDetailBodyMeta.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__MovieDetailBodyTrailers__ = __webpack_require__("./app/components/MovieDetailBodyTrailers.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__MovieDetailBodyReviews__ = __webpack_require__("./app/components/MovieDetailBodyReviews.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__Footer__ = __webpack_require__("./app/components/Footer.js");
 
-// import DetailHeader from './DetailHeader';
+
+
 
 
 
@@ -906,7 +1212,6 @@ class IndexHome extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component 
 const apiKey = "1ae83ca4d8a91826db50f652ef3e24de";
 
 class MovieDetail extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
-
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -914,18 +1219,20 @@ class MovieDetail extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Componen
 		};
 	}
 
+	componentWillMount() {
+		// Check if movieId is on local storage before AJAX call
+		const localStorageMovie = localStorage.getItem(`movieId-${this.props.location.state.id}`);
+		if (localStorageMovie) {
+			this.setState({
+				movieInfo: localStorageMovie
+			});
+		}
+	}
+
 	componentDidMount() {
-
-		const movieId = this.props.location.state.details.id;
-
-		// Check if movie ID exists in localStorage and compare values
-
-		// const localStorageMovieID = localStorage.getItem(`movieID-${this.props.location.state.details.id}`);
-		// if ( localStorageMovieID != this.props.location.state.details.id ) {
-		// 	alert('I dont exist on localStorage');
-		// }
-
-		const getMovieDetails = "https://api.themoviedb.org/3/movie/" + movieId + "?api_key=" + apiKey + "&append_to_response=videos,images,credits,releases";
+		// Perform AJAX calls here
+		const movieId = this.props.location.state.id;
+		const getMovieDetails = "https://api.themoviedb.org/3/movie/" + movieId + "?api_key=" + apiKey + "&append_to_response=videos,images,credits,releases,reviews";
 
 		// Get movie details on AJAX call
 		fetch(getMovieDetails).then(data => data.json()).then(data => {
@@ -935,21 +1242,35 @@ class MovieDetail extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Componen
 		});
 	}
 
+	componentDidUpdate() {
+		const movieId = this.props.location.state.id;
+		// Add movieId to localStorage to preserve state on reload
+		localStorage.setItem(`movieId-${movieId}`, JSON.stringify(this.state));
+	}
+
+	componentWillUnmount() {
+		// Remove local storage object
+		localStorage.clear();
+	}
+
 	render() {
 		const details = this.state.movieInfo;
+		console.log(details);
 		// Conditional rendering of components until API request complete.
 		if (this.state.movieInfo != false) {
 			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 				'div',
 				{ className: 'container' },
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__MovieDetailHead__["a" /* default */], { info: details }),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__MovieDetailCast__["a" /* default */], { profile: details.credits.cast }),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__MovieDetailBodyInfo__["a" /* default */], { info: details }),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__MovieDetailBodyMeta__["a" /* default */], { info: details }),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__MovieDetailBodyTrailers__["a" /* default */], {
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__DetailHeader__["a" /* default */], null),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__MovieDetailHead__["a" /* default */], { info: details }),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__MovieDetailCast__["a" /* default */], { profile: details.credits.cast }),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__MovieDetailBodyInfo__["a" /* default */], { info: details }),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__MovieDetailBodyMeta__["a" /* default */], { info: details }),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__MovieDetailBodyTrailers__["a" /* default */], {
 					videos: details.videos
 				}),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__MovieDetailBodyReviews__["a" /* default */], { info: details })
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__MovieDetailBodyReviews__["a" /* default */], { info: details }),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_8__Footer__["a" /* default */], null)
 			);
 		} else {
 			return '';
@@ -1060,6 +1381,21 @@ class MovieDetailBodyMeta extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.
 					),
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 						"li",
+						null,
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							"span",
+							null,
+							"Runtime: "
+						),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							"span",
+							null,
+							details.runtime,
+							" mins"
+						)
+					),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						"li",
 						{ className: "movie-body__meta--link" },
 						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 							"span",
@@ -1091,11 +1427,66 @@ class MovieDetailBodyMeta extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.
 
 
 class MovieDetailBodyReviews extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
+	constructor() {
+		super();
+		this.renderMovieReviews = this.renderMovieReviews.bind(this);
+		this.viewMoreOpen = this.viewMoreOpen.bind(this);
+	}
+
+	viewMoreOpen(key, event) {
+		console.log('You clicked view more: ', key);
+		console.log(event);
+		this.setState(prevState => ({
+			['showButton' + key]: !prevState
+		}));
+	}
+
+	renderMovieReviews(key) {
+		const review = this.props.info.reviews.results;
+		let button = null;
+		if (review[key].content.length > 100) {
+			button = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'button',
+				{ className: 'movie-review__show-more', onClick: () => this.viewMoreOpen(key, event) },
+				'Show More +'
+			);
+		}
+		return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			'div',
+			{ key: key, className: 'movie-detail__review--item' },
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'a',
+				{ href: review[key].url, target: '_blank' },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'h3',
+					{ className: 'movie-detail__review--author' },
+					'Review by ',
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'em',
+						null,
+						review[key].author
+					)
+				)
+			),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'p',
+				null,
+				review[key].content
+			),
+			button
+		);
+	}
+
 	render() {
 		return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 			'div',
-			null,
-			'reviews here'
+			{ className: 'movie-detail__reviews' },
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'h2',
+				null,
+				'Movie Reviews'
+			),
+			Object.keys(this.props.info.reviews.results).map(this.renderMovieReviews)
 		);
 	}
 }
@@ -1278,94 +1669,106 @@ class MovieDetailHead extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Comp
 
 	render() {
 		const details = this.props.info;
-		const baseBackdropUrl = "https://image.tmdb.org/t/p/w640";
+		const imageBaseUrl = "https://image.tmdb.org/t/p/";
 		return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 			"section",
 			{ className: "container" },
 			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 				"div",
 				{ className: "movie__hero--container" },
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { src: baseBackdropUrl + details.poster_path, alt: details.title })
-			),
-			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-				"div",
-				{ className: "movie__head" },
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-					"div",
-					{ className: "movie__head--genre" },
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						"p",
-						null,
-						details.genres[0].name
-					),
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("hr", null)
-				),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-					"header",
+					"picture",
 					null,
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						"div",
-						{ className: "movie__head--title" },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							"h2",
-							null,
-							details.title
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							"p",
-							null,
-							details.tagline
-						)
-					)
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("source", { srcSet: `${imageBaseUrl}w640${details.poster_path}`, media: "(max-width: 640px)" }),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { src: `${imageBaseUrl}w1280${details.backdrop_path}`, alt: details.title })
 				),
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 					"div",
-					{ className: "movie__head--meta" },
+					{ className: "movie__head" },
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 						"div",
-						{ className: "movie__head--score" },
+						{ className: "movie__head--genre" },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							"span",
+							null,
+							details.genres[0].name
+						),
+						"|",
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							"span",
+							null,
+							details.runtime,
+							" mins"
+						),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("hr", null)
+					),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						"header",
+						null,
 						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 							"div",
-							{ className: "btn-score" },
+							{ className: "movie__head--title" },
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								"h2",
+								null,
+								details.title
+							),
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								"p",
+								null,
+								details.tagline
+							)
+						)
+					),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						"div",
+						{ className: "movie__head--meta" },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							"div",
+							{ className: "movie__head--score" },
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								"div",
+								{ className: "btn-score" },
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									"span",
+									null,
+									details.vote_average
+								)
+							),
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 								"span",
-								null,
-								details.vote_average
+								{ className: "user-score" },
+								"User Score"
 							)
 						),
 						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							"span",
-							{ className: "user-score" },
-							"User Score"
+							"div",
+							{ className: "movie__head--rating" },
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								"span",
+								null,
+								"Rated: "
+							),
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								"span",
+								null,
+								"PG"
+							)
 						)
 					),
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 						"div",
-						{ className: "movie__head--rating" },
+						{ className: "mobile-head__toggle" },
 						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							"span",
-							null,
-							"Rated: "
+							"a",
+							{ className: "active" },
+							"INFO"
 						),
 						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							"span",
-							null,
-							"PG"
+							"a",
+							{ target: "_blank", href: "https://www.google.com/search?q=" + details.title + "+showtimes" },
+							"TICKETS"
 						)
-					)
-				),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-					"div",
-					{ className: "mobile-head__toggle" },
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						"a",
-						{ className: "active" },
-						"INFO"
-					),
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						"a",
-						{ target: "_blank", href: "https://www.google.com/search?q=" + details.title + "+showtimes" },
-						"TICKETS"
 					)
 				)
 			)
@@ -1387,37 +1790,59 @@ class MovieDetailHead extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Comp
 
 
 
+const apiKey = "1ae83ca4d8a91826db50f652ef3e24de";
+const currentMoviesUrl = "https://api.themoviedb.org/3/movie/now_playing?api_key=" + apiKey + "&language=en-US&page=1";
+
 class MovieIndexFeed extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
-	render() {
-		const { details, index } = this.props;
-		const baseUrl = "https://image.tmdb.org/t/p/w600";
+	constructor() {
+		super();
+		this.state = {
+			nowMovies: false
+		};
+		this.renderMovieFeed = this.renderMovieFeed.bind(this);
+	}
+
+	componentDidMount() {
+		//Search Latest Movies
+		fetch(currentMoviesUrl).then(data => data.json()).then(data => {
+			this.setState({
+				nowMovies: data.results
+			});
+		});
+	}
+
+	renderMovieFeed(key) {
+		const details = this.state.nowMovies;
+		const baseUrl = "https://image.tmdb.org/t/p/w154";
 		return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 			'article',
-			null,
+			{ key: key, className: 'index-tile__container' },
 			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 				__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-				{ to: { pathname: `/movie/${details.title}`, state: { details, index } } },
+				{ to: { pathname: `/movie/${details[key].id}/${details[key].title}`, state: details[key] } },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: baseUrl + details[key].poster_path, alt: details[key].title }),
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-					'div',
-					{ className: 'index-tile__container' },
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: baseUrl + details.backdrop_path, alt: details.title }),
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'div',
-						{ className: 'index-tile__overlay' },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'h2',
-							{ className: 'index-tile__overlay--title' },
-							details.title
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'div',
-							{ className: 'index-tile__overlay--cast' },
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', null)
-						)
-					)
+					'h2',
+					{ className: 'index-tile--title' },
+					details[key].title
 				)
 			)
 		);
+	}
+
+	render() {
+		if (this.state.nowMovies) {
+			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'div',
+				{ className: 'carousel-slider--container' },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'h2',
+					{ className: 'index-movie__header' },
+					'Now Playing'
+				),
+				Object.keys(this.state.nowMovies).slice(0, 10).map(this.renderMovieFeed)
+			);
+		}return '';
 	}
 }
 
@@ -1625,7 +2050,7 @@ class HeaderSearch extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Compone
 			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 				'form',
 				{ className: 'header-search__form', role: 'search' },
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'header-search__input', type: 'search', placeholder: 'Search ...', title: 'search movie database', ref: val => this.input = val, onChange: this.getCharacterCount })
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'header-search__input', type: 'search', placeholder: 'Search', title: 'search movie database', ref: val => this.input = val, onChange: this.getCharacterCount })
 			),
 			this.state.characters > 1 ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__TypeAhead__["a" /* default */], { query: this.state.query }) : ''
 		);
@@ -1817,7 +2242,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "html, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1;\n  height: 100%; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\na {\n  text-decoration: none;\n  color: inherit; }\n\n* {\n  box-sizing: border-box;\n  font-family: Helvetica, sans-serif; }\n\nimg {\n  width: 100%; }\n\n.container {\n  display: block;\n  width: 100%;\n  margin-bottom: 20px; }\n\n.nav-header, .nav-header--detail {\n  display: block;\n  width: 100%;\n  margin: 0 auto;\n  min-height: 50px;\n  border-bottom: 1px solid #eee;\n  box-shadow: 0px -1px 9px 0px rgba(0, 0, 0, 0.6); }\n  .nav-header:after, .nav-header--detail:after {\n    content: '';\n    visibility: hidden;\n    clear: both; }\n  .nav-header nav, .nav-header--detail nav {\n    display: inline; }\n\n.nav-header--detail {\n  position: absolute;\n  box-shadow: none;\n  border: none; }\n  .nav-header--detail .mobile-return--btn {\n    color: #ffffff; }\n  .nav-header--detail #mobile-menu {\n    color: #ffffff; }\n\n.modal-backdrop {\n  position: fixed;\n  top: 0;\n  right: 0;\n  left: 0;\n  bottom: 0;\n  width: 100%;\n  height: 100%;\n  background-color: #999;\n  opacity: 0.5; }\n\n.trailer-modal {\n  position: fixed;\n  top: 30%;\n  left: 0;\n  right: 0;\n  z-index: 100;\n  margin: 0 auto;\n  width: 92%; }\n\n.trailer-modal__header {\n  display: block;\n  position: relative;\n  padding: 20px 0 20px 10px;\n  text-align: left;\n  border: 1px solid #eee;\n  background-color: #ffffff; }\n  .trailer-modal__header p {\n    display: inline-block;\n    width: 70%;\n    overflow: scroll;\n    text-overflow: ellipsis;\n    vertical-align: middle;\n    font-size: 15px;\n    color: #000; }\n  .trailer-modal__header button {\n    position: absolute;\n    top: 20px;\n    right: 8px;\n    outline: none;\n    background-color: inherit;\n    border: none;\n    color: red; }\n    .trailer-modal__header button span:after {\n      content: 'x';\n      font-weight: bold;\n      font-size: inherit;\n      margin-left: 5px;\n      color: #000; }\n\n.trailer-modal__content iframe {\n  display: block;\n  width: 100%;\n  min-height: 180px; }\n\n.search-container, .mobile-return--btn {\n  width: 50px;\n  display: inline-block;\n  vertical-align: middle;\n  text-align: center;\n  color: #333; }\n  .search-container .fa, .mobile-return--btn .fa {\n    font-size: 20px;\n    line-height: 50px; }\n\n.header-search__form {\n  position: relative;\n  width: 80%;\n  max-width: 450px;\n  margin: 0 auto; }\n\n#header-search {\n  position: absolute;\n  top: 50px;\n  display: none;\n  z-index: 5;\n  width: 100%;\n  text-align: center;\n  padding: 20px 0;\n  background-color: #f1f1f1;\n  border-top: 1px solid #ebebeb;\n  border-bottom: 1px solid #ebebeb; }\n  #header-search .header-search__input {\n    width: 100%;\n    padding: 10px 15px;\n    font: bold 14px Helvetica, sans-serif;\n    letter-spacing: 1px;\n    border: 1px solid #ccc;\n    outline: none; }\n  #header-search.active {\n    display: block; }\n\n.typeahead-form {\n  display: block;\n  width: 80%;\n  max-width: 450px;\n  margin: 0 auto;\n  padding: 15px 0;\n  border: 1px solid #ccc;\n  border-top: none;\n  background-color: #ffffff;\n  overflow-y: scroll;\n  text-align: left;\n  font-family: Helvetica, sans-serif; }\n  .typeahead-form p {\n    display: inline-block;\n    color: #000;\n    text-transform: capitalize; }\n  .typeahead-form li {\n    padding: 7px 0 3px 20px;\n    border-bottom: 1px solid #eee;\n    font-size: 14px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis; }\n    .typeahead-form li i {\n      margin-right: 10px;\n      font-size: 12px;\n      vertical-align: top; }\n    .typeahead-form li:last-child {\n      border-bottom: none; }\n  .typeahead-form h3 {\n    margin-left: 20px;\n    margin-bottom: 10px;\n    font-size: 15px;\n    font-weight: bold;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis; }\n\n#mobile-menu {\n  position: relative;\n  display: inline-block;\n  float: right;\n  padding: 15px;\n  text-align: center;\n  color: #333; }\n  #mobile-menu .fa {\n    font-size: 22px; }\n\n.nav-menu__container, .nav-menu__container.detail {\n  position: absolute;\n  top: 0;\n  display: none;\n  width: 270px;\n  height: 100%;\n  padding: 60px 25px 15px;\n  background-color: #081c24; }\n  .nav-menu__container.active {\n    display: block;\n    z-index: 10; }\n\n.detail.nav-menu__container {\n  border-right: 2px solid #eee; }\n\n.nav-menu__main {\n  font-family: Helvetica, sans-serif;\n  margin-bottom: 30px; }\n  .nav-menu__main li {\n    margin: 25px 0; }\n    .nav-menu__main li:first-child {\n      margin-top: 0; }\n    .nav-menu__main li a {\n      color: #ffffff;\n      letter-spacing: 1px;\n      font-family: Helvetica, sans-serif;\n      font-size: 18px; }\n\n.nav-menu__about {\n  font-family: Helvetica, sans-serif; }\n  .nav-menu__about li {\n    margin: 15px 0; }\n    .nav-menu__about li a {\n      color: #afafaf;\n      font-size: 15px;\n      font-weight: 400; }\n\n.attribute-credits {\n  display: block;\n  margin: 40px auto 0;\n  width: 200px; }\n  .attribute-credits img {\n    width: 100%;\n    padding: 20px; }\n\n.index-container {\n  margin: 0 auto;\n  display: block;\n  width: 100%; }\n\n.index-movie__header {\n  display: block;\n  padding: 30px;\n  font-size: 22px;\n  font-family: Helvetica, sans-serif;\n  font-weight: bold; }\n\n.index-movies--title {\n  color: red;\n  font-family: Helvetica, sans-serif;\n  font-size: 18px;\n  margin-bottom: 10px; }\n\n.index-tile__container {\n  display: block;\n  position: relative;\n  width: 100%;\n  height: auto;\n  /* box-shadow: 0px 4px 3px 0px rgba(0, 0, 0, 0.3); */ }\n\n.index-tile__overlay {\n  position: absolute;\n  bottom: 3px;\n  width: 100%;\n  padding: 10px 15px;\n  color: #ffffff;\n  font-family: Helvetica, sans-serif;\n  /* background-color: rgba(0, 0, 0, 0.5); */ }\n\n.index-tile__overlay--title {\n  display: inline-block;\n  width: 180px;\n  padding: 5px 0;\n  font-size: 18px;\n  font-weight: bold;\n  line-height: 130%;\n  text-transform: capitalize; }\n\n.index-tile__overlay--cast span {\n  color: #ffffff;\n  font-size: 13px;\n  font-weight: 300; }\n\n.movie__hero--container img {\n  max-height: 500px; }\n\n.movie__head {\n  padding-top: 10px; }\n\n.movie__head--genre p {\n  padding: 0 10px 5px;\n  font-weight: 300;\n  font-family: Helvetica, sans-serif;\n  font-size: 16px;\n  color: #EB5757; }\n\n.movie__head--genre hr {\n  width: 30px;\n  height: 2px;\n  border: none;\n  margin-left: 0;\n  background-color: #aaa; }\n\n.movie__head--title {\n  margin-top: 15px;\n  padding: 0 10px;\n  font-family: Helvetica, sans-serif;\n  font-size: 26px;\n  text-align: center;\n  line-height: 115%;\n  color: #555; }\n  .movie__head--title p {\n    color: #999;\n    font-size: 12px;\n    font-style: italic; }\n\n.movie__head--meta {\n  width: 100%;\n  padding: 10px 12px;\n  margin-bottom: 10px; }\n  .movie__head--meta:after {\n    content: '';\n    visibility: hidden;\n    clear: both; }\n\n.movie__head--score {\n  display: inline-block;\n  font-family: Helvetica, sans-serif;\n  vertical-align: middle; }\n  .movie__head--score .btn-score {\n    display: inline-block;\n    width: 40px;\n    height: 40px;\n    padding: 11px 0;\n    font-size: 13px;\n    font-weight: bold;\n    text-align: center;\n    vertical-align: -webkit-baseline-middle;\n    border: 3px solid #528437;\n    border-radius: 50%; }\n  .movie__head--score .user-score {\n    margin-left: 7px;\n    font-size: 13px;\n    font-weight: bold;\n    vertical-align: -webkit-baseline-middle; }\n\n.movie__head--rating {\n  float: right;\n  margin-top: 5px;\n  border: 2px solid #000;\n  padding: 3px 10px;\n  font-family: Helvetica, sans-serif;\n  text-align: center; }\n  .movie__head--rating span {\n    font-size: 11px;\n    font-weight: bold;\n    vertical-align: middle; }\n\n.mobile-head__toggle {\n  text-align: center;\n  font-size: 13px;\n  font-family: Helvetica, sans-serif;\n  margin-bottom: 30px; }\n  .mobile-head__toggle a {\n    display: inline-block;\n    color: #ffffff;\n    background-color: #000;\n    padding: 12px 0;\n    width: 100px;\n    border: none;\n    outline: none;\n    cursor: pointer; }\n  .mobile-head__toggle .active {\n    background-color: #F2504A; }\n\n.carousel-cast__container {\n  border-top: 1px solid #eee;\n  border-bottom: 1px solid #eee;\n  padding: 25px 10px;\n  overflow: scroll;\n  white-space: nowrap; }\n  .carousel-cast__container::-webkit-scrollbar {\n    display: none; }\n\n.carousel-cast__item {\n  display: inline-block;\n  width: 100px;\n  min-height: 220px;\n  margin-right: 20px;\n  vertical-align: top;\n  border: 1px solid #eee;\n  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.6); }\n  .carousel-cast__item img {\n    display: inline-block;\n    width: 100%; }\n\n.carousel-cast__info--names {\n  white-space: normal;\n  padding: 5px 7px; }\n  .carousel-cast__info--names p {\n    font: bold 13px/15px Helvetica, sans-serif; }\n  .carousel-cast__info--names span {\n    font: normal 11px Helvetica, sans-serif;\n    color: #777; }\n\n.movie-body__information {\n  padding: 15px;\n  font-family: Helvetica, sans-serif; }\n  .movie-body__information h3 {\n    font-size: 18px;\n    line-height: 30px;\n    color: #777;\n    letter-spacing: 1px;\n    margin-bottom: 15px;\n    border-bottom: 1px solid #eee; }\n  .movie-body__information p {\n    margin-bottom: 20px;\n    font-size: 14px;\n    line-height: 140%; }\n    .movie-body__information p:last-child {\n      margin-bottom: 0; }\n\n.movie-body__meta--container {\n  border-bottom: 1px solid #eee;\n  padding: 0 0 15px 0; }\n  .movie-body__meta--container h3 {\n    font-size: 17px;\n    line-height: 30px;\n    letter-spacing: 1px;\n    color: red;\n    border-bottom: 1px solid #eee; }\n\n.movie-body__meta--items {\n  margin-left: 25px;\n  padding: 10px 0; }\n  .movie-body__meta--items li {\n    margin: 15px 0; }\n    .movie-body__meta--items li span {\n      font-size: 14px;\n      color: #777; }\n      .movie-body__meta--items li span:first-child {\n        font-weight: bold;\n        color: #000; }\n    .movie-body__meta--items li:first-child {\n      margin-top: 0; }\n    .movie-body__meta--items li:last-child {\n      margin-bottom: 0; }\n\n.movie-body__meta--link {\n  color: red;\n  line-height: 135%; }\n  .movie-body__meta--link a {\n    font-size: 14px; }\n\n.movie-trailers__container {\n  margin-top: 25px;\n  padding: 15px;\n  font-family: Helvetica, sans-serif;\n  border-bottom: 1px solid #eee; }\n  .movie-trailers__container h3 {\n    font-size: 17px;\n    line-height: 30px;\n    letter-spacing: 1px;\n    color: red;\n    border-bottom: 1px solid #eee; }\n\n.movie-trailers__carousel {\n  padding: 20px 0;\n  min-height: 150px;\n  overflow: scroll;\n  white-space: nowrap;\n  text-align: center; }\n\n.movie-trailers__carousel--item {\n  display: inline-block;\n  border: 1px solid #000;\n  width: 190px;\n  height: 150px;\n  margin: 5px;\n  vertical-align: top; }\n  .movie-trailers__carousel--item:first-child {\n    margin-left: 5px; }\n  .movie-trailers__carousel--item img {\n    display: block;\n    width: 100%;\n    height: 100%; }\n", ""]);
+exports.push([module.i, "html, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1;\n  height: 100%; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\na {\n  text-decoration: none;\n  color: inherit; }\n\n* {\n  box-sizing: border-box;\n  font-family: Helvetica, sans-serif; }\n\nimg {\n  width: 100%; }\n\n.container {\n  display: block;\n  width: 100%;\n  margin-bottom: 20px; }\n\n.nav-header, .nav-header--detail {\n  display: block;\n  width: 100%;\n  margin: 0 auto;\n  min-height: 50px;\n  border-bottom: 1px solid #eee;\n  box-shadow: 0px -1px 9px 0px rgba(0, 0, 0, 0.6); }\n  .nav-header:after, .nav-header--detail:after {\n    content: '';\n    visibility: hidden;\n    clear: both; }\n  .nav-header nav, .nav-header--detail nav {\n    display: inline; }\n\n.nav-header--detail {\n  position: absolute;\n  box-shadow: none;\n  border: none;\n  z-index: 5; }\n  .nav-header--detail .mobile-return--btn {\n    color: #ffffff; }\n  .nav-header--detail #mobile-menu {\n    color: #ffffff; }\n\n.modal-backdrop {\n  position: fixed;\n  top: 0;\n  right: 0;\n  left: 0;\n  bottom: 0;\n  width: 100%;\n  height: 100%;\n  background-color: #999;\n  opacity: 0.5; }\n\n.trailer-modal {\n  position: fixed;\n  top: 30%;\n  left: 0;\n  right: 0;\n  z-index: 100;\n  margin: 0 auto;\n  width: 92%; }\n\n.trailer-modal__header {\n  display: block;\n  position: relative;\n  padding: 20px 0 20px 10px;\n  text-align: left;\n  border: 1px solid #eee;\n  background-color: #ffffff; }\n  .trailer-modal__header p {\n    display: inline-block;\n    width: 70%;\n    overflow: scroll;\n    text-overflow: ellipsis;\n    vertical-align: middle;\n    font-size: 15px;\n    color: #000; }\n  .trailer-modal__header button {\n    position: absolute;\n    top: 20px;\n    right: 8px;\n    outline: none;\n    background-color: inherit;\n    border: none;\n    color: red; }\n    .trailer-modal__header button span:after {\n      content: 'x';\n      font-weight: bold;\n      font-size: inherit;\n      margin-left: 5px;\n      color: #000; }\n\n.trailer-modal__content iframe {\n  display: block;\n  width: 100%;\n  min-height: 180px; }\n\n.search-container, .mobile-return--btn {\n  width: 50px;\n  display: inline-block;\n  vertical-align: middle;\n  text-align: center;\n  color: #333; }\n  .search-container .fa, .mobile-return--btn .fa {\n    font-size: 20px;\n    line-height: 50px; }\n\n.header-search__form {\n  position: relative;\n  width: 80%;\n  max-width: 450px;\n  margin: 0 auto; }\n\n#header-search {\n  position: absolute;\n  top: 50px;\n  display: none;\n  z-index: 5;\n  width: 100%;\n  text-align: center;\n  padding: 20px 0;\n  background-color: #f1f1f1;\n  border-top: 1px solid #ebebeb;\n  border-bottom: 1px solid #ebebeb; }\n  #header-search .header-search__input {\n    width: 100%;\n    padding: 10px 15px;\n    font: bold 14px \"Source Sans Pro\", Helvetica, sans-serif;\n    letter-spacing: 1px;\n    border: 1px solid #ccc;\n    outline: none; }\n  #header-search.active {\n    display: block; }\n\n.typeahead-form {\n  display: block;\n  width: 80%;\n  max-width: 450px;\n  margin: 0 auto;\n  padding: 15px 0;\n  border: 1px solid #ccc;\n  border-top: none;\n  background-color: #ffffff;\n  overflow-y: scroll;\n  text-align: left;\n  font-family: \"Source Sans Pro\", Helvetica, sans-serif; }\n  .typeahead-form p {\n    display: inline-block;\n    color: #000;\n    text-transform: capitalize; }\n  .typeahead-form li {\n    padding: 7px 0 3px 20px;\n    border-bottom: 1px solid #eee;\n    font-size: 14px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis; }\n    .typeahead-form li i {\n      margin-right: 10px;\n      font-size: 12px;\n      vertical-align: top; }\n    .typeahead-form li:last-child {\n      border-bottom: none; }\n  .typeahead-form h3 {\n    margin-left: 20px;\n    margin-bottom: 10px;\n    font-size: 15px;\n    font-weight: bold;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis; }\n\n#mobile-menu {\n  position: relative;\n  display: inline-block;\n  float: right;\n  padding: 15px;\n  text-align: center;\n  color: #333; }\n  #mobile-menu .fa {\n    font-size: 22px; }\n\n.nav-menu__container, .nav-menu__container.detail {\n  position: absolute;\n  top: 0;\n  display: none;\n  width: 270px;\n  height: 100%;\n  padding: 60px 25px 15px;\n  background-color: #081c24; }\n  .nav-menu__container.active {\n    display: block;\n    z-index: 10; }\n\n.detail.nav-menu__container {\n  border-right: 2px solid #eee; }\n\n.nav-menu__main {\n  font-family: \"Source Sans Pro\", Helvetica, sans-serif;\n  margin-bottom: 30px; }\n  .nav-menu__main li {\n    margin: 25px 0; }\n    .nav-menu__main li:first-child {\n      margin-top: 0; }\n    .nav-menu__main li a {\n      color: #ffffff;\n      letter-spacing: 1px;\n      font-family: Helvetica, sans-serif;\n      font-size: 18px; }\n\n.nav-menu__about {\n  font-family: \"Source Sans Pro\", Helvetica, sans-serif; }\n  .nav-menu__about li {\n    margin: 15px 0; }\n    .nav-menu__about li a {\n      color: #afafaf;\n      font-size: 15px;\n      font-weight: 400; }\n\n.attribute-credits {\n  display: block;\n  margin: 40px auto 0;\n  width: 200px; }\n  .attribute-credits img {\n    width: 100%;\n    padding: 20px; }\n\n/* End Nav Menu */\n/* Slide Index Carousel */\n.carousel-slider--container {\n  position: relative;\n  display: block;\n  width: 100%;\n  margin: 0 auto;\n  white-space: nowrap;\n  overflow-x: scroll;\n  border-bottom: 1px solid #eee;\n  padding-bottom: 20px; }\n  .carousel-slider--container::-webkit-scrollbar {\n    display: none; }\n\n.carousel-slider__item {\n  position: relative;\n  display: inline-block; }\n\n.slide-item__info--container {\n  position: absolute;\n  display: block;\n  margin: 0 auto;\n  width: 80%;\n  top: 25%;\n  left: 0;\n  right: 0;\n  font-family: \"Source Sans Pro\", Helvetica, sans-serif;\n  color: #ffffff; }\n\n.slide-item__title {\n  display: inline-block;\n  font-size: 25px;\n  line-height: 120%;\n  /* font-weight: bold; */\n  color: #ffffff;\n  text-transform: capitalize;\n  white-space: normal; }\n\n.slide-item__release {\n  font-size: 17px;\n  color: #ccc; }\n\n.slide-item__meta--info {\n  margin-top: 10px;\n  max-width: 70%;\n  white-space: normal; }\n  .slide-item__meta--info span {\n    color: #ffffff; }\n  .slide-item__meta--info .slide-item__meta--count {\n    display: inline-block;\n    padding: 4px;\n    min-width: 20px;\n    text-align: center;\n    font-size: 14px;\n    opacity: .8;\n    margin-right: 7px;\n    background-color: red; }\n  .slide-item__meta--info .slide-item__meta--rating {\n    font-size: 13px; }\n\n.carousel-slider--dots {\n  position: absolute;\n  display: inline-block;\n  display: none;\n  margin: 0 auto;\n  left: 0;\n  right: 0;\n  bottom: 8px;\n  text-align: center; }\n  .carousel-slider--dots li {\n    cursor: pointer;\n    display: inline-block;\n    margin: 0 10px; }\n    .carousel-slider--dots li:before {\n      content: ' ';\n      display: inline-block;\n      width: 10px;\n      height: 10px;\n      border-radius: 50%;\n      border: 1.5px solid #eee;\n      background-color: #aaa; }\n\n/* Index Container */\n.index-container {\n  margin: 0 auto;\n  display: block;\n  width: 100%; }\n\n.banner-block {\n  display: block;\n  width: 100%;\n  padding: 15px; }\n\n.index-container .index-promo {\n  padding: 30px 0;\n  text-align: center;\n  font-family: \"Source Sans Pro\", Helvetica, sans-serif;\n  color: #ffffff;\n  background-image: radial-gradient(at 30% top, #1f2849 0%, #081c24 70%); }\n  .index-container .index-promo h3 {\n    font-size: 22px;\n    font-weight: bold;\n    margin-bottom: 10px; }\n  .index-container .index-promo p {\n    font-weight: lighter;\n    font-size: 13px;\n    color: #2393C3;\n    text-transform: uppercase; }\n\n.index-movie__header {\n  display: block;\n  padding: 30px;\n  font-size: 22px;\n  font-family: \"Source Sans Pro\", Helvetica, sans-serif;\n  font-weight: bold; }\n\n.index-movies--title {\n  color: red;\n  font-family: \"Source Sans Pro\", Helvetica, sans-serif;\n  font-size: 18px;\n  margin-bottom: 10px; }\n\n.index-tile__container {\n  display: inline-block;\n  position: relative;\n  width: 130px;\n  height: auto;\n  margin: 0 10px;\n  vertical-align: top;\n  font-family: \"Source Sans Pro\", Helvetica, sans-serif; }\n  .index-tile__container:last-child {\n    margin-right: 20px; }\n\n.index-tile--title {\n  display: block;\n  width: inherit;\n  font-size: 16px;\n  font-weight: lighter;\n  line-height: 120%;\n  padding: 5px 0 0 5px;\n  white-space: normal; }\n\n.movie__hero--container {\n  position: relative; }\n  .movie__hero--container img {\n    max-height: 500px; }\n\n.movie__head {\n  padding-top: 10px;\n  position: absolute;\n  width: 95%;\n  max-width: 300px;\n  margin: 0 auto;\n  bottom: 1px;\n  left: 0;\n  right: 0;\n  border-bottom: 1px solid #eee;\n  background-color: #ffffff; }\n\n.movie__head--genre span {\n  padding: 0 10px 5px;\n  font-weight: 300;\n  font-family: \"Source Sans Pro\", Helvetica, sans-serif;\n  font-size: 16px;\n  color: #EB5757; }\n\n.movie__head--genre hr {\n  width: 30px;\n  height: 2px;\n  border: none;\n  margin-left: 0;\n  background-color: #aaa; }\n\n.movie__head--title {\n  margin-top: 5px;\n  padding: 0 10px;\n  font-family: \"Source Sans Pro\", Helvetica, sans-serif;\n  font-size: 24px;\n  text-align: center;\n  line-height: 100%;\n  color: #555; }\n  .movie__head--title p {\n    color: #999;\n    font-size: 12px;\n    font-style: italic; }\n\n.movie__head--meta {\n  width: 100%;\n  padding: 5px 15px;\n  margin-bottom: 10px; }\n  .movie__head--meta:after {\n    content: '';\n    visibility: hidden;\n    clear: both; }\n\n.movie__head--score {\n  display: inline-block;\n  font-family: \"Source Sans Pro\", Helvetica, sans-serif;\n  vertical-align: middle; }\n  .movie__head--score .btn-score {\n    display: inline-block;\n    width: 40px;\n    height: 40px;\n    padding: 11px 0;\n    font-size: 13px;\n    font-weight: bold;\n    text-align: center;\n    vertical-align: -webkit-baseline-middle;\n    letter-spacing: -1px;\n    border: 3px solid #ccc;\n    border-radius: 50%; }\n    .movie__head--score .btn-score:after {\n      /* content: '%'; */\n      margin-left: 1px; }\n  .movie__head--score .user-score {\n    margin-left: 7px;\n    font-size: 13px;\n    font-weight: bold;\n    vertical-align: -webkit-baseline-middle; }\n\n.movie__head--rating {\n  float: right;\n  margin-top: 5px;\n  border: 2px solid #000;\n  padding: 3px 10px;\n  font-family: \"Source Sans Pro\", Helvetica, sans-serif;\n  text-align: center; }\n  .movie__head--rating span {\n    font-size: 11px;\n    font-weight: bold;\n    vertical-align: middle; }\n\n.mobile-head__toggle {\n  text-align: center;\n  font-size: 13px;\n  font-family: \"Source Sans Pro\", Helvetica, sans-serif;\n  margin-bottom: 30px; }\n  .mobile-head__toggle a {\n    display: inline-block;\n    color: #ffffff;\n    background-color: #000;\n    padding: 12px 0;\n    width: 100px;\n    border: none;\n    outline: none;\n    cursor: pointer; }\n  .mobile-head__toggle .active {\n    background-color: #F2504A; }\n\n.carousel-cast__container {\n  border-bottom: 1px solid #eee;\n  padding: 0 10px 25px 10px;\n  overflow: scroll;\n  white-space: nowrap; }\n  .carousel-cast__container::-webkit-scrollbar {\n    display: none; }\n\n.carousel-cast__item {\n  display: inline-block;\n  width: 100px;\n  min-height: 220px;\n  margin-right: 20px;\n  vertical-align: top;\n  border: 1px solid #eee;\n  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.6); }\n  .carousel-cast__item img {\n    display: inline-block;\n    width: 100%; }\n\n.carousel-cast__info--names {\n  white-space: normal;\n  padding: 5px 7px; }\n  .carousel-cast__info--names p {\n    font: bold 13px/15px \"Source Sans Pro\", Helvetica, sans-serif; }\n  .carousel-cast__info--names span {\n    font: normal 11px \"Source Sans Pro\", Helvetica, sans-serif;\n    color: #777; }\n\n.movie-body__information {\n  padding: 15px;\n  font-family: \"Source Sans Pro\", Helvetica, sans-serif; }\n  .movie-body__information h3 {\n    font-size: 18px;\n    line-height: 30px;\n    color: #777;\n    letter-spacing: 1px;\n    margin-bottom: 15px;\n    border-bottom: 1px solid #eee; }\n  .movie-body__information p {\n    margin-bottom: 20px;\n    font-size: 15px;\n    line-height: 140%; }\n    .movie-body__information p:last-child {\n      margin-bottom: 0; }\n\n.movie-body__meta--container {\n  border-bottom: 1px solid #eee;\n  padding: 0 0 15px 0; }\n  .movie-body__meta--container h3 {\n    font-size: 17px;\n    line-height: 30px;\n    letter-spacing: 1px;\n    color: red;\n    border-bottom: 1px solid #eee; }\n\n.movie-body__meta--items {\n  margin-left: 20px;\n  padding: 10px 0; }\n  .movie-body__meta--items li {\n    margin: 15px 0; }\n    .movie-body__meta--items li span {\n      font-size: 14px;\n      color: #777; }\n      .movie-body__meta--items li span:first-child {\n        font-weight: bold;\n        color: #000; }\n    .movie-body__meta--items li:first-child {\n      margin-top: 0; }\n    .movie-body__meta--items li:last-child {\n      margin-bottom: 0; }\n\n.movie-body__meta--link {\n  color: red;\n  line-height: 135%; }\n  .movie-body__meta--link a {\n    font-size: 14px; }\n\n.movie-trailers__container {\n  margin-top: 25px;\n  padding: 15px;\n  font-family: \"Source Sans Pro\", Helvetica, sans-serif;\n  border-bottom: 1px solid #eee; }\n  .movie-trailers__container h3 {\n    font-size: 17px;\n    line-height: 30px;\n    letter-spacing: 1px;\n    color: red;\n    border-bottom: 1px solid #eee; }\n\n.movie-trailers__carousel {\n  padding: 20px 0;\n  min-height: 150px;\n  overflow: scroll;\n  white-space: nowrap;\n  text-align: center; }\n\n.movie-trailers__carousel--item {\n  display: inline-block;\n  border: 1px solid #000;\n  width: 190px;\n  height: 150px;\n  margin: 5px;\n  vertical-align: top; }\n  .movie-trailers__carousel--item:first-child {\n    margin-left: 5px; }\n  .movie-trailers__carousel--item img {\n    display: block;\n    width: 100%;\n    height: 100%; }\n\n.movie-detail__reviews {\n  display: block;\n  width: 90%;\n  margin: 0 auto;\n  font-family: \"Source Sans Pro\", Helvetica, sans-serif; }\n  .movie-detail__reviews h2 {\n    margin-bottom: 15px;\n    font-size: 18px; }\n\n.movie-detail__review--item {\n  position: relative;\n  padding: 15px;\n  margin-bottom: 30px;\n  border: 2px solid #eee;\n  max-height: 250px;\n  overflow: hidden; }\n  .movie-detail__review--item p {\n    line-height: 130%; }\n\n.movie-review__show-more {\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n  margin: 0 -15px;\n  padding: 10px;\n  font: lighter 18px \"Source Sans Pro\", Helvetica, sans-serif;\n  background-color: #ffffff;\n  border: none;\n  /* border-bottom: 1px solid #ccc; */\n  color: red;\n  outline: none; }\n\n.movie-detail__review--author {\n  margin-bottom: 10px;\n  color: #999; }\n  .movie-detail__review--author em {\n    color: #333;\n    font-weight: bold;\n    font-size: 16px; }\n\n.footer-main {\n  display: block;\n  width: 100%;\n  margin: 20px auto 0 auto;\n  padding: 50px 15px;\n  background-color: #f4645f; }\n\n.footer-credits {\n  margin-top: 10px;\n  margin-left: 5px; }\n  .footer-credits li {\n    margin-bottom: 15px;\n    font-size: 16px;\n    font-family: \"Source Sans Pro\", Helvetica, sans-serif;\n    color: #ffffff; }\n\n.footer-credits__cta--btn {\n  border: none;\n  border-radius: 3px;\n  min-width: 200px;\n  margin-bottom: 20px;\n  padding: 13px 0;\n  text-transform: uppercase;\n  font-weight: bold;\n  font-size: 14px;\n  letter-spacing: 1px;\n  background-color: #ffffff;\n  color: #555;\n  cursor: pointer;\n  outline: none; }\n", ""]);
 
 // exports
 

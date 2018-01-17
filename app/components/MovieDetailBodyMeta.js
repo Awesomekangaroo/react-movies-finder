@@ -23,6 +23,14 @@ class MovieDetailBodyMeta extends React.Component {
 							<span>Runtime: </span>
 							<span>{details.runtime} mins</span>
 						</li>
+						<li>
+							<span>Budget: </span>
+							<span>{details.budget}</span>
+						</li>
+						<li>
+							<span>Revenue: </span>
+							<span>{details.revenue}</span>
+						</li>
 						<li className="movie-body__meta--link">
 							<span>Visit homepage: </span>
 							<a target="_blank" href={details.homepage} title=

@@ -16,12 +16,13 @@ class MovieDetailHead extends React.Component {
 			<section className="container">
 				<div className="movie__hero--container">
 					<picture>
-						<source srcSet={`${imageBaseUrl}w640${details.poster_path}`} media="(max-width: 640px)"/>
+						<source srcSet={`${imageBaseUrl}w640${details.poster_path}`} media="(max-width: 460px)"/>
 						<img src={`${imageBaseUrl}w1280${details.backdrop_path}`} alt={ details.title }/>
 					</picture>
 					<div className="movie__head">
 						<div className="movie__head--genre">
-							<p>{details.genres[0].name}</p>
+							<span>{details.genres[0].name}</span>|
+							<span>{details.runtime} mins</span>
 							<hr/>
 						</div>
 						<header>

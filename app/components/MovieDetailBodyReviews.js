@@ -4,25 +4,30 @@ class MovieDetailBodyReviews extends React.Component {
 	constructor() {
 		super();
 		this.renderMovieReviews = this.renderMovieReviews.bind(this);
-		this.viewMoreOpen = this.viewMoreOpen.bind(this);
+		this.toggleShowMore = this.toggleShowMore.bind(this);
+		this.state = {
+			button: false
+		}
 	}
 
-	viewMoreOpen(key, event) {
+	toggleShowMore(key) {
 		console.log('You clicked view more: ', key);
-		console.log(event);
+
 		this.setState(prevState => ({
-			['showButton'+key]: !prevState
+			['button'+key]: !this.state.button[key]
 		}));
+
+		console.log(this.state);
 	}
 
 	renderMovieReviews(key) {
 		const review = this.props.info.reviews.results;
 		let button = null;
 		if (review[key].content.length > 100) {
-			button = <button className="movie-review__show-more" onClick={() => this.viewMoreOpen(key, event)}>Show More +</button>;
+			button = <button className="movie-review__show-more" onClick={() => this.toggleShowMore(key)}>Show More +</button>;
 		}
 		return(
-			<div key={key} className="movie-detail__review--item">
+			<div key={key} className={this.state.button[key] === true ? ' movie-detail__review--item active' : 'movie-detail__review--item'}>
 				<a href={review[key].url} target="_blank">
 					<h3 className="movie-detail__review--author">Review by <em>{review[key].author}</em></h3>
 				</a>

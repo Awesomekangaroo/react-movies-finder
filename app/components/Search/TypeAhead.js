@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const apiKey = "1ae83ca4d8a91826db50f652ef3e24de";
 
@@ -53,7 +54,9 @@ class TypeAhead extends React.Component {
 							Object.keys(this.state.searchResults).map(key => 
 								<li key={key}>
 									<i className="fa fa-search" aria-hidden="true"></i>
-									<p>{searchItem[key].title}</p>
+									<Link to={ {pathname: `/movie/${searchItem[key].id}/${searchItem[key].title}`, state: searchItem[key]} } >
+										<p>{searchItem[key].title}</p>
+									</Link>
 								</li>
 							)
 						}
