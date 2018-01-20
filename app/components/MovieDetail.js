@@ -7,6 +7,7 @@ import MovieDetailBodyMeta from './MovieDetailBodyMeta';
 import MovieDetailBodyTrailers from './MovieDetailBodyTrailers';
 import MovieDetailBodyReviews from './MovieDetailBodyReviews';
 import Footer from './Footer';
+import { getMovieQueryID } from '../helpers.js';
 
 const apiKey = "1ae83ca4d8a91826db50f652ef3e24de";
 
@@ -14,61 +15,69 @@ class MovieDetail extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			movieInfo: false
+			movieInfo: false,
+			inLocalStorage: ''
 		}
 	}
 
 	componentWillMount() {
+		const number = getMovieQueryID();
 		// Check if movieId is on local storage before AJAX call
-		const localStorageMovie = localStorage.getItem(`movieId-${this.props.location.state.id}`);
+		const localStorageMovie = localStorage.getItem(`movieId-${number}`);
 		if (localStorageMovie) {
 			this.setState({
-				movieInfo: localStorageMovie
+				movieInfo: JSON.parse(localStorageMovie),
+				movieIDNumber: number
+			});
+		} else {
+			this.setState({
+				inLocalStorage: false
 			});
 		}
 	}
 
 	componentDidMount() {
-		// Perform AJAX calls here
-		const movieId = this.props.location.state.id;
-		const getMovieDetails = "https://api.themoviedb.org/3/movie/" + movieId + "?api_key=" + apiKey + "&append_to_response=videos,images,credits,releases,reviews";
+		// Perform AJAX calls here if not in localStorage
+		if (this.state.inLocalStorage === false) {
+			console.log('Performing AJAX call')
+			const movieId = this.props.location.state.id;
+			const getMovieDetails = "https://api.themoviedb.org/3/movie/" + movieId + "?api_key=" + apiKey + "&append_to_response=videos,images,credits,releases,reviews";
 
-		// Get movie details on AJAX call
-		fetch(getMovieDetails)
-		.then(data => data.json())
-		.then(data => {
-			this.setState({
-				movieInfo: data
-			})
-		});
+			// Get movie details on AJAX call
+			fetch(getMovieDetails)
+			.then(data => data.json())
+			.then(data => {
+				this.setState({
+					movieInfo: data,
+					movieIDNumber: data.id
+				})
+			});
+		}
 	}
 
 	componentDidUpdate() {
 		const movieId = this.props.location.state.id;
 		// Add movieId to localStorage to preserve state on reload
-		localStorage.setItem(`movieId-${movieId}`, JSON.stringify(this.state));
+		localStorage.setItem(`movieId-${movieId}`, JSON.stringify(this.state.movieInfo));
 	}
 
 	componentWillUnmount() {
 		// Remove local storage object
-		localStorage.clear();
+		localStorage.removeItem(this.state.movieIDNumber);
 	}
 
 	render() {
 		const details = this.state.movieInfo;
-		console.log(details);
 		// Conditional rendering of components until API request complete.
 		if (this.state.movieInfo != false) {
 			return(
 				<div className="container">
 					<DetailHeader />
 					<MovieDetailHead info={details} />
-					<MovieDetailCast profile={details.credits.cast} />
+					<MovieDetailCast profile={details.credits} />
 					<MovieDetailBodyInfo info={details} />
 					<MovieDetailBodyMeta info={details} />
-					<MovieDetailBodyTrailers
-						videos={details.videos}
-					/> 
+					<MovieDetailBodyTrailers videos={details.videos} /> 
 					<MovieDetailBodyReviews info={details} />
 					<Footer />
 				</div>

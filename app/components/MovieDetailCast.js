@@ -8,12 +8,13 @@ class MovieDetailCast extends React.Component {
 
 	renderCastMembers(key) {
 		const profileBasePath = "https://image.tmdb.org/t/p/w92";
+		const member = this.props.profile.cast;
 		return(
 			<li key={key} className="carousel-cast__item">
-				<img src={profileBasePath + this.props.profile[key].profile_path} alt={'Image of ' + this.props.profile[key].name} />
+				<img src={profileBasePath + member[key].profile_path} alt={'Image of ' + member[key].name} />
 				<div className="carousel-cast__info--names">
-					<p>{ this.props.profile[key].name }</p>
-					<span>{ this.props.profile[key].character }</span>
+					<p>{ member[key].name }</p>
+					<span>{ member[key].character }</span>
 				</div>
 			</li>
 		)
@@ -24,7 +25,7 @@ class MovieDetailCast extends React.Component {
 			<div className="container movie-detail__cast--container">
 				<h3>Top Cast</h3>
 				<ol className="carousel-cast__container">
-					{ Object.keys(this.props.profile.slice(0, 8)).map(this.renderCastMembers) }
+					{ Object.keys(this.props.profile.cast.slice(0, 8)).map(this.renderCastMembers) }
 				</ol>
 			</div>
 		)

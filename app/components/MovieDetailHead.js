@@ -1,7 +1,6 @@
 import React from 'react';
 
 class MovieDetailHead extends React.Component {
-
 	constructor() {
 		super();
 		this.state = {
@@ -21,7 +20,7 @@ class MovieDetailHead extends React.Component {
 					</picture>
 					<div className="movie__head">
 						<div className="movie__head--genre">
-							<span>{details.genres[0].name}</span>|
+							<span>{details.genres[0].name}</span> |
 							<span>{details.runtime} mins</span>
 							<hr/>
 						</div>

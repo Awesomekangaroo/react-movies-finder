@@ -785,9 +785,9 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 	&.active {
 		max-height: none;
 		transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
-		.movie-review__show-more {
+		/* .movie-review__show-more {
 			display: none;
-		}	
+		}	 */
 	}
 }
 
