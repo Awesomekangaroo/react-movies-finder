@@ -20,7 +20,7 @@ class OpenModal extends React.Component {
 					</div>
 				</header>
 				<div className="trailer-modal__content">
-					<iframe src={"http://www.youtube.com/embed/" + this.props.video.key} allowFullScreen></iframe>
+					<iframe src={"http://www.youtube.com/embed/" + this.props.video.key} allowFullScreen="allowFullScreen" frameBorder="0"></iframe>
 				</div>
 			</div>
 		);

@@ -40,7 +40,7 @@ class MovieIndexFeed extends React.Component {
 	render() {
 		if (this.state.nowMovies) {
 			return(
-				<div className="carousel-slider--container">
+				<div className="slider-container">
 					<h2 className="index-movie__header">Now Playing</h2>
 					{ Object.keys(this.state.nowMovies).slice(0,10).map(this.renderMovieFeed) }
 				</div>

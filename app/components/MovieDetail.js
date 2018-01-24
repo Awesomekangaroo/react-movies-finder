@@ -21,8 +21,8 @@ class MovieDetail extends React.Component {
 	}
 
 	componentWillMount() {
-		const number = getMovieQueryID();
 		// Check if movieId is on local storage before AJAX call
+		const number = getMovieQueryID();
 		const localStorageMovie = localStorage.getItem(`movieId-${number}`);
 		if (localStorageMovie) {
 			this.setState({
@@ -39,7 +39,6 @@ class MovieDetail extends React.Component {
 	componentDidMount() {
 		// Perform AJAX calls here if not in localStorage
 		if (this.state.inLocalStorage === false) {
-			console.log('Performing AJAX call')
 			const movieId = this.props.location.state.id;
 			const getMovieDetails = "https://api.themoviedb.org/3/movie/" + movieId + "?api_key=" + apiKey + "&append_to_response=videos,images,credits,releases,reviews";
 

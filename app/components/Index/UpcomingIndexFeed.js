@@ -40,7 +40,7 @@ class UpcomingIndexFeed extends React.Component {
 	render() {
 		if (this.state.upcomingMovies) {
 			return(
-				<div className="carousel-slider--container">
+				<div className="slider-container">
 					<h2 className="index-movie__header">Upcoming</h2>
 					{ Object.keys(this.state.upcomingMovies).slice(0,10).map(this.renderUpcomingFeed) }
 				</div>
