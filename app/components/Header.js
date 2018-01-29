@@ -30,16 +30,18 @@ class Header extends React.Component {
 	render() {
 		return(
 			<div className="nav-header">
-				<div className="search-container" onClick={e=> this.addActiveClass2(e)}>
-					<i className="fa fa-search" aria-hidden="hidden"></i>
-				</div>
-				<HeaderSearch addActiveClass2={ this.state.isSearchActiveon } />
-				<nav>
-					<div id="mobile-menu" onClick={e=> this.addActiveClass(e)} >
-						<i className="fa fa-bars" aria-hidden="hidden"></i>
+				<div className="navigation-container">
+					<div className="search-container" onClick={e=> this.addActiveClass2(e)}>
+						<i className="fa fa-search" aria-hidden="hidden"></i>
 					</div>
-					<NavMenu addActiveClass={ this.state.isNavActiveOn } />
-				</nav>
+					<HeaderSearch addActiveClass2={ this.state.isSearchActiveon } />
+					<nav>
+						<div id="mobile-menu" onClick={e=> this.addActiveClass(e)} >
+							<i className="fa fa-bars" aria-hidden="hidden"></i>
+						</div>
+						<NavMenu addActiveClass={ this.state.isNavActiveOn } />
+					</nav>
+				</div>
 			</div>
 		)
 	}

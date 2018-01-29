@@ -70,14 +70,18 @@ class MovieDetail extends React.Component {
 		// Conditional rendering of components until API request complete.
 		if (this.state.movieInfo != false) {
 			return(
-				<div className="container">
+				<div className="movie-detail__container">
 					<DetailHeader />
 					<MovieDetailHead info={details} />
-					<MovieDetailCast profile={details.credits} />
-					<MovieDetailBodyInfo info={details} />
-					<MovieDetailBodyMeta info={details} />
-					<MovieDetailBodyTrailers videos={details.videos} /> 
-					<MovieDetailBodyReviews info={details} />
+					<div className="movie-detail__body two-third">
+						<MovieDetailCast profile={details.credits} />
+						<MovieDetailBodyInfo info={details} />
+						<MovieDetailBodyTrailers videos={details.videos} /> 
+						<MovieDetailBodyReviews info={details} />
+					</div>
+					<div className="one-third">
+						<MovieDetailBodyMeta info={details} />
+					</div>
 					<Footer />
 				</div>
 			)

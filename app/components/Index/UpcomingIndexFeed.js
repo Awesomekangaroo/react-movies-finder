@@ -40,10 +40,12 @@ class UpcomingIndexFeed extends React.Component {
 	render() {
 		if (this.state.upcomingMovies) {
 			return(
-				<div className="slider-container">
+				<section>
 					<h2 className="index-movie__header">Upcoming</h2>
-					{ Object.keys(this.state.upcomingMovies).slice(0,10).map(this.renderUpcomingFeed) }
-				</div>
+					<div className="slider-container">
+						{ Object.keys(this.state.upcomingMovies).slice(0,10).map(this.renderUpcomingFeed) }
+					</div>
+				</section>
 			)
 		} return('');
 	}
