@@ -109,6 +109,7 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 	right: 0;
 	left: 0;
 	bottom: 0;
+	z-index: 50;
 	width: 100%;
 	height: 100%;
 	background-color: #999;
@@ -117,9 +118,10 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 
 .trailer-modal {
 	position: fixed;
-	top: 30%;
+	top: 25%;
 	left: 0;
 	right: 0;
+	bottom: 0;
 	z-index: 100;
 	margin: 0 auto;
 	width: 92%;
@@ -135,10 +137,9 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 	p {
 		display: inline-block;
 		width: 70%;
-		overflow: scroll;
-		text-overflow: ellipsis;
+		white-space: normal;
 		vertical-align: middle;
-		font-size: 15px;
+		font-size: 18px;
 		color: #000;
 	}
 	button {
@@ -165,7 +166,7 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 	iframe {
 		display: block;
 		width: 100%;
-		min-height: 180px;
+		min-height: 220px;
 	}
 }
 
@@ -872,7 +873,7 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 	font-family: $font-stack-sans;
 	border-bottom: 1px solid #eee;
 	 h3 {
-		font-size: 17px;
+		font-size: 18px;
 		line-height: 30px;
 		letter-spacing: 1px;
 		color: red;
@@ -883,14 +884,13 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 .movie-trailers__carousel {
 	padding: 20px 0;
 	min-height: 150px;
-	overflow: scroll;
+	overflow-x: scroll;
 	white-space: nowrap;
 	text-align: center;
 }
 
 .movie-trailers__carousel--item {
 	display: inline-block;
-	border: 1px solid #000;
 	width: 190px;
 	height: 150px;
 	margin: 5px;

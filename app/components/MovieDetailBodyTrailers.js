@@ -9,50 +9,62 @@ class MovieDetailBodyTrailers extends React.Component {
 			isOpen: false
 		};
 
-		this.toggleModal = this.toggleModal.bind(this);
-		this.clickHandler = this.clickHandler.bind(this);
+		this.closeModal = this.closeModal.bind(this);
+		this.toggleBackdrop = this.toggleBackdrop.bind(this);
 		this.renderTrailerVideos = this.renderTrailerVideos.bind(this);
 	}
 
-	clickHandler(e, index) {
-		
-		// If modal not active, remove backdrop
+	toggleBackdrop(index) {
+		const modalBackdrop = document.createElement('div');
+		modalBackdrop.className = "modal-backdrop";
+
+		// If preview image clicked add backdrop, else remove backdrop
+		if (!this.state.isOpen) {
+			document.body.prepend(modalBackdrop);
+			console.log('First block');
+		} else {
+			const backdrop = document.body.querySelectorAll('.modal-backdrop');
+			backdrop[0].parentNode.removeChild(backdrop[0]);
+			console.log(backdrop, 'Second block');
+		}
+
 		this.setState({ 
 			activeModal: index,
 			isOpen: true
 		});
-
-		if (this.state.isOpen === false) {
-			const modalBackdrop = document.createElement('div');
-			modalBackdrop.className = "modal-backdrop";
-			document.body.appendChild(modalBackdrop);
-		} else {
-			const modalBackdrop = document.querySelector(".modal-backdrop");
-			modalBackdrop.parentNode.removeChild(modalBackdrop);
-		}
 	}
 
-	toggleModal(event) {
+	closeModal() {
 		// Change to show modal
+		console.log('you invoked closeModal');
+
 		this.setState({
-			activeModal: false,
 			isOpen: false
 		});
+
+		// Invoke method to remove backdrop
+		this.toggleBackdrop();
+	}
+
+	componentWillUnmount() {
+		// Remove backdrop on page leave
+		// this.toggleBackdrop();
 	}
 
 	renderTrailerVideos(key) {
 		const trailer = this.props.videos.results;
 		return(
-			<li key={key} className="movie-trailers__carousel--item" onClick={(e) => this.clickHandler(e, key)}>
-				{/* Open modal on click */}
-				<img src={"https://i.ytimg.com/vi/" + trailer[key].key + "/sddefault.jpg"} alt={trailer[key].name} />
+			<div key={key} className="movie-trailers__carousel--item">
+				<li onClick={() => this.toggleBackdrop(key)}>
+					{/* Open modal on click */}
+					<img src={"https://i.ytimg.com/vi/" + trailer[key].key + "/sddefault.jpg"} alt={trailer[key].name} />
+				</li>
 				<OpenModal
-					video={trailer[key]}
-					show={this.state.activeModal === key}
-					isOpen={this.state.isOpen}
-					toggleModal={this.toggleModal}
+					video={ trailer[key] }
+					show={ this.state.activeModal === key }
+					closeModal={ this.closeModal }
 				/>
-			</li>
+			</div>
 		)
 	}
 
