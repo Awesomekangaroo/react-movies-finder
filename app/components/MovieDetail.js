@@ -73,14 +73,16 @@ class MovieDetail extends React.Component {
 				<div className="movie-detail__container">
 					<DetailHeader />
 					<MovieDetailHead info={details} />
-					<div className="movie-detail__body two-third">
-						<MovieDetailCast profile={details.credits} />
-						<MovieDetailBodyInfo info={details} />
-						<MovieDetailBodyTrailers videos={details.videos} /> 
-						<MovieDetailBodyReviews info={details} />
-					</div>
-					<div className="one-third">
-						<MovieDetailBodyMeta info={details} />
+					<div className="movie-detail__body">
+						<div className="two-third column">
+							<MovieDetailCast profile={details.credits} />
+							<MovieDetailBodyInfo info={details} />
+							<MovieDetailBodyTrailers videos={details.videos} /> 
+							<MovieDetailBodyReviews info={details} />
+						</div>
+						<div className="one-third column">
+							<MovieDetailBodyMeta info={details} />
+						</div>
 					</div>
 					<Footer />
 				</div>

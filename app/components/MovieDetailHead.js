@@ -13,14 +13,14 @@ class MovieDetailHead extends React.Component {
 		const imageBaseUrl = "https://image.tmdb.org/t/p/";
 		return(
 			<section className="container">
-				<div className="movie__hero--container">
-					<picture>
-						<source srcSet={`${imageBaseUrl}w640${details.backdrop_path}`} media="(max-width: 460px)"/>
-						<img src={`${imageBaseUrl}w1280${details.backdrop_path}`} alt={ details.title }/>
-					</picture>
+				<div className="movie__hero--container" style={{ backgroundImage: `url'(${imageBaseUrl}w1280${details.backdrop_path})'` }}>
+					<img className="show-mobile" src={`${imageBaseUrl}w1280${details.backdrop_path}`} alt={ details.title }/>
 					<div className="movie__head">
 						<div className="movie__head--poster">
-							<img src={`${imageBaseUrl}w154${details.poster_path}`} alt={ details.title }/>
+							<picture>
+								<source srcSet={`${imageBaseUrl}w640${details.poster_path}`} media="(min-width: 767px)"/>
+								<img src={`${imageBaseUrl}w154${details.poster_path}`} alt={ details.title }/>
+							</picture>
 						</div>
 						<header className="movie__head-top">
 							<div className="movie__head--genre">
@@ -39,6 +39,9 @@ class MovieDetailHead extends React.Component {
 							</div>
 							<div className="movie__head--rating">
 								<span>Rated: </span><span>PG</span>
+							</div>
+							<div className="hide-mobile movie__head-overview">
+								<p>{details.overview}</p>
 							</div>
 						</div>
 						<div className="mobile-head__toggle">

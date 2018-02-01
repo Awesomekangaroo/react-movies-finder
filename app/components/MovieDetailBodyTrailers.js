@@ -24,8 +24,8 @@ class MovieDetailBodyTrailers extends React.Component {
 			console.log('First block');
 		} else {
 			const backdrop = document.body.querySelectorAll('.modal-backdrop');
-			backdrop[0].parentNode.removeChild(backdrop[0]);
 			console.log(backdrop, 'Second block');
+			backdrop[0].parentNode.removeChild(backdrop[0]);
 		}
 
 		this.setState({ 
@@ -41,9 +41,13 @@ class MovieDetailBodyTrailers extends React.Component {
 		this.setState({
 			isOpen: false
 		});
-
+		console.log(this.state);
 		// Invoke method to remove backdrop
 		this.toggleBackdrop();
+	}
+
+	componentDidUpdate(prevState) {
+		console.log('From componentDidupdate',prevState);
 	}
 
 	componentWillUnmount() {

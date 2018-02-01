@@ -12,9 +12,6 @@ class NavMenu extends React.Component {
 						<a href="">Movies</a>
 					</li>
 					<li>
-						<a href="">Discover TV Shows</a>
-					</li>
-					<li>
 						<a href="">Latest</a>
 					</li>
 				</ul>

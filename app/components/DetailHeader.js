@@ -3,7 +3,6 @@ import NavMenu from './NavMenu';
 import { Link } from 'react-router-dom';
 
 class DetailHeader extends React.Component {
-
 	constructor() {
 		super();
 		this.state= {
@@ -23,20 +22,20 @@ class DetailHeader extends React.Component {
 	render() {
 		return(
 			<div className="nav-header--detail">
-				{/* Add back arrow to previous state */}
-				<div className="mobile-return--btn">
-					<i className="fa fa-chevron-left" aria-hidden="hidden"></i>
-				</div>
-				<nav>
-					<div id="mobile-menu" onClick={e=> this.addActiveClass(e)} >
-						<i className="fa fa-bars" aria-hidden="hidden"></i>
+				<div className="navigation-container">
+					<div className="mobile-return--btn">
+						<i className="fa fa-chevron-left" aria-hidden="hidden"></i>
 					</div>
-					<NavMenu addDetailClass={ this.state.isNavActiveOn } />
-				</nav>
+					<nav>
+						<div id="mobile-menu" onClick={e=> this.addActiveClass(e)} >
+							<i className="fa fa-bars" aria-hidden="hidden"></i>
+						</div>
+						<NavMenu addDetailClass={ this.state.isNavActiveOn } />
+					</nav>
+				</div>
 			</div>
 		)
 	}
-
 }
 
 export default DetailHeader;

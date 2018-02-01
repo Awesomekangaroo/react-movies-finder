@@ -51,7 +51,7 @@ a {
 	font-family: Helvetica, sans-serif;
 }
 ::-webkit-scrollbar {
-	display: none;
+	// display: none;
 }
 
 img {
@@ -64,6 +64,18 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 	display: block;
 	width: 100%;
 	margin-bottom: 20px;
+}
+
+.hide-mobile {
+	display: none;
+}
+
+.show-mobile {
+	display: block;
+}
+
+.column {
+	padding: 0 15px;
 }
 
 .nav-header {
@@ -124,7 +136,8 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 	bottom: 0;
 	z-index: 100;
 	margin: 0 auto;
-	width: 92%;
+	width: 90%;
+	max-width: 550px;
 }
 
 .trailer-modal__header {
@@ -618,7 +631,6 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 	display: block;
 	margin: 0 auto;
 	width: 100%;
-	max-width: 1000px;
 }
 
 .movie__hero--container {
@@ -626,6 +638,7 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 	position: relative;
 	margin: 0 auto;
 	width: 100%;
+	background-image: none;
 }
 
 .movie__head {
@@ -636,6 +649,7 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 	margin: -25px auto 0px auto;
 	border: 1px solid #eee;
 	background-color: #ffffff;
+	font-family: $font-stack-sans;
 }
 
 .movie__head-top {
@@ -704,8 +718,7 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 		display: inline-block;
 		width: 40px;
 		height: 40px;
-		padding: 11px 0;
-		font-size: 13px;
+		padding: 8px 0;
 		font-weight: bold;
 		text-align: center;
 		vertical-align: -webkit-baseline-middle;
@@ -761,13 +774,12 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 
 .carousel-cast__container {
 	border-bottom: 1px solid #eee;
-	padding: 0 10px 25px 10px;
-	overflow: scroll;
+	padding-bottom: 25px;
+	overflow-x: scroll;
 	white-space: nowrap;
 }
 
 .movie-detail__cast--container {
-	overflow-x: scroll;
 	font-family: $font-stack-sans;
 	h3 {
 		margin-left: 15px;
@@ -805,7 +817,6 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 }
 
 .movie-body__information {
-	padding: 15px;
 	font-family: $font-stack-sans;
 	h3 {
 		font-size: 18px;
@@ -869,7 +880,6 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 
 .movie-trailers__container {
 	margin-top: 25px;
-	padding: 15px;
 	font-family: $font-stack-sans;
 	border-bottom: 1px solid #eee;
 	 h3 {
@@ -907,7 +917,6 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 
 .movie-detail__reviews {
 	display: block;
-	width: 90%;
 	margin: 0 auto;
 	font-family: $font-stack-sans;
 	h2 {
@@ -1127,16 +1136,104 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 		width: 66%;
 	}
 
+	.show-mobile {
+		display: none;
+	}
+
+	.hide-mobile {
+		display: block;
+	}
+
 	/* Movie Detail  */
+	.nav-header--detail {
+		position: unset;
+		margin-bottom: 0;
+		background-color: #f5f5f5;
+		box-shadow: 0 2px 4px 0 rgba(0,0,0,0.08);
+		.mobile-return--btn {
+			color: #000;
+		}
+		.nav-menu__main {
+			li a {
+				font-size: 18px;
+				color: #000;
+			}
+		}
+	}
+
 	.movie__hero--container {
-		max-width: 1000px;
-		margin-bottom: 30px;
+		background-image: url('https://image.tmdb.org/t/p/w1280/umC04Cozevu8nn3JTDJ1pc7PVTn.jpg');
+		background-position: 50% 50%;
+		background-repeat: no-repeat;
+		background-size: cover;
+		padding: 75px;
 	}
 
 	.movie__head {
-		position: absolute;
-		right: 20px;
-		bottom: 0;
+		margin: 0 auto;
+		padding: 0;
+		max-width: 1000px;
+		border: none;
+		background: none;
+		&:after {
+			content: ' ';
+			clear: both;
+			display: block;
+			visibility: hidden;
+		}
+	}
+
+	.movie__head--poster {
+		margin: 0;
+		max-width: 200px;
+		left: 0;
+		float: left;
+	}
+
+	.movie__head-top {
+		margin: 0 25px;
+		text-align: unset;
+	}
+
+	.movie__head-overview {
+		margin: 15px 0;
+		color: #ffffff;
+		line-height: 130%;
+	}
+
+	.movie__head--genre {
+		span {
+			padding: 0;
+			font-size: 16px;
+		}
+	}
+
+	.movie__head--title {
+		padding: 0;
+		margin-bottom: 15px;
+		h2 {
+			font-size: 36px;
+			color: #ffffff;
+		}
+		p {
+			font-size: 16px;
+			color: #ffffff;
+		}
+	}
+
+	.movie__head--meta {
+		display: inline-block;
+		width: 70%;
+		margin: 10px 25px;
+		padding: 0;
+		max-width: 450px;
+	}
+
+	.btn-score {
+		color: #ffffff;
+		span {
+			font-size: 18px;
+		}
 	}
 
 	.movie-trailers__carousel--item {
@@ -1151,7 +1248,10 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 	}
 
 	.movie-detail__body {
-		padding: 0 15px;
+		display: block;
+		margin: 0 auto;
+		max-width: 1000px;
+		width: 100%;
 	}
 
 	.movie-body__meta--container  {
@@ -1167,5 +1267,9 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 				font-size: 16px;
 			}
 		}
+	}
+
+	.trailer-modal__content iframe {
+		min-height: 300px;
 	}
 }
