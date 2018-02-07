@@ -1,4 +1,5 @@
 import React from 'react';
+import ShareButtons from './ShareButtons';
 
 class MovieDetailHead extends React.Component {
 	constructor() {
@@ -11,10 +12,12 @@ class MovieDetailHead extends React.Component {
 	render() {
 		const details = this.props.info;
 		const imageBaseUrl = "https://image.tmdb.org/t/p/";
+		const bgImage = { backgroundImage: `url(${imageBaseUrl}w1280${details.backdrop_path})` }
+
 		return(
 			<section className="container">
-				<div className="movie__hero--container" style={{ backgroundImage: `url'(${imageBaseUrl}w1280${details.backdrop_path})'` }}>
-					<img className="show-mobile" src={`${imageBaseUrl}w1280${details.backdrop_path}`} alt={ details.title }/>
+				<div className="movie__hero--container" style={ bgImage }>
+					<img className="show-mobile" src={`${imageBaseUrl}w1280${details.backdrop_path}`} alt={ `Backdrop image of ${details.title}` }/>
 					<div className="movie__head">
 						<div className="movie__head--poster">
 							<picture>
@@ -31,6 +34,9 @@ class MovieDetailHead extends React.Component {
 								<h2>{details.title}</h2>
 								<p>{details.tagline}</p>
 							</div>
+							<div className="movie__head-share hide-mobile">
+								<ShareButtons name={details.title} icons={['twitter', 'facebook']} />
+							</div>
 						</header>
 						<div className="movie__head--meta">
 							<div className="movie__head--score">
@@ -44,7 +50,7 @@ class MovieDetailHead extends React.Component {
 								<p>{details.overview}</p>
 							</div>
 						</div>
-						<div className="mobile-head__toggle">
+						<div className="mobile-head__toggle show-mobile">
 							<a className="active">INFO</a>
 							<a target="_blank" href={"https://www.google.com/search?q=" + details.title + "+showtimes"}>TICKETS</a>
 						</div>

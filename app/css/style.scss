@@ -208,6 +208,7 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 	display: none;
 	z-index: 7;
 	width: 100%;
+	max-width: 500px;
 	text-align: center;
 	padding: 20px 0;
 	background-color: #f1f1f1;
@@ -683,6 +684,7 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 }
 
 .movie__head--title {
+	display: inline-block;
 	font-family: $font-stack-sans;
 	padding: 0 15px;
 	h2 {
@@ -1144,6 +1146,14 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 		display: block;
 	}
 
+	#header-search {
+		padding: 15px 0;
+	}
+
+	.header-search__form {
+		width: 100%;
+	}
+
 	/* Movie Detail  */
 	.nav-header--detail {
 		position: unset;
@@ -1162,8 +1172,7 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 	}
 
 	.movie__hero--container {
-		background-image: url('https://image.tmdb.org/t/p/w1280/umC04Cozevu8nn3JTDJ1pc7PVTn.jpg');
-		background-position: 50% 50%;
+		background-position: top;
 		background-repeat: no-repeat;
 		background-size: cover;
 		padding: 75px;
@@ -1171,10 +1180,11 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 
 	.movie__head {
 		margin: 0 auto;
-		padding: 0;
+		padding: 10px;
 		max-width: 1000px;
 		border: none;
-		background: none;
+		background: -webkit-linear-gradientlinear-gradient(to top, transparent 0, rgba(0, 0, 0, 0.8) 100%), -webkit-linear-gradientlinear-gradient(to bottom, transparent 0, rgba(50, 44, 30, 0.5) 100%);
+		background: linear-gradient(to top, transparent 0, rgba(0, 0, 0, 0.8) 100%), linear-gradient(to bottom, transparent 0, rgba(50, 44, 30, 0.5) 100%);
 		&:after {
 			content: ' ';
 			clear: both;
@@ -1204,7 +1214,8 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 	.movie__head--genre {
 		span {
 			padding: 0;
-			font-size: 16px;
+			font-size: 15px;
+			font-weight: bold;
 		}
 	}
 
@@ -1227,12 +1238,21 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 		margin: 10px 25px;
 		padding: 0;
 		max-width: 450px;
+		color: #ffffff;
 	}
 
-	.btn-score {
-		color: #ffffff;
+	.movie__head--score {
+		.btn-score {
+			font-size: 17px;
+		}
+		.user-score {
+			font-size: 16px;
+		}
+	}
+
+	.movie__head--rating {
 		span {
-			font-size: 18px;
+			font-size: 15px;
 		}
 	}
 
@@ -1271,5 +1291,22 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 
 	.trailer-modal__content iframe {
 		min-height: 300px;
+	}
+
+	.movie__head-share .share-social {
+		position: absolute;
+		right: 30px;
+		top: 20px;
+		li {
+			display: inline-block;
+			color: #ffffff;
+			margin-right: 20px;
+			font-size: 22px;
+			cursor: pointer;
+		}
+	}
+
+	.footer-main {
+		padding: 50px 100px;
 	}
 }

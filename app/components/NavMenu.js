@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class NavMenu extends React.Component {
 	render() {
@@ -6,21 +7,20 @@ class NavMenu extends React.Component {
 			<div className={"nav-menu__container" + ((this.props.addActiveClass) ? ' active' : (this.props.addDetailClass) ? ' active detail' : '')}>
 				<ul className="nav-menu__main">
 					<li>
-						<a href="">Search</a>
+						<Link to={{pathname: '/'}}>
+							Search
+						</Link>
 					</li>
 					<li>
-						<a href="">Movies</a>
-					</li>
-					<li>
-						<a href="">Latest</a>
+						<a href="http://www.themoviedb.org" target="_blank">Movies</a>
 					</li>
 				</ul>
 				<ul className="nav-menu__about">
 					<li>
-						<a href="">About the API</a>
+						<a href="https://developers.themoviedb.org/3" target="_blank">About the API</a>
 					</li>
 					<li>
-						<a href="">More about developer</a>
+						<a href="https://www.eloydev.com">More about developer</a>
 					</li>
 				</ul>
 				<div className="attribute-credits">
