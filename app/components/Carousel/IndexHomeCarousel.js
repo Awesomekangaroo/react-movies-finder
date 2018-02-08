@@ -9,13 +9,13 @@ class IndexHomeCarousel extends React.Component {
 		super();
 		this.state = {
 			popularMovies: false,
-			activeIndex: 0,
-			slideCount: 0
+			activeIndex: 0
 		}
 		this.goToSlide = this.goToSlide.bind(this);
 		this.renderSlideDots = this.renderSlideDots.bind(this);
 		this.goToPrevSlide = this.goToPrevSlide.bind(this);
 		this.goToNextSlide = this.goToNextSlide.bind(this);
+		this.timer = this.timer.bind(this);
 	}
 
 	componentDidMount() {
@@ -27,19 +27,29 @@ class IndexHomeCarousel extends React.Component {
 				popularMovies: data.results
 			})
 		});
+
+		// Invoke carousel slider timer
+		setInterval(() => this.timer(), 8500);
 	}
+
+	componentWillUnmount() {
+		// Clear the interval timer on component leave
+		clearInterval(this.timer());
+	}
+	
+	timer() {
+		// If index greater than slide count reset to 0
+		let index = this.state.activeIndex;
+		index >= 4 ? this.setState({ activeIndex: 0 }) : this.setState({ activeIndex: ++index });
+	}
+
 
 	goToPrevSlide(e) {
 		e.preventDefault();
+		// Only go to previous slide if not the min slide count
 		let index = this.state.activeIndex;
-		let {slides} = this.props;
-		let slidesLength = slides.length;
 
-		if (index < 1) {
-			index = slidesLength;
-		}
-
-		--index;
+		index <= 0 ? '' : --index;
 
 		this.setState({
 			activeIndex: index
@@ -48,16 +58,10 @@ class IndexHomeCarousel extends React.Component {
 
 	goToNextSlide(e) {
 		e.preventDefault();
-
+		// Only go to next slide if not the max slide count
 		let index = this.state.activeIndex;
-		let {slides} = this.props;
-		let slidesLength = slides.length - 1;
 
-		if (index === slidesLength) {
-			index = -1;
-		}
-
-		++index;
+		index >= 4 ? '' : ++index;
 
 		this.setState({
 			activeIndex: index

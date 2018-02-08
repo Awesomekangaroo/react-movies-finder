@@ -3,21 +3,17 @@ import React from 'react';
 class MovieDetailBodyReviews extends React.Component {
 	constructor() {
 		super();
-		this.renderMovieReviews = this.renderMovieReviews.bind(this);
-		this.toggleShowMore = this.toggleShowMore.bind(this);
 		this.state = {
 			button: false
 		}
+		this.renderMovieReviews = this.renderMovieReviews.bind(this);
+		this.toggleShowMore = this.toggleShowMore.bind(this);
 	}
 
 	toggleShowMore(key) {
-		console.log('You clicked view more: ', key);
-
 		this.setState(prevState => ({
-			['button'+key]: !this.state.button[key]
+			['button' + key]: !prevState['button' + key]
 		}));
-
-		console.log(this.state);
 	}
 
 	renderMovieReviews(key) {
@@ -27,8 +23,8 @@ class MovieDetailBodyReviews extends React.Component {
 			button = <button className="movie-review__show-more" onClick={() => this.toggleShowMore(key)}>Show More +</button>;
 		}
 		return(
-			<div key={key} className={this.state.button[key] === true ? ' movie-detail__review--item active' : 'movie-detail__review--item'}>
-				<a href={review[key].url} target="_blank">
+			<div key={key} className={this.state['button' + key] ? ' movie-detail__review--item active' : 'movie-detail__review--item'}>
+				<a href={review[key].url} target="_blank" title="Author's external review">
 					<h3 className="movie-detail__review--author">Review by <em>{review[key].author}</em></h3>
 				</a>
 				<p>{review[key].content}</p>

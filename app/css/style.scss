@@ -78,6 +78,10 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 	padding: 0 15px;
 }
 
+.primary-link {
+	color: red;
+}
+
 .nav-header {
 	display: block;
 	width: 100%;
@@ -655,7 +659,7 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 
 .movie__head-top {
 	display: inline-block;
-	width: 65%;
+	width: 50%;
 	text-align: center;
 	vertical-align: top;
 }
@@ -855,14 +859,6 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 	padding: 10px 0;
 	li {
 		margin: 15px 0;
-		span {
-			font-size: 14px;
-			color: #777;
-			&:first-child {
-				font-weight: bold;
-				color: #000;
-			}
-		}
 		&:first-child {
 			margin-top: 0;
 		}
@@ -872,11 +868,26 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 	}
 }
 
-.movie-body__meta--link {
-	color: red;
-	line-height: 135%;
-	a {
-		font-size: 14px;
+.movie-body__meta--detail, .movie-body__meta--info {
+	display: inline-block;
+	width: 50%;
+	max-width: 300px;
+	vertical-align: top;
+}
+
+.movie-body__meta--detail {
+	span {
+		font-size: 16px;
+		color: #333;
+	}
+}
+
+.movie-body__meta--info {
+	padding-left: 10px;
+	line-height: 110%;
+	span {
+		font-weight: bold;
+		font-size: 16px;
 	}
 }
 
@@ -941,9 +952,9 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 	&.active {
 		max-height: none;
 		transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
-		/* .movie-review__show-more {
+		.movie-review__show-more {
 			display: none;
-		}	 */
+		}
 	}
 }
 
@@ -953,12 +964,17 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 	width: 100%;
 	margin: 0 -15px;
 	padding: 10px;
-	font: lighter 18px $font-stack-sans;
+	font: normal 14px $font-stack-sans;
 	background-color: #ffffff;
 	border: none;
-	border-bottom: 1px solid #ccc;
+    // background: -moz-linear-gradient(top,rgba(255,255,255,0) 0,rgba(255,255,255,0) 20%,rgba(255,255,255,.9) 85%,#fff 100%);
+    // background: -webkit-gradient(linear,left top,left bottom,color-stop(0,rgba(255,255,255,0)),color-stop(20%,rgba(255,255,255,0)),color-stop(85%,#fff),color-stop(100%,#fff));
+    // background: -webkit-linear-gradient(top,rgba(255,255,255,0) 0,rgba(255,255,255,0) 20%,rgba(255,255,255,.9) 85%,#fff 100%);
+    // background: -ms-linear-gradient(top,rgba(255,255,255,0) 0,rgba(255,255,255,0) 20%,rgba(255,255,255,.9) 85%,#fff 100%);
+    // background: linear-gradient(to bottom,rgba(255,255,255,0) 0,rgba(255,255,255,0) 20%,rgba(255,255,255,.9) 85%,#fff 100%);
 	color: red;
 	outline: none;
+	cursor: pointer;
 }
 
 .movie-detail__review--author {
@@ -1027,7 +1043,8 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 	}
 
 	.nav-header {
-		margin-bottom: 15px;
+		margin-bottom: 10px;
+		background-color: #081c24;
 		&:after {
 			display: block;
 			content: '';
@@ -1042,7 +1059,11 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 			li a {
 				color: #ffffff;
 			}
-		}		
+		}
+	}
+
+	.search-container {
+		color: #ffffff;
 	}
 
 	.nav-menu__main {
@@ -1051,7 +1072,6 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 			display: inline-block;
 			margin: 0 10px;
 			a {
-				color: #000;
 				font-size: 15px;
 			}
 		}
@@ -1154,6 +1174,10 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 		width: 100%;
 	}
 
+	.navigation-container {
+		padding: 15px 0;
+	}
+
 	/* Movie Detail  */
 	.nav-header--detail {
 		position: unset;
@@ -1165,7 +1189,7 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 		}
 		.nav-menu__main {
 			li a {
-				font-size: 18px;
+				font-size: 15px;
 				color: #000;
 			}
 		}
@@ -1234,7 +1258,7 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 
 	.movie__head--meta {
 		display: inline-block;
-		width: 70%;
+		width: 50%;
 		margin: 10px 25px;
 		padding: 0;
 		max-width: 450px;
@@ -1278,15 +1302,6 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 		background-color: #eee;
 		min-height: 500px;
 		padding: 15px;
-	}
-
-	.movie-body__meta--items {
-		li {
-			span {
-				display: block;
-				font-size: 16px;
-			}
-		}
 	}
 
 	.trailer-modal__content iframe {
