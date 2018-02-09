@@ -208,7 +208,7 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 
 #header-search {
 	position: absolute;
-	top: 50px;
+	top: 81px;
 	display: none;
 	z-index: 7;
 	width: 100%;
@@ -664,6 +664,26 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 	vertical-align: top;
 }
 
+.movie__head-share {
+	display: inline-block;
+	width: 50%;
+	text-align: right;
+	.share-social {
+		li {
+			display: inline-block;
+			margin: 0 7px;
+			color: #777;
+			cursor: pointer;
+			&:last-child {
+				margin-right: 0;
+			}
+			&:hover {
+				color: #ffffff;
+			}
+		}
+	}
+}
+
 .movie__head--poster {
 	position: relative;
 	display: inline-block;
@@ -843,8 +863,10 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 }
 
 .movie-body__meta--container {
+	margin: 0 -15px;
+	padding: 15px 0;
+	background-color: #ececee;
 	border-bottom: 1px solid #eee;
-	padding: 0 0 15px 0;
 	h3 {
 		font-size: 17px;
 		line-height: 30px;
@@ -868,14 +890,14 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 	}
 }
 
-.movie-body__meta--detail, .movie-body__meta--info {
+.movie-body__meta--label, .movie-body__meta--info {
 	display: inline-block;
 	width: 50%;
 	max-width: 300px;
 	vertical-align: top;
 }
 
-.movie-body__meta--detail {
+.movie-body__meta--label {
 	span {
 		font-size: 16px;
 		color: #333;
@@ -884,10 +906,17 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 
 .movie-body__meta--info {
 	padding-left: 10px;
-	line-height: 110%;
+	line-height: 100%;
+	font-weight: bold;
 	span {
-		font-weight: bold;
 		font-size: 16px;
+	}
+	.fa {
+		margin-left: 5px;
+		color: #777;
+	}
+	p {
+		margin-bottom: 0;
 	}
 }
 
@@ -897,6 +926,7 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 	border-bottom: 1px solid #eee;
 	 h3 {
 		font-size: 18px;
+		font-weight: bold;
 		line-height: 30px;
 		letter-spacing: 1px;
 		color: red;
@@ -935,6 +965,7 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 	h2 {
 		margin-bottom: 15px;
 		font-size: 18px;
+		font-weight: bold;
 	}
 }
 
@@ -1265,6 +1296,16 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 		color: #ffffff;
 	}
 
+	.movie-body__meta--label, .movie-body__meta--info {
+		display: block;
+		width: 100%;
+		margin-bottom: 3px;
+	}
+
+	.movie-body__meta--info {
+		padding-left: 0;
+	}
+
 	.movie__head--score {
 		.btn-score {
 			font-size: 17px;
@@ -1298,27 +1339,14 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 		width: 100%;
 	}
 
-	.movie-body__meta--container  {
-		background-color: #eee;
+	.movie-body__meta--container {
+		margin: 0;
 		min-height: 500px;
 		padding: 15px;
 	}
 
 	.trailer-modal__content iframe {
 		min-height: 300px;
-	}
-
-	.movie__head-share .share-social {
-		position: absolute;
-		right: 30px;
-		top: 20px;
-		li {
-			display: inline-block;
-			color: #ffffff;
-			margin-right: 20px;
-			font-size: 22px;
-			cursor: pointer;
-		}
 	}
 
 	.footer-main {

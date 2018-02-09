@@ -1,5 +1,5 @@
 import React from 'react';
-// import ShareButtons from './ShareButtons';
+import ShareButtons from './ShareButtons';
 
 class MovieDetailHead extends React.Component {
 	constructor() {
@@ -34,17 +34,14 @@ class MovieDetailHead extends React.Component {
 								<h2>{details.title}</h2>
 								<p>{details.tagline}</p>
 							</div>
-{/*							<div className="movie__head-share hide-mobile">
-								<ShareButtons name={details.title} icons={['twitter', 'facebook']} />
-							</div>*/}
 						</header>
 						<div className="movie__head--meta">
 							<div className="movie__head--score">
 								<div className="btn-score"><span>{details.vote_average}</span></div>
 								<span className="user-score">User Score</span>
 							</div>
-							<div className="movie__head--rating">
-								<span>Rated: </span><span>PG</span>
+							<div className="movie__head-share">
+								<ShareButtons name={details.title} icons={['twitter', 'facebook']} />
 							</div>
 							<div className="hide-mobile movie__head-overview">
 								<p>{details.overview}</p>
