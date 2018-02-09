@@ -8,7 +8,7 @@ class NavMenu extends React.Component {
 				<ul className="nav-menu__main">
 					<li>
 						<Link to={{pathname: '/'}}>
-							Search
+							Home
 						</Link>
 					</li>
 					<li>

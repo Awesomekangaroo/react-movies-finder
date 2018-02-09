@@ -167,6 +167,7 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 		background-color: inherit;
 		border: none;
 		color: red;
+		cursor: pointer;
 		span {
 			&:after {
 				content: 'x';

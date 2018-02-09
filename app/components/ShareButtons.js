@@ -12,7 +12,6 @@ class ShareButtons extends React.Component {
 	renderSocialIcons(key) {
 		// Display social icons based on props argument
 		const icons = this.props.icons;
-		console.log(icons)
 		return(
 			<li key={key}>
 				<i className={`fa fa-${icons[key]}`} aria-hidden="hidden"></i>

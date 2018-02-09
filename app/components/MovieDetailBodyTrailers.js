@@ -5,49 +5,10 @@ class MovieDetailBodyTrailers extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			activeModal: false,
-			isOpen: false
+			activeModal: false
 		};
-
-		this.closeModal = this.closeModal.bind(this);
-		this.toggleBackdrop = this.toggleBackdrop.bind(this);
 		this.renderTrailerVideos = this.renderTrailerVideos.bind(this);
-	}
-
-	toggleBackdrop(index) {
-		const modalBackdrop = document.createElement('div');
-		modalBackdrop.className = "modal-backdrop";
-
-		// If preview image clicked add backdrop, else remove backdrop
-		if (!this.state.isOpen) {
-			document.body.prepend(modalBackdrop);
-			console.log('First block');
-		} else {
-			const backdrop = document.body.querySelectorAll('.modal-backdrop');
-			console.log(backdrop, 'Second block');
-			backdrop[0].parentNode.removeChild(backdrop[0]);
-		}
-
-		this.setState({ 
-			activeModal: index,
-			isOpen: true
-		});
-	}
-
-	closeModal() {
-		// Change to show modal
-		console.log('you invoked closeModal');
-
-		this.setState({
-			isOpen: false
-		});
-		console.log(this.state);
-		// Invoke method to remove backdrop
-		this.toggleBackdrop();
-	}
-
-	componentDidUpdate(prevState) {
-		console.log('From componentDidupdate',prevState);
+		this.closeModal = this.closeModal.bind(this);
 	}
 
 	componentWillUnmount() {
@@ -55,18 +16,24 @@ class MovieDetailBodyTrailers extends React.Component {
 		// this.toggleBackdrop();
 	}
 
+	closeModal() {
+		console.log('You closed modal from Trailers component');
+		this.setState({
+			activeModal: false
+		})
+	}
+
 	renderTrailerVideos(key) {
 		const trailer = this.props.videos.results;
 		return(
 			<div key={key} className="movie-trailers__carousel--item">
-				<li onClick={() => this.toggleBackdrop(key)}>
-					{/* Open modal on click */}
+				<li onClick={() => this.setState({ activeModal: key })}>
 					<img src={"https://i.ytimg.com/vi/" + trailer[key].key + "/sddefault.jpg"} alt={trailer[key].name} />
 				</li>
 				<OpenModal
 					video={ trailer[key] }
 					show={ this.state.activeModal === key }
-					closeModal={ this.closeModal }
+					close={ this.closeModal }
 				/>
 			</div>
 		)

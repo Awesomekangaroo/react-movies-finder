@@ -69,9 +69,7 @@ class MovieDetailBodyMeta extends React.Component {
 								<span>Companies: </span>
 							</div>
 							<div className="movie-body__meta--info">
-								{
-									details.production_companies.map(item => <p>{item.name}</p>)
-								}
+								{ details.production_companies.map(item => <p key={item.id}>{item.name}</p>) }
 							</div>
 						</li>
 					</ul>
