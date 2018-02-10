@@ -111,6 +111,7 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 	box-shadow: none;
 	border: none;
 	z-index: 5;
+	height: 100%;
 	.mobile-return--btn {
 		color: #ffffff;
 	}
@@ -209,7 +210,7 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 
 #header-search {
 	position: absolute;
-	top: 81px;
+	top: 50px;
 	display: none;
 	z-index: 7;
 	width: 100%;
@@ -305,7 +306,7 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 .nav-menu__container.detail {
 	@extend .nav-menu__container;
 	border-right: 2px solid #eee;
-	height: inherit;
+	height: 100%;
 }
 
 .nav-menu__main {
@@ -408,7 +409,7 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 	}
 }
 
-.slide-item__info--container {
+.slide-item__info {
 	position: absolute;
 	display: block;
 	margin: 0 auto;
@@ -644,7 +645,7 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 	position: relative;
 	margin: 0 auto;
 	width: 100%;
-	background-image: none;
+    background-size: 0;
 }
 
 .movie__head {
@@ -865,7 +866,7 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 
 .movie-body__meta--container {
 	margin: 0 -15px;
-	padding: 15px 0;
+	padding: 15px;
 	background-color: #ececee;
 	border-bottom: 1px solid #eee;
 	h3 {
@@ -900,6 +901,7 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 
 .movie-body__meta--label {
 	span {
+		font-weight: lighter;
 		font-size: 16px;
 		color: #333;
 	}
@@ -1087,6 +1089,7 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 	}
 
 	.nav-header--detail {
+		height: inherit;
 		.nav-menu__main {
 			li a {
 				color: #ffffff;
@@ -1200,6 +1203,7 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 
 	#header-search {
 		padding: 15px 0;
+		top: 81px;
 	}
 
 	.header-search__form {

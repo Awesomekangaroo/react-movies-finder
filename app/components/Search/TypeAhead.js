@@ -55,7 +55,7 @@ class TypeAhead extends React.Component {
 								<li key={key}>
 									<i className="fa fa-search" aria-hidden="true"></i>
 									<Link to={ {pathname: `/movie/${searchItem[key].id}/${searchItem[key].title}`, state: searchItem[key]} } >
-										<p>{searchItem[key].title}</p>
+										<p>{searchItem[key].title || searchItem[key].name}</p>
 									</Link>
 								</li>
 							)

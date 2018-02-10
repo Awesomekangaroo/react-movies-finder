@@ -19,7 +19,7 @@ class MovieDetailBodyReviews extends React.Component {
 	renderMovieReviews(key) {
 		const review = this.props.info.reviews.results;
 		let button = null;
-		if (review[key].content.length > 100) {
+		if (review[key].content.length > 300) {
 			button = <button className="movie-review__show-more" onClick={() => this.toggleShowMore(key)}>Show More +</button>;
 		}
 		return(

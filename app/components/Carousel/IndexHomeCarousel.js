@@ -29,12 +29,12 @@ class IndexHomeCarousel extends React.Component {
 		});
 
 		// Invoke carousel slider timer
-		setInterval(() => this.timer(), 8500);
+		setInterval(this.timer, 8500);
 	}
 
 	componentWillUnmount() {
 		// Clear the interval timer on component leave
-		clearInterval(this.timer());
+		clearInterval(this.timer);
 	}
 	
 	timer() {
