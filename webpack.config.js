@@ -12,7 +12,10 @@ module.exports = {
 		rules: [
 			{
 				test: /\.scss$/,
-				use: ['style-loader', 'css-loader', 'sass-loader']
+				use: ExtractTextPlugin.extract({
+					fallback: 'style-loader',
+					use: ['css-loader', 'sass-loader']
+				})
 			},
 			{
 				test: /\.js$/,
@@ -30,11 +33,10 @@ module.exports = {
 			filename: 'index.html',
 			inject: 'body'
 		}),
-		// new ExtractTextPlugin({
-		// 	filename: 'style.css',
-		// 	disable: true,
-		// 	allChunks: true
-		// }),
+		new ExtractTextPlugin({
+			filename: 'style.css',
+			allChunks: true
+		}),
 		new webpack.HotModuleReplacementPlugin(),
 		new webpack.NamedModulesPlugin()
 	]
