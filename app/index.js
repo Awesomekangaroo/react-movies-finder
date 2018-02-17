@@ -4,7 +4,7 @@ import { HashRouter, Route, Switch } from 'react-router-dom';
 import App from './components/App';
 import IndexHome from './components/IndexHome';
 import NotFound from './components/NotFound';
-import MovieDetail from './components/MovieDetail';
+import MovieDetail from './components/MovieDetails/MovieDetail';
 import css from './css/style.scss';
 
 const Root = () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import OpenModal from './OpenModal';
+import OpenModal from './../OpenModal';
 
 class MovieDetailBodyTrailers extends React.Component {
 	constructor(props) {
@@ -11,13 +11,7 @@ class MovieDetailBodyTrailers extends React.Component {
 		this.closeModal = this.closeModal.bind(this);
 	}
 
-	componentWillUnmount() {
-		// Remove backdrop on page leave
-		// this.toggleBackdrop();
-	}
-
 	closeModal() {
-		console.log('You closed modal from Trailers component');
 		this.setState({
 			activeModal: false
 		})

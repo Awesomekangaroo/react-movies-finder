@@ -1,13 +1,13 @@
 import React from 'react';
-import DetailHeader from './DetailHeader';
+import DetailHeader from '../DetailHeader';
 import MovieDetailHead from './MovieDetailHead';
 import MovieDetailCast from './MovieDetailCast';
 import MovieDetailBodyInfo from './MovieDetailBodyInfo';
 import MovieDetailBodyMeta from './MovieDetailBodyMeta';
 import MovieDetailBodyTrailers from './MovieDetailBodyTrailers';
 import MovieDetailBodyReviews from './MovieDetailBodyReviews';
-import Footer from './Footer';
-import { getMovieQueryID } from '../helpers.js';
+import Footer from './../Footer';
+import { getMovieQueryID } from '../../helpers.js';
 
 const apiKey = "1ae83ca4d8a91826db50f652ef3e24de";
 

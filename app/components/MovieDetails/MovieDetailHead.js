@@ -1,5 +1,5 @@
 import React from 'react';
-import ShareButtons from './ShareButtons';
+import ShareButtons from './../ShareButtons';
 
 class MovieDetailHead extends React.Component {
 	constructor() {

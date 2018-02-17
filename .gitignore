@@ -2,3 +2,4 @@ node_modules/
 .sass-cache
 style.css.map
 /mockup/*
+.DS_Store
