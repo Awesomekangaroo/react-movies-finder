@@ -52,6 +52,8 @@ class MovieDetail extends React.Component {
 				})
 			});
 		}
+
+		fetch('https://5otlxfklk0.execute-api.us-east-1.amazonaws.com/prod/getTMDBinfo');
 	}
 
 	componentDidUpdate() {

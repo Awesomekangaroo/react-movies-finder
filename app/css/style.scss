@@ -368,7 +368,7 @@ $font-stack-sans: 'Source Sans Pro', Helvetica, sans-serif;
 .slider-container {
 	@extend .carousel-slider--container;
 	padding-bottom: 20px;
-	overflow-x: scroll;
+	overflow-x: scroll !important;
 }
 
 .carousel-slider__item {
