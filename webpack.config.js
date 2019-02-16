@@ -24,7 +24,7 @@ module.exports = {
 		]
 	},
 	devServer: {
-		hot: true
+    hot: true,
 	},
 	plugins: [
 		new HTMLWebpackPlugin({

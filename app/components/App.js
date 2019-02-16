@@ -1,25 +1,15 @@
-import React from 'react';
-import Routes from '../index';
-import Header from './Header';
-import IndexHome from './IndexHome';
-import Footer from './Footer';
+import React, { PureComponent } from 'react';
+import Layout from './layout/Layout';
+import IndexHome from './Index/IndexHome';
 
-class App extends React.Component {
-	constructor() {
-		super();
-	}
-
-	render() {
-		return(
-			<div className="react-app">
-				<Header />
-				<div className="index-container">
-					<IndexHome />
-				</div>
-				<Footer />
-			</div>
-		)
-	}
+class App extends PureComponent {
+  render() {
+    return (
+      <Layout >
+        <IndexHome />
+      </Layout>
+    )
+  }
 }
 
 export default App;

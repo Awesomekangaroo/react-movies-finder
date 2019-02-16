@@ -1,32 +1,27 @@
 {
   "name": "react-movies",
   "version": "1.0.0",
-  "description": "React movie finder",
+  "description": "ReactJs Movie Search app",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server",
-    "build": "webpack"
+    "start": "webpack-dev-server --mode development --hot",
+    "build": "webpack --mode production --output-path='./public'"
   },
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Awesomekangaroo/react-movies-finder.git"
+    "type": "git"
   },
   "author": "Eloy",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Awesomekangaroo/react-movies-finder/issues"
-  },
-  "homepage": "https://github.com/Awesomekangaroo/react-movies-finder#readme",
   "dependencies": {
-    "concurrently": "^3.5.0",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "react-router-dom": "^4.2.2",
-    "react-scripts": "^1.0.14"
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
+    "react-router-dom": "^4.3.1"
   },
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.4",
     "babel-preset-react": "^6.24.1",
     "css-hot-loader": "^1.3.6",
     "css-loader": "^0.28.8",
