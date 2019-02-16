@@ -2,7 +2,6 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, Switch } from 'react-router-dom';
 import App from './components/App';
-import IndexHome from './components/IndexHome';
 import NotFound from './components/NotFound';
 import MovieDetail from './components/MovieDetails/MovieDetail';
 import css from './css/sass/style.scss';

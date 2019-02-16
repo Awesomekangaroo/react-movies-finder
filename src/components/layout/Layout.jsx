@@ -15,8 +15,8 @@ class Layout extends PureComponent {
   }
 };
 
-Layout.PropTypes = {
-  children: propTypes.any
+Layout.propTypes = {
+  children: PropTypes.any
 };
 
 export default Layout;

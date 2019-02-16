@@ -5,7 +5,7 @@ import IndexHome from './Index/IndexHome';
 class App extends PureComponent {
   render() {
     return (
-      <Layout >
+      <Layout>
         <IndexHome />
       </Layout>
     )

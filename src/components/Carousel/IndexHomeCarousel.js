@@ -49,7 +49,7 @@ class IndexHomeCarousel extends React.Component {
 		// Only go to previous slide if not the min slide count
 		let index = this.state.activeIndex;
 
-		index <= 0 ? '' : --index;
+		// index <= 0 ? '' : --index;
 
 		this.setState({
 			activeIndex: index
@@ -61,7 +61,7 @@ class IndexHomeCarousel extends React.Component {
 		// Only go to next slide if not the max slide count
 		let index = this.state.activeIndex;
 
-		index >= 4 ? '' : ++index;
+		// index >= 4 ? '' : ++index;
 
 		this.setState({
 			activeIndex: index

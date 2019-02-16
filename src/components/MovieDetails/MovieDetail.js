@@ -1,4 +1,5 @@
 import React from 'react';
+
 import DetailHeader from '../DetailHeader';
 import MovieDetailHead from './MovieDetailHead';
 import MovieDetailCast from './MovieDetailCast';
@@ -7,9 +8,8 @@ import MovieDetailBodyMeta from './MovieDetailBodyMeta';
 import MovieDetailBodyTrailers from './MovieDetailBodyTrailers';
 import MovieDetailBodyReviews from './MovieDetailBodyReviews';
 import Footer from './../Footer';
-import { getMovieQueryID } from '../../helpers.js';
 
-const apiKey = "1ae83ca4d8a91826db50f652ef3e24de";
+// const apiKey = "1ae83ca4d8a91826db50f652ef3e24de";
 
 class MovieDetail extends React.Component {
 	constructor(props) {
@@ -22,12 +22,11 @@ class MovieDetail extends React.Component {
 
 	componentWillMount() {
 		// Check if movieId is on local storage before AJAX call
-		const number = getMovieQueryID();
-		const localStorageMovie = localStorage.getItem(`movieId-${number}`);
+		const localStorageMovie = localStorage.getItem(`movieId-`);
 		if (localStorageMovie) {
 			this.setState({
 				movieInfo: JSON.parse(localStorageMovie),
-				movieIDNumber: number
+				movieIDNumber: 20
 			});
 		} else {
 			this.setState({
@@ -40,10 +39,10 @@ class MovieDetail extends React.Component {
 		// Perform AJAX calls here if not in localStorage
 		if (this.state.inLocalStorage === false) {
 			const movieId = this.props.location.state.id;
-			const getMovieDetails = "https://api.themoviedb.org/3/movie/" + movieId + "?api_key=" + apiKey + "&append_to_response=videos,images,credits,releases,reviews";
+			// const getMovieDetails = "https://api.themoviedb.org/3/movie/" + movieId + "?api_key=" + apiKey + "&append_to_response=videos,images,credits,releases,reviews";
 
 			// Get movie details on AJAX call
-			fetch(getMovieDetails)
+			fetch('')
 			.then(data => data.json())
 			.then(data => {
 				this.setState({

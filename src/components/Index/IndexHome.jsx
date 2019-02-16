@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import MovieIndexFeed from './MovieIndexFeed';
-import UpcomingIndexFeed from './Index/UpcomingIndexFeed';
-import IndexHomeCarousel from './Carousel/IndexHomeCarousel';
+import UpcomingIndexFeed from './UpcomingIndexFeed';
+import IndexHomeCarousel from '../Carousel/IndexHomeCarousel';
 import PromoBanner from './PromoBanner';
 
 class IndexHome extends PureComponent {
