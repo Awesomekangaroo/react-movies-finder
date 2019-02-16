@@ -1,8 +1,9 @@
-import React, { PureComponent } from 'react';
-import MovieIndexFeed from './MovieIndexFeed';
-import UpcomingIndexFeed from './UpcomingIndexFeed';
-import IndexHomeCarousel from '../Carousel/IndexHomeCarousel';
-import PromoBanner from './PromoBanner';
+import React, { PureComponent } from 'react'
+
+import MovieIndexFeed from './MovieIndexFeed'
+import UpcomingIndexFeed from './UpcomingIndexFeed'
+import IndexHomeCarousel from '../Carousel/IndexHomeCarousel'
+import PromoBanner from './PromoBanner'
 
 class IndexHome extends PureComponent {
   render() {
@@ -21,6 +22,6 @@ class IndexHome extends PureComponent {
       </div>
     )
   }
-};
+}
 
-export default IndexHome;
+export default IndexHome

@@ -1,7 +1,7 @@
-import React, { PureComponent, Fragment } from 'react';
-import Header from '../Header';
-import Footer from '../Footer';
-import PropTypes from 'prop-types';
+import React, { PureComponent, Fragment } from 'react'
+import Header from '../Header'
+import Footer from '../Footer'
+import PropTypes from 'prop-types'
 
 class Layout extends PureComponent {
   render() {
@@ -13,10 +13,10 @@ class Layout extends PureComponent {
       </Fragment>
     )
   }
-};
+}
 
 Layout.propTypes = {
   children: PropTypes.any
-};
+}
 
-export default Layout;
+export default Layout

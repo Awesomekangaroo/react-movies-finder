@@ -1,0 +1,11 @@
+@mixin reset-button {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+@mixin box-shadow($hor, $ver, $blur, $spread, $color) {
+  -webkit-box-shadow: $hor, $ver, $blur, $spread, $color;
+  -moz-box-shadow: $hor, $ver, $blur, $spread, $color;
+  box-shadow: $hor, $ver, $blur, $spread, $color;
+}
