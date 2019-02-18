@@ -1,6 +1,5 @@
 import React from 'react'
 import NavMenu from './NavMenu'
-import { Link } from 'react-router-dom'
 
 class DetailHeader extends React.Component {
 	constructor() {

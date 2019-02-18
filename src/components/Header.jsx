@@ -1,30 +1,30 @@
-import React from 'react'
-import NavMenu from './NavMenu'
-import HeaderSearch from './Search/HeaderSearch'
+import React from 'react';
+import NavMenu from './NavMenu';
+import HeaderSearch from './Search/HeaderSearch';
 
 class Header extends React.Component {
 	constructor() {
-		super()
+		super();
 		// check if search and menu have active class
 		this.state = { 
 			isNavActiveOn: false,
 			isSearchActiveon: false
 		}
-		this.addActiveClass = this.addActiveClass.bind(this)
-		this.addActiveClass2 = this.addActiveClass2.bind(this)
+		this.addActiveClass = this.addActiveClass.bind(this);
+		this.addActiveClass2 = this.addActiveClass2.bind(this);
 	}
 
 	addActiveClass(e) {
 		// add or remove class on click
 		this.setState(prevState => ({
 			isNavActiveOn: !prevState.isNavActiveOn,
-		}))
+		}));
 	}
 
 	addActiveClass2(e) {
 		this.setState(prevState => ({
 			isSearchActiveon: !prevState.isSearchActiveon
-		}))
+		}));
 	}
 
 	render() {
@@ -47,4 +47,4 @@ class Header extends React.Component {
 	}
 }
 
-export default Header
+export default Header;

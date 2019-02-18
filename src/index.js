@@ -6,6 +6,8 @@ import App from './components/App'
 import NotFound from './components/NotFound'
 import MovieDetail from './components/MovieDetails/MovieDetail'
 
+import './sass/global.scss'
+
 const Root = () => {
 	return (
 		<BrowserRouter>
