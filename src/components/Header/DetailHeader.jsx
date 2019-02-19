@@ -1,5 +1,5 @@
 import React from 'react'
-import NavMenu from './NavMenu'
+import NavMenu from './NavMenu';
 
 class DetailHeader extends React.Component {
 	constructor() {

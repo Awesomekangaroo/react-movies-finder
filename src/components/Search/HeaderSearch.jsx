@@ -1,42 +1,41 @@
-import React from 'react'
+import React, { Component } from 'react'
+
 import TypeAhead from './TypeAhead'
 
-class HeaderSearch extends React.Component {
+class HeaderSearch extends Component {
+  state = {
+    characters: 0,
+    query: ''
+  }
 
-	constructor() {
-		super()
-		this.state = {
-			characters: 0,
-			query: ''
-		}
-		this.getCharacterCount = this.getCharacterCount.bind(this)
-	}
+  getCharacterCount = e => {
+    if (e.target.value.length > 1) {
+      this.setState({
+        characters: e.target.value.length,
+        query: e.target.value
+      })
+      return
+    }
 
-	render() {
-		return(
-			<div id="header-search" className={this.props.addActiveClass2 ? 'active': ''}>
-				<form className="header-search__form" role="search">
-					<input className="header-search__input" type="search" placeholder="Search" title="search movie database" ref={val => this.input = val} onChange={this.getCharacterCount} />
-				</form>
-				{this.state.characters > 1 ? <TypeAhead query={this.state.query} /> : ''}
-			</div>
-		)
-	}
+    this.setState({
+      query: '',
+      characters: e.target.value.length
+    })
+  }
 
-	getCharacterCount(e) {
-		// Allow search query on change
-		if (this.input.value.length > 1) {
-			this.setState({
-				characters: this.input.value.length,
-				query: this.input.value
-			})
-		} else {
-			this.setState({
-				characters: 0,
-				query: ''
-			})
-		}
-	}
+  render() {
+    return (
+      <section id="header-search" className="active">
+        <form className="header-search__form" role="search">
+          <label htmlFor="movie-search" aria-label="search for movie"></label>
+          <input className="header-search__input" name="movie-search" type="text" placeholder="Search" title="Search for a movie" onChange={this.getCharacterCount} />
+        </form>
+
+        {this.state.characters > 1 ?
+          <TypeAhead query={this.state.query} /> : null}
+      </section>
+    )
+  }
 }
 
 export default HeaderSearch
