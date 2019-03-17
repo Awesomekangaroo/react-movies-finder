@@ -2,31 +2,60 @@ import React, { Component } from 'react';
 
 import NavMenu from './NavMenu';
 import HeaderSearch from '../Search/HeaderSearch'
-import { Logo } from '../../static/images/logo.svg'
+import { ReactComponent as Logo } from '../../static/images/logo.svg'
 
 class Header extends Component {
   state = {
-    isNavActiveOn: false,
-    isSearchActiveon: false
+    isNavOpen: false,
+    isSearchOpen: false
+  }
+
+  toggleSearch = () => {
+    this.setState(prevState => ({
+      isSearchOpen: !prevState.isSearchOpen
+    }))
+  }
+
+  toggleMenu = () => {
+    this.setState(prevState => ({
+      isNavOpen: !prevState.isNavOpen
+    }))
   }
 
   render() {
     return (
-      <div className="nav-header">
+      <nav>
         <div className="navigation-container">
-          <Logo />
-          <section className="search-container">
-            <i className="fa fa-search" aria-hidden="hidden"></i>
-          </section>
+          {/* <Logo /> */}
+          <div className="search-container">
+            <button
+              className="search-container__button"
+              type="button"
+              onClick={this.toggleMenu}
+              title="Open search"
+              aria-label="Open search"
+            >
+              Search container
+              <i className="fa fa-search" aria-hidden="hidden"></i>
+            </button>
+          </div>
+
           <HeaderSearch />
-          <nav>
-            <div id="mobile-menu" onClick={e => this.addActiveClass(e)} >
+
+          <div id="mobile-menu">
+            <button
+              type="button"
+              onClick={this.toggleSearch}
+              title="open menu"
+              aria-label="open menu"
+            >
               <i className="fa fa-bars" aria-hidden="hidden"></i>
-            </div>
-            <NavMenu />
-          </nav>
+            </button>
+          </div>
+
+          <NavMenu />
         </div>
-      </div>
+      </nav>
     )
   }
 }

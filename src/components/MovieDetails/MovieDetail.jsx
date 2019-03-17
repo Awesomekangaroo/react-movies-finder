@@ -1,6 +1,6 @@
 import React from 'react'
 
-import DetailHeader from '../DetailHeader'
+import DetailHeader from '../Header/DetailHeader'
 import MovieDetailHead from './MovieDetailHead'
 import MovieDetailCast from './MovieDetailCast'
 import MovieDetailBodyInfo from './MovieDetailBodyInfo'

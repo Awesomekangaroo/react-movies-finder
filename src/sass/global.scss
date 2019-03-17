@@ -80,27 +80,16 @@ img {
 	color: red;
 }
 
-.nav-header {
-	display: block;
+.navigation-container {
+  display: block;
+  margin: 0 auto;
 	width: 100%;
-	margin: 0 auto;
 	min-height: 50px;
   border-bottom: 1px solid #eee;
-  @include box-shadow(0px, -1px, 9px, 0px, rgba(0,0,0, 0.6));
-	&:after {
-		content: '';
-		visibility: hidden;
-		clear: both;
-	}
-	nav {
-		display: inline;
-	}
-}
+  background: #fff;
+  z-index: 100;
 
-.navigation-container {
-	max-width: 1250px;
-	display: block;
-	margin: 0 auto;
+  @include box-shadow(0px, -1px, 9px, 0px, rgba(0,0,0, 0.6));
 }
 
 .nav-header--detail {
@@ -187,12 +176,21 @@ img {
 	}
 }
 
-.search-container, .mobile-return--btn {
+.search-container {
+  width: 2rem;
+  
+  &__button {
+    cursor: pointer;
+  }
+}
+
+.mobile-return--btn {
 	width: 50px;
 	display: inline-block;
 	vertical-align: middle;
 	text-align: center;
-	color: #333;
+  color: #333;
+  
 	.fa {
 		font-size: 20px;
 		line-height: 50px;
@@ -1205,10 +1203,6 @@ img {
 
 	.header-search__form {
 		width: 100%;
-	}
-
-	.navigation-container {
-		padding: 15px 0;
 	}
 
 	/* Movie Detail  */

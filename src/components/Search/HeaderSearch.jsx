@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-
 import TypeAhead from './TypeAhead'
 
 class HeaderSearch extends Component {
@@ -8,7 +7,7 @@ class HeaderSearch extends Component {
     query: ''
   }
 
-  getCharacterCount = e => {
+  setCharacterCount = e => {
     if (e.target.value.length > 1) {
       this.setState({
         characters: e.target.value.length,
@@ -24,16 +23,32 @@ class HeaderSearch extends Component {
   }
 
   render() {
+    const {characters, query} = this.state
+
     return (
-      <section id="header-search" className="active">
+      <div id="header-search" className="active">
         <form className="header-search__form" role="search">
-          <label htmlFor="movie-search" aria-label="search for movie"></label>
-          <input className="header-search__input" name="movie-search" type="text" placeholder="Search" title="Search for a movie" onChange={this.getCharacterCount} />
+          <label
+            htmlFor="movie-search"
+            aria-label="search for movie"
+            hidden
+          >
+            Search movies
+          </label>
+          <input
+            className="header-search__input"
+            name="movie-search"
+            type="text"
+            placeholder="Search"
+            title="Search for a movie"
+            onChange={this.setCharacterCount}
+          />
         </form>
 
-        {this.state.characters > 1 ?
-          <TypeAhead query={this.state.query} /> : null}
-      </section>
+        {characters > 1 && (
+          <TypeAhead query={query} />
+        )}
+      </div>
     )
   }
 }
