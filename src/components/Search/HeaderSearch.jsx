@@ -26,7 +26,7 @@ class HeaderSearch extends Component {
     const {characters, query} = this.state
 
     return (
-      <div id="header-search" className="active">
+      <div className="header-search">
         <form className="header-search__form" role="search">
           <label
             htmlFor="movie-search"
@@ -37,6 +37,7 @@ class HeaderSearch extends Component {
           </label>
           <input
             className="header-search__input"
+            autoFocus
             name="movie-search"
             type="text"
             placeholder="Search"

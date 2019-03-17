@@ -16,7 +16,7 @@ class Header extends Component {
     }))
   }
 
-  toggleMenu = () => {
+  toggleMenu = e => {
     this.setState(prevState => ({
       isNavOpen: !prevState.isNavOpen
     }))
@@ -26,34 +26,40 @@ class Header extends Component {
     return (
       <nav>
         <div className="navigation-container">
-          {/* <Logo /> */}
-          <div className="search-container">
-            <button
-              className="search-container__button"
-              type="button"
-              onClick={this.toggleMenu}
-              title="Open search"
-              aria-label="Open search"
-            >
-              Search container
-              <i className="fa fa-search" aria-hidden="hidden"></i>
-            </button>
-          </div>
+          <button
+            className="search-container__button"
+            type="button"
+            onClick={this.toggleSearch}
+            title="Open search"
+            aria-label="Open search"
+          >
+            Search container
+            <i className="fa fa-search" aria-hidden="hidden"></i>
+          </button>
 
-          <HeaderSearch />
+          {this.state.isSearchOpen && (
+            <HeaderSearch />
+          )}
 
-          <div id="mobile-menu">
-            <button
-              type="button"
-              onClick={this.toggleSearch}
-              title="open menu"
-              aria-label="open menu"
-            >
-              <i className="fa fa-bars" aria-hidden="hidden"></i>
-            </button>
-          </div>
+          <Logo
+            className="navigation__logo"
+            role="img"
+          />
 
-          <NavMenu />
+          <button
+            className="mobile-menu__button"
+            type="button"
+            onClick={this.toggleMenu}
+            title="open menu"
+            aria-label="open menu"
+          >
+            Open menu
+            <i className="fa fa-bars" aria-hidden="hidden"></i>
+          </button>
+
+          {this.state.isNavOpen && (
+            <NavMenu toggleMenu={this.toggleMenu} />
+          )}
         </div>
       </nav>
     )
