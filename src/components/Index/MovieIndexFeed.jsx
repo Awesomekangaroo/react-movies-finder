@@ -1,54 +1,49 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react'
 
-const apiKey = "1ae83ca4d8a91826db50f652ef3e24de"
-const currentMoviesUrl = "https://api.themoviedb.org/3/movie/now_playing?api_key="+ apiKey + "&language=en-US&page=1"
+import MovieTile from './MovieTile'
 
-class MovieIndexFeed extends React.Component {
-	constructor() {
-		super()
-		this.state = {
-			nowMovies: false
-		}
-		this.renderMovieFeed = this.renderMovieFeed.bind(this)
-	}
+class MovieIndexFeed extends Component {
+  state = {
+    currentMovies: false
+  }
 
-	componentDidMount() {
-		//Search Latest Movies
-		fetch(currentMoviesUrl)
-		.then(data => data.json())
-		.then(data => {
-			this.setState({
-				nowMovies: data.results
-			})
-		})
-	}
+  componentDidMount() {
+    const apiKey = "1ae83ca4d8a91826db50f652ef3e24de"
+    const currentMoviesUrl = "https://api.themoviedb.org/3/movie/now_playing?api_key=" + apiKey + "&language=en-US&page=1"
 
-	renderMovieFeed(key) {
-		const details = this.state.nowMovies
-		const baseUrl = "https://image.tmdb.org/t/p/w154"
-		return(
-			<article key={key} className="index-tile__container">
-				<Link to={ {pathname: `/movie/${details[key].id}/${details[key].title}`, state: details[key]} }>
-					<img src={baseUrl + details[key].poster_path} alt={details[key].title}/>
-					<h2 className="index-tile--title">{details[key].title}</h2>
-				</Link>
-			</article>
-		)
-	}
-	
-	render() {
-		if (this.state.nowMovies) {
-			return(
-				<section>
-					<h2 className="index-movie__header">Now Playing</h2>
-					<div className="slider-container">
-						{ Object.keys(this.state.nowMovies).slice(0,10).map(this.renderMovieFeed) }
-					</div>
-				</section>
-			)
-		} return('')
-	}
+    fetch(currentMoviesUrl)
+      .then(data => data.json())
+      .then(data => {
+        this.setState({
+          currentMovies: data.results.slice(0, 10)
+        })
+      })
+  }
+
+  render() {
+    const { currentMovies } = this.state
+
+    return (
+      currentMovies && (
+        <section>
+          <h2 className="index-movie__header">Now Playing</h2>
+          <div className="slider-container">
+            <ul>
+              {currentMovies.map((movie, index) =>
+                <MovieTile 
+                  key={`movie-${index}-${movie.title}`}
+                  title={movie.title}
+                  id={movie.id}
+                  poster={movie.poster_path}
+                  element={'li'}
+                />
+              )}
+            </ul>
+          </div>
+        </section>
+      )
+    )
+  }
 }
 
 export default MovieIndexFeed

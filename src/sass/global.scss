@@ -285,6 +285,7 @@ img {
     top: 0;
     left: 0;
     width: 80%;
+    max-width: 400px;
     height: 100%;
     padding: 3rem 2rem;
     background-color: rgba(8, 28, 36, 1);
@@ -332,39 +333,43 @@ img {
 /* Slide Index Carousel */
 .carousel-slider--container {
 	position: relative;
-	display: block;
-	width: 100%;
+  width: 100%;
+  min-height: 20rem;
 	margin: 0 auto;
 	white-space: nowrap;
-	border-bottom: 1px solid #eee;
+  background: #000;
+  
 	ul {
-		padding: 0;
-		margin: 0;
 		list-style-type: none;
 	}
 }
 
 .slider-container {
-	@extend .carousel-slider--container;
+  position: relative;
+  width: 100%;
+  min-height: 20rem;
+	margin: 0 auto;
+	white-space: nowrap;
 	padding-bottom: 20px;
-	overflow-x: scroll !important;
+	overflow-x: scroll;
 }
 
-.carousel-slider__item {
+.carousel-slide__item {
 	position: relative;
 	display: none;
 	margin: 0 auto;
 	max-width: 750px;
-	text-align: center;
+  text-align: center;
+  
 	&.active {
 		display: block;
 	}
 }
 
 .slide-item__caption {
-	display: none;
-	margin: 0 auto;
-	white-space: nowrap;
+	margin: 2rem auto 0;
+  white-space: nowrap;
+  
 	p {
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -390,10 +395,10 @@ img {
 
 .slide-item__info {
 	position: absolute;
-	display: block;
 	margin: 0 auto;
-	width: 80%;
-	top: 23%;
+  width: 80%;
+  text-align: left;
+	top: 10%;
 	left: 0;
 	right: 0;
 	font-family: $font-stack-sans;
@@ -401,68 +406,75 @@ img {
 }
 
 .slide-item__title {
-	display: inline-block;
-	font-size: 25px;
-	line-height: 120%;
-	/* font-weight: bold; */
+  display: block;
+  margin: 1rem 0 0.5rem;
+	font-size: 38px;
 	color: #ffffff;
 	text-transform: capitalize;
-	white-space: normal;
+  white-space: normal;
+
+  &:focus, &:hover {
+    color: #aaa;
+  }
 }
 
 .slide-item__release {
-	 font-size: 17px;
-	 color: #ccc;
+  font-size: 1.2rem;
+  color: #ddd;
 }
 
-.slide-item__meta--info {
-	margin-top: 10px;
-	// max-width: 70%;
-	white-space: normal;
-	span {
-		color: #ffffff;
-	}
-	.slide-item__meta--count {
-		display: inline-block;
-		padding: 4px;
-		min-width: 20px;
-		text-align: center;
+.slide-item__meta {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  max-width: 8rem;
+  justify-content: space-between;
+  align-items: center;
+
+  &--info {
+    margin-top: 10px;
+    white-space: normal;
+  }
+  
+	&--count {
+    display: inline-block;
+		padding: 6px 14px;
 		font-size: 14px;
 		opacity: .8;
-		margin-right: 7px;
-		background-color: red;
-	}
-	.slide-item__meta--rating {
-		font-size: 13px;
+		background-color: #cc2d8b;
+  }
+  
+	&--rating {
+		font-size: 1rem;
 	}
 }
 
 .carousel-slider--dots {
 	position: absolute;
-	display: inline-block;
-	margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 0 auto;
 	left: 0;
 	right: 0;
-	bottom: 10px;
-	text-align: center;
-	li {
-		cursor: pointer;
-		display: inline-block;
-		margin: 0 8px;
-		&:before {
-			content: ' ';
-			display: inline-block;
-			width: 10px;
-			height: 10px;
-			border-radius: 50%;
-			background-color: #aaa;
-		}
-		&.active {
-			&:before {
-				background-color: red;
-			}
-		}
-	}
+  bottom: 1rem;
+  max-width: 50%;
+
+  button {
+    cursor: pointer;
+    background: 0;
+    outline: 0;
+    border: 0;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #eee;
+
+    &.active {
+      background-color: #cc2d8b;
+      border: 1px solid #bb9eaf;
+    }
+  }
 }
 
 /* Index Container */
@@ -577,7 +589,7 @@ img {
 
 .index-movie__header {
 	display: block;
-	padding: 30px;
+	padding: 30px 15px;
 	font-size: 22px;
 	font-family: $font-stack-sans;
 	font-weight: bold;
@@ -1077,20 +1089,17 @@ img {
 		overflow: hidden;
 	}
 
-	.carousel-slider__item {
-		max-width: 100%;
+	.carousel-slide {
+
+    &--backdrop {
+      padding: 1.5rem 1rem;
+      background: rgba(0, 0, 0, 0.7);
+    }
 	}
 
 	.banner-block.index-promo {
 		display: inline-block;
 		max-width: 50%;
-	}
-
-	.slide-item__caption {
-		display: block;
-		margin-top: 25px;
-		max-width: 400px;
-		font-size: 14px;
 	}
 
 	.carousel__arrow {
@@ -1106,34 +1115,19 @@ img {
 		}
 	}
 
-	.slide-item__release {
-		font-size: 18px;
-	}
-
 	.slide-item__title {
 		font-size: 34px;
-	}
-
-	.slide-item__meta--info {
-		.slide-item__meta--count {
-			font-size: 14px;
-		}
-		.slide-item__meta--rating {
-			font-size: 15px;
-		}
 	}
 }
 
 @media screen and (min-width: 767px) {
 	.one-third {
 		display: inline-block;
-		float: left;
 		width: 33%;
 	}
 
 	.two-third {
 		display: inline-block;
-		float: left;
 		width: 66%;
 	}
 

@@ -2,21 +2,24 @@ import React, { PureComponent } from 'react'
 
 import MovieIndexFeed from './MovieIndexFeed'
 import UpcomingIndexFeed from './UpcomingIndexFeed'
-import IndexHomeCarousel from '../Carousel/IndexHomeCarousel'
+import Carousel from '../Carousel/Carousel'
 import PromoBanner from './PromoBanner'
 
 class IndexHome extends PureComponent {
   render() {
     return (
       <div className="index-container">
-        <IndexHomeCarousel />
-        <PromoBanner />
-        <div className="banner-block index-promo purple-gradient">
-          <h3>Find new collections</h3>
-          <p>
-            <a href="">Find a new series.</a>
-          </p>
-        </div>
+        <Carousel />
+        <PromoBanner
+          title={'Discover new movies'}
+          message={'Find a new favorite.'}
+          classes={'banner-block index-promo red-gradient'}
+        />
+        <PromoBanner
+          title={'Find new collections'}
+          message={'Find a new series'}
+          classes={'banner-block index-promo purple-gradient'}
+        />
         <MovieIndexFeed />
         <UpcomingIndexFeed />
       </div>
