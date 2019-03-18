@@ -9,14 +9,11 @@ class Footer extends React.Component {
 					<ul className="footer-credits">
 						<li>
 							<button className="footer-credits__cta--btn">
-								<a href="https://www.themoviedb.org/" target="_blank">Visit TMDB.org</a>
+								<a href="https://www.themoviedb.org/" target="_blank" rel="noopener noreferrer">Visit TMDB.org</a>
 							</button>
 						</li>
 						<li>
-							<a href="https://developers.themoviedb.org" target="_blank">About API</a>
-						</li>
-						<li>
-							<a href="">About developer</a>
+							<a href="https://developers.themoviedb.org" target="_blank" rel="noopener noreferrer">About API</a>
 						</li>
 					</ul>
 				</div>

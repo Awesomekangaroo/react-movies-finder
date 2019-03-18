@@ -24,7 +24,11 @@ class MovieDetailBodyReviews extends React.Component {
 		}
 		return(
 			<div key={key} className={this.state['button' + key] ? ' movie-detail__review--item active' : 'movie-detail__review--item'}>
-				<a href={review[key].url} target="_blank" title="Author's external review">
+				<a
+          href={review[key].url}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
 					<h3 className="movie-detail__review--author">Review by <em>{review[key].author}</em></h3>
 				</a>
 				<p>{review[key].content}</p>

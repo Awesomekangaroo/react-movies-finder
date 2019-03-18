@@ -14,7 +14,7 @@ class ShareButtons extends React.Component {
 		const icons = this.props.icons
 		return(
 			<li key={key}>
-				<i className={`fa fa-${icons[key]}`} aria-hidden="hidden"></i>
+				<i className={`fa fa-${icons[key]}`} aria-hidden="true"></i>
 			</li>
 		)
 	}

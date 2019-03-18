@@ -799,13 +799,13 @@ img {
 }
 
 .movie-detail__cast--container {
-	font-family: $font-stack-sans;
-	h3 {
-		margin-left: 15px;
+  font-family: $font-stack-sans;
+  
+	h2 {
 		margin-bottom: 15px;
-		font-size: 18px;
+		font-size: 22px;
 		line-height: 30px;
-		color: #333;
+		color: #000;
 	}
 }
 

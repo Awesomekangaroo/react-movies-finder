@@ -25,10 +25,10 @@ class NavMenu extends PureComponent {
 						</Link>
 					</li>
 					<li>
-						<a href="http://www.themoviedb.org" target="_blank">Movies</a>
+						<a href="http://www.themoviedb.org" target="_blank" rel="noopener noreferrer">Movies</a>
 					</li>
 					<li>
-						<a href="https://developers.themoviedb.org/3" target="_blank">About the API</a>
+						<a href="https://developers.themoviedb.org/3" target="_blank" rel="noopener noreferrer">About the API</a>
 					</li>
 				</ul>
 

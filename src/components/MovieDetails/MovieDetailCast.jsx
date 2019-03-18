@@ -1,35 +1,32 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 
-class MovieDetailCast extends React.Component {
-	constructor() {
-		super()
-		this.renderCastMembers = this.renderCastMembers.bind(this)
-	}
+class MovieDetailCast extends PureComponent {
+  render() {
+    const profileBasePath = "https://image.tmdb.org/t/p/w92"
+    const { cast } = this.props.profile
 
-	renderCastMembers(key) {
-		const profileBasePath = "https://image.tmdb.org/t/p/w92"
-		const member = this.props.profile.cast
-		return(
-			<li key={key} className="carousel-cast__item">
-				<img src={profileBasePath + member[key].profile_path} alt={'Image of ' + member[key].name} />
-				<div className="carousel-cast__info--names">
-					<p>{ member[key].name }</p>
-					<span>{ member[key].character }</span>
-				</div>
-			</li>
-		)
-	}
-
-	render() {
-		return(
-			<div className="container movie-detail__cast--container">
-				<h3>Top Cast</h3>
-				<ol className="carousel-cast__container">
-					{ Object.keys(this.props.profile.cast.slice(0, 8)).map(this.renderCastMembers) }
-				</ol>
-			</div>
-		)
-	}
+    return (
+      <div className="container movie-detail__cast--container">
+        <h2>Top Cast</h2>
+        <ol className="carousel-cast__container">
+          {
+            cast.slice(0, 8).map(member => 
+              <li key={`Tile-${member.name}`} className="carousel-cast__item">
+                <img
+                  src={profileBasePath + member.profile_path}
+                  alt={'Profile of ' + member.name}
+                />
+                <div className="carousel-cast__info--names">
+                  <p>{member.name}</p>
+                  <span>{member.character}</span>
+                </div>
+              </li>
+            )
+          }
+        </ol>
+      </div>
+    )
+  }
 }
 
 export default MovieDetailCast

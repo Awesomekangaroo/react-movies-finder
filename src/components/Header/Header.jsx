@@ -34,7 +34,7 @@ class Header extends Component {
             aria-label="Open search"
           >
             Search container
-            <i className="fa fa-search" aria-hidden="hidden"></i>
+            <i className="fa fa-search" aria-hidden="true"></i>
           </button>
 
           {this.state.isSearchOpen && (
@@ -54,7 +54,7 @@ class Header extends Component {
             aria-label="open menu"
           >
             Open menu
-            <i className="fa fa-bars" aria-hidden="hidden"></i>
+            <i className="fa fa-bars" aria-hidden="true"></i>
           </button>
 
           {this.state.isNavOpen && (
