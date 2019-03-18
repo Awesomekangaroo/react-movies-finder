@@ -1,12 +1,11 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 
-class MovieDetailBodyInfo extends React.Component {
+class MovieDetailBodyInfo extends PureComponent {
 	render() {
-		const details = this.props.info
-		return(
+		return (
 			<section className="movie-body__information show-mobile">
-				<h3>Overview</h3>
-				<p>{details.overview}</p>
+				<h2>Overview</h2>
+				<p>{this.props.overview}</p>
 			</section>
 		)
 	}

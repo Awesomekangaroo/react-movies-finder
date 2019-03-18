@@ -5,7 +5,7 @@ import MovieDetailCast from './MovieDetailCast'
 import MovieDetailBodyInfo from './MovieDetailBodyInfo'
 import MovieDetailBodyMeta from './MovieDetailBodyMeta'
 import MovieDetailBodyTrailers from './MovieDetailBodyTrailers'
-import MovieDetailBodyReviews from './MovieDetailBodyReviews'
+import MovieDetailReviews from './MovieDetailReviews'
 
 import Layout from '../layout/Layout'
 
@@ -54,9 +54,10 @@ class MovieDetail extends Component {
             <div className="movie-detail__body">
               <div className="two-third column">
                 <MovieDetailCast profile={movieInfo.credits} />
-                <MovieDetailBodyInfo info={movieInfo} />
-                <MovieDetailBodyTrailers videos={movieInfo.videos} />
-                <MovieDetailBodyReviews info={movieInfo} />
+                <MovieDetailBodyInfo overview={movieInfo.overview} />
+                <MovieDetailBodyTrailers
+                  videos={movieInfo.videos.results.slice(0, 4)}/>
+                <MovieDetailReviews reviews={movieInfo.reviews.results} />
               </div>
               <div className="one-third column">
                 <MovieDetailBodyMeta info={movieInfo} />

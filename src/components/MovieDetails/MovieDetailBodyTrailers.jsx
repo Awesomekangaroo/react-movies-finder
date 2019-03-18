@@ -1,54 +1,58 @@
-import React from 'react'
+import React, { Component } from 'react'
+
 import OpenModal from './../OpenModal'
 
-class MovieDetailBodyTrailers extends React.Component {
-	constructor(props) {
-		super(props)
-		this.state = {
-			activeModal: false
-		}
-		this.renderTrailerVideos = this.renderTrailerVideos.bind(this)
-		this.closeModal = this.closeModal.bind(this)
-	}
+class MovieDetailBodyTrailers extends Component {
+  state = {
+    activeModal: null
+  }
 
-	closeModal() {
-		this.setState({
-			activeModal: false
-		})
-	}
+  toggleClose = () => {
+    this.setState(prevState => ({
+      activeModal: !prevState.activeModal,
+    }))
+  }
 
-	renderTrailerVideos(key) {
-		const trailer = this.props.videos.results
-		return(
-			<div key={key} className="movie-trailers__carousel--item">
-				<li onClick={() => this.setState({ activeModal: key })}>
-					<img src={"https://i.ytimg.com/vi/" + trailer[key].key + "/sddefault.jpg"} alt={trailer[key].name} />
-				</li>
-				<OpenModal
-					video={ trailer[key] }
-					show={ this.state.activeModal === key }
-					close={ this.closeModal }
-				/>
-			</div>
-		)
-	}
+  render() {
+    const { videos } = this.props
+    const { activeModal } = this.state
 
-	render() {
-		return(
-			<div className="container">
-				<section>
-					<div id="trailers" className="movie-trailers__container">
-						<h3>Trailers</h3>
-						<div className="movie-trailers__carousel">
-							<ul>
-								{ Object.keys(this.props.videos.results).map(this.renderTrailerVideos) }
-							</ul>
-						</div>
-					</div>
-				</section>
-			</div>
-		)
-	}
+    return (
+      <div className="container">
+        <section>
+          <div className="movie-trailers__container">
+            <h3>Trailers</h3>
+            <div className="movie-trailers__carousel">
+              <ul>
+                {videos.map((item, index) =>
+                  <li
+                    key={`trailer-${index}`}
+                    className="movie-trailers__carousel--item"
+                  >
+                    <button
+                      type="button"
+                      onClick={() => this.setState({ activeModal: item })}
+                      ref={modal => this.currentModal = modal}
+                    >
+                      <img src={`https://i.ytimg.com/vi/${item.key}/sddefault.jpg`} alt={`Trailer: ${item.name}`} />
+                    </button>
+                  </li>
+                )}
+              </ul>
+            </div>
+          </div>
+
+          {activeModal && (
+            <OpenModal
+              name={activeModal.name}
+              videoKey={activeModal.key}
+              toggleClose={this.toggleClose}
+            />
+          )}
+        </section>
+      </div>
+    )
+  }
 }
 
 export default MovieDetailBodyTrailers
