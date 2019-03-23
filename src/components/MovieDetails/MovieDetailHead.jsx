@@ -28,7 +28,7 @@ class MovieDetailHead extends PureComponent {
           <div className="movie__head">
             <div className="movie__head--poster">
               <picture>
-                <source srcSet={`${imageBaseUrl}w640${poster}`} media="(min-width: 767px)" />
+                <source srcSet={`${imageBaseUrl}w780${poster}`} media="(min-width: 767px)" />
                 <img src={`${imageBaseUrl}w154${poster}`} alt={title} />
               </picture>
             </div>
