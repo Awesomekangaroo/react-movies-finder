@@ -8,7 +8,7 @@ class MovieDetailReviews extends PureComponent {
 
     return (
       <div className="movie-detail__reviews">
-        <h2>Movie Reviews</h2>
+        <h2 className="header__title">Movie Reviews</h2>
 
         {reviews.map((review, index) =>
           <MovieDetailReviewItem

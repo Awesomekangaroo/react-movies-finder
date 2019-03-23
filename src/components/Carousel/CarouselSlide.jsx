@@ -17,7 +17,7 @@ class CarouselSlide extends Component {
       <li className={`carousel-slide__item ${isActive}`}>
         <picture>
           <source
-            srcSet={`${baseUrl}w640${details.backdrop_path}`}
+            srcSet={`${baseUrl}w780${details.backdrop_path}`}
             media="(max-width: 640px)"
           />
           <img

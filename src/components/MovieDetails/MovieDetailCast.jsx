@@ -7,7 +7,7 @@ class MovieDetailCast extends PureComponent {
 
     return (
       <div className="container movie-detail__cast--container">
-        <h2>Top Cast</h2>
+        <h2 className="header__title">Top Cast</h2>
         <ol className="carousel-cast__container">
           {
             cast.slice(0, 8).map(member => 

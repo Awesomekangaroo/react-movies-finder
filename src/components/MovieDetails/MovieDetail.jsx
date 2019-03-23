@@ -56,11 +56,26 @@ class MovieDetail extends Component {
                 <MovieDetailCast profile={movieInfo.credits} />
                 <MovieDetailBodyInfo overview={movieInfo.overview} />
                 <MovieDetailBodyTrailers
-                  videos={movieInfo.videos.results.slice(0, 4)}/>
+                  videos={movieInfo.videos.results.slice(0, 4)} />
                 <MovieDetailReviews reviews={movieInfo.reviews.results} />
               </div>
               <div className="one-third column">
-                <MovieDetailBodyMeta info={movieInfo} />
+                <section
+                  className="movie-body__meta--container"
+                  aria-label="Movie Meta"
+                >
+                  <MovieDetailBodyMeta
+                    status={movieInfo.status}
+                    original_language={movieInfo.original_language}
+                    runtime={movieInfo.runtime}
+                    budget={movieInfo.budget}
+                    revenue={movieInfo.revenue}
+                    homepage={movieInfo.homepage}
+                    releaseDate={movieInfo.release_date}
+                    title={movieInfo.title}
+                    productionCompanies={movieInfo.production_companies}
+                  />
+                </section>
               </div>
             </div>
           </div>

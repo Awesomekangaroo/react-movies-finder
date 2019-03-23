@@ -10,16 +10,18 @@ class IndexHome extends PureComponent {
     return (
       <div className="index-container">
         <Carousel />
-        <PromoBanner
-          title={'Discover new movies'}
-          message={'Find a new favorite.'}
-          classes={'banner-block index-promo red-gradient'}
-        />
-        <PromoBanner
-          title={'Find new collections'}
-          message={'Find a new series'}
-          classes={'banner-block index-promo purple-gradient'}
-        />
+        <section className="home__promo-container">
+          <PromoBanner
+            title={'Discover new movies'}
+            message={'Find a new favorite.'}
+            classes={'banner-block index-promo red-gradient'}
+          />
+          <PromoBanner
+            title={'Find new collections'}
+            message={'Find a new series'}
+            classes={'banner-block index-promo purple-gradient'}
+          />
+        </section>
         <MovieIndexFeed />
         <UpcomingIndexFeed />
       </div>
