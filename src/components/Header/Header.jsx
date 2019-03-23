@@ -33,8 +33,8 @@ class Header extends Component {
             title="Open search"
             aria-label="Open search"
           >
-            Search container
-            <i className="fa fa-search" aria-hidden="true"></i>
+            <span className="search__icon"></span>
+            <small className="is-visually-hidden">search for movies</small>
           </button>
 
           {this.state.isSearchOpen && (
@@ -53,8 +53,10 @@ class Header extends Component {
             title="open menu"
             aria-label="open menu"
           >
-            Open menu
-            <i className="fa fa-bars" aria-hidden="true"></i>
+            <span className="line"></span>
+            <span className="line"></span>
+            <span className="line"></span>
+            <small className="is-visually-hidden">mobile menu</small>
           </button>
 
           {this.state.isNavOpen && (
