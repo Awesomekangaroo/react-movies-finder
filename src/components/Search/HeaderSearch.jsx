@@ -3,30 +3,24 @@ import TypeAhead from './TypeAhead'
 
 class HeaderSearch extends Component {
   state = {
-    characters: 0,
-    query: ''
+    query: '',
+    results: null,
   }
 
-  setCharacterCount = e => {
+  setSearchValue = e => {
     if (e.target.value.length > 1) {
-      this.setState({
-        characters: e.target.value.length,
-        query: e.target.value
-      })
+      this.setState({ query: e.target.value })
       return
     }
 
-    this.setState({
-      query: '',
-      characters: e.target.value.length
-    })
+    this.setState({ query: '' })
   }
 
   render() {
-    const {characters, query} = this.state
+    const { query } = this.state
 
     return (
-      <div className="header-search">
+      <section className="header-search">
         <form className="header-search__form" role="search">
           <label
             htmlFor="movie-search"
@@ -40,16 +34,17 @@ class HeaderSearch extends Component {
             autoFocus
             name="movie-search"
             type="text"
+            autoComplete="off"
             placeholder="Search"
             title="Search for a movie"
-            onChange={this.setCharacterCount}
+            onChange={this.setSearchValue}
           />
-        </form>
 
-        {characters > 1 && (
-          <TypeAhead query={query} />
-        )}
-      </div>
+          {query.length > 1 && (
+            <TypeAhead query={query} />
+          )}
+        </form>
+      </section>
     )
   }
 }
