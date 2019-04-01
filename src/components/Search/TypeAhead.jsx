@@ -15,7 +15,7 @@ class TypeAhead extends Component {
 
   componentDidMount() {
     // Get initial search input query results to dropdown
-    const apiKey = "1ae83ca4d8a91826db50f652ef3e24de"
+    const apiKey = process.env.REACT_APP_TMDB_KEY
 
     const searchQueryUrl = "https://api.themoviedb.org/3/search/multi?api_key=" + apiKey + "&query=" + this.props.query
 
