@@ -95,6 +95,9 @@ class TypeAhead extends Component {
               <SearchItem
                 key={`search-${index}`}
                 item={item}
+                title={item.title}
+                name={item.name}
+                id={item.id}
                 handleRefLink={this.handleRefLink}
               />
             )}

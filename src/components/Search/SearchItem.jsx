@@ -10,21 +10,28 @@ class SearchItem extends PureComponent {
   }
 
   render() {
-    const { item } = this.props
+    const { title, id, name } = this.props
     return (
       <li>
         <Link
           to={{
-            pathname: `/movie/${item.id}/${item.title}`,
-            state: item
+            pathname: `/movie/${id}/${title}`,
+            state: {...this.props}
           }}
           innerRef={link => this.searchItem = link}
         >
-          <p>{item.title || item.name}</p>
+          <p>{title || name}</p>
         </Link>
       </li>
     )
   }
+}
+
+SearchItem.propTypes = {
+  title: PropTypes.string,
+  name: PropTypes.string,
+  id: PropTypes.number,
+  handleRefLink: PropTypes.func,
 }
 
 export default SearchItem

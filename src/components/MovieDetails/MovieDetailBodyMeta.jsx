@@ -70,7 +70,15 @@ class MovieDetailBodyMeta extends PureComponent {
             <span>Visit homepage: </span>
           </div>
           <div className="movie-body__meta--info">
-            <a className="primary-link" target="_blank" href={homepage} title={"Visit homepage of" + title}>{title}</a>
+            <a
+              className="primary-link"
+              target="_blank"
+              href={homepage}
+              title={"Visit homepage of" + title}
+              rel="noopener noreferrer"
+            >
+              {title}
+            </a>
           </div>
         </li>
         {productionCompanies && (
