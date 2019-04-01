@@ -6,7 +6,7 @@ class SearchItem extends PureComponent {
   componentDidMount() {
     const { handleRefLink } = this.props
 
-    handleRefLink && handleRefLink(this.searchItem)
+    this.searchItem && handleRefLink(this.searchItem)
   }
 
   render() {
