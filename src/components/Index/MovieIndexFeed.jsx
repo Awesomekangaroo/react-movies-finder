@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { getSearchResult } from '../../util/search'
 
 import MovieTile from './MovieTile'
 
@@ -8,16 +9,13 @@ class MovieIndexFeed extends Component {
   }
 
   componentDidMount() {
-    const apiKey = "1ae83ca4d8a91826db50f652ef3e24de"
-    const currentMoviesUrl = "https://api.themoviedb.org/3/movie/now_playing?api_key=" + apiKey + "&language=en-US&page=1"
+    this.getCurrentMovies()
+  }
+  
+  async getCurrentMovies () {
+    const data = await getSearchResult("https://api.themoviedb.org/3/movie/now_playing?api_key=", "&language=en-US&page=1")
 
-    fetch(currentMoviesUrl)
-      .then(data => data.json())
-      .then(data => {
-        this.setState({
-          currentMovies: data.results.slice(0, 10)
-        })
-      })
+    this.setState({ currentMovies: data.results.slice(0, 10) })
   }
 
   render() {

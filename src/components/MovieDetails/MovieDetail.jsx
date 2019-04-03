@@ -7,6 +7,7 @@ import MovieDetailBodyMeta from './MovieDetailBodyMeta'
 import MovieDetailBodyTrailers from './MovieDetailBodyTrailers'
 import MovieDetailReviews from './MovieDetailReviews'
 
+import { getSearchResult } from '../../util/search'
 import Layout from '../layout/Layout'
 
 class MovieDetail extends Component {
@@ -19,19 +20,14 @@ class MovieDetail extends Component {
     this.fetchMovieById()
   }
 
-  fetchMovieById = () => {
-    const apiKey = "1ae83ca4d8a91826db50f652ef3e24de"
+  async fetchMovieById() {
     const movieId = this.props.location.state.id
-    const movieUrl = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&append_to_response=videos,images,credits,releases,reviews`
+    const data = await getSearchResult(`https://api.themoviedb.org/3/movie/${movieId}?api_key=`, '&append_to_response=videos,images,credits,releases,reviews')
 
-    fetch(movieUrl)
-      .then(data => data.json())
-      .then(data => {
-        this.setState({
-          movieInfo: data,
-          movieId
-        })
-      })
+    this.setState({
+      movieInfo: data,
+      movieId
+    })
   }
 
   render() {

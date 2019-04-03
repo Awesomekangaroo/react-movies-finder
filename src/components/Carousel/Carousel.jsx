@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { getSearchResult } from '../../util/search';
 
 import CarouselSlide from './CarouselSlide'
 import CarouselDot from './CarouselDot'
@@ -10,22 +11,19 @@ class Carousel extends Component {
   }
 
   componentDidMount() {
-    const apiKey = "1ae83ca4d8a91826db50f652ef3e24de"
-    const popularMoviesUrl = "https://api.themoviedb.org/3/movie/popular?api_key=" + apiKey + "&append_to_response=genre,cast"
-
-    fetch(popularMoviesUrl)
-      .then(data => data.json())
-      .then(data => {
-        this.setState({
-          popularMovies: data.results.slice(0, 5)
-        })
-      })
+    this.getPopularMovies()
 
     setInterval(this.carouselTimer, 8500)
   }
 
   componentWillUnmount() {
     clearInterval(this.carouselTimer)
+  }
+
+  async getPopularMovies() {
+    const data = await getSearchResult("https://api.themoviedb.org/3/movie/popular?api_key=", "&append_to_response=genre,cast")
+
+    this.setState({ popularMovies: data.results.slice(0, 5) })
   }
 
   carouselTimer = () => {
@@ -53,7 +51,7 @@ class Carousel extends Component {
       this.setState({ activeIndex: 0 })
       return
     }
-    
+
     this.setState({ activeIndex: activeIndex + 1 })
   }
 

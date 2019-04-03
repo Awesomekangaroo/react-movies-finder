@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import SearchItem from './SearchItem';
+import { getSearchResult } from '../../util/search.js'
 
 class TypeAhead extends Component {
   state = {
@@ -10,43 +11,24 @@ class TypeAhead extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.getSearchQuery(nextProps)
+    this.handleSearchQuery(nextProps)
   }
 
   componentDidMount() {
-    // Get initial search input query results to dropdown
-    const apiKey = process.env.REACT_APP_TMDB_KEY
+    this.handleSearchQuery()
+  }
 
-    const searchQueryUrl = "https://api.themoviedb.org/3/search/multi?api_key=" + apiKey + "&query=" + this.props.query
+  async handleSearchQuery (nextProps) {
+    const query = this.props.query || nextProps.query
+    const data = await getSearchResult('https://api.themoviedb.org/3/search/multi?api_key=', query, '&query=')
 
-    fetch(searchQueryUrl)
-      .then(data => data.json())
-      .then(data => {
-        this.setState({
-          searchResults: data.results
-        })
-      })
+    this.setState({ searchResults: data.results })
   }
 
   handleRefLink = link => {
     this.setState(prevState => ({
       itemRefs: [...prevState.itemRefs, link]
     }))
-  }
-
-  getSearchQuery = (nextProps) => {
-    // Get sequential search input query results.
-    const apiKey = "1ae83ca4d8a91826db50f652ef3e24de"
-    const searchQueryUrl = "https://api.themoviedb.org/3/search/multi?api_key=" + apiKey + "&query=" + nextProps.query
-
-    fetch(searchQueryUrl)
-      .then(data => data.json())
-      .then(data => {
-        this.setState({
-          searchResults: data.results
-        })
-      })
-      .catch(err => console.log(err))
   }
 
   handleKeyDown = e => {
