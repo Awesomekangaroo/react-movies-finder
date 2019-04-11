@@ -392,13 +392,16 @@ img {
 }
 
 .slider-container {
-  position: relative;
   width: 100%;
   min-height: 20rem;
 	margin: 0 auto;
-	white-space: nowrap;
-	padding-bottom: 20px;
-	overflow-x: scroll;
+  padding: 0 15px 20px;
+  
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
 }
 
 .carousel-slide__item {
@@ -654,16 +657,13 @@ img {
 }
 
 .index-tile__container {
-	display: inline-block;
-	position: relative;
-	width: 130px;
-	height: auto;
-	margin: 0 10px;
-	vertical-align: top;
-	font-family: $font-stack-sans;
-	&:last-child {
-		margin-right: 20px;
-	}
+	max-width: 150px;
+  font-family: $font-stack-sans;
+  margin: 1.5rem 0;
+
+  &:hover, &:focus {
+    outline: 1px solid #ccc;
+  }
 }
 
 .index-tile--title {

@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
-import { Link } from 'react-router-dom'
+import LazyLoad from 'react-lazy-load'
 import PropTypes from 'prop-types'
-
+import { Link } from 'react-router-dom'
 
 class MovieTile extends PureComponent {
   render() {
@@ -16,7 +16,9 @@ class MovieTile extends PureComponent {
           pathname: `/movie/${id}/${title}`,
           state: { id }
         }}>
-          <img src={baseUrl + poster} alt={title} />
+          <LazyLoad debounce={false}>
+            <img src={baseUrl + poster} alt={title} />
+          </LazyLoad>
           <h2 className="index-tile--title">{title}</h2>
         </Link>
       </Tag>

@@ -26,15 +26,17 @@ class UpcomingIndexFeed extends Component {
         <section>
           <h2 className="index-movie__header">Upcoming</h2>
           <div className="slider-container">
-            {upcomingMovies.map((movie, index) =>
-              <MovieTile
-                key={`movie-${index}-${movie.title}`}
-                title={movie.title}
-                id={movie.id}
-                poster={movie.poster_path}
-                element={'li'}
-              />
-            )}
+            <ul>
+              {upcomingMovies.map((movie, index) =>
+                <MovieTile
+                  key={`movie-${index}-${movie.title}`}
+                  title={movie.title}
+                  id={movie.id}
+                  poster={movie.poster_path}
+                  element={'li'}
+                />
+              )}
+            </ul>
           </div>
         </section>
       )
