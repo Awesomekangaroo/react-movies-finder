@@ -33,7 +33,7 @@ class MovieIndexFeed extends Component {
                   title={movie.title}
                   id={movie.id}
                   poster={movie.poster_path}
-                  element={'li'}
+                  tag={'li'}
                 />
               )}
             </ul>

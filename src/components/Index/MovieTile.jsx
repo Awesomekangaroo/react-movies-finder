@@ -7,8 +7,8 @@ class MovieTile extends PureComponent {
   render() {
     const baseUrl = "https://image.tmdb.org/t/p/w154"
     
-    const { title, poster, element, id } = this.props
-    const Tag = element ? element : 'li'
+    const { title, poster, tag, id } = this.props
+    const Tag = tag
 
     return (
       <Tag className="index-tile__container">
