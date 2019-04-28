@@ -875,7 +875,8 @@ img {
 	text-align: center;
 	font-size: 13px;
 	font-family: $font-stack-sans;
-	margin-bottom: 30px;
+  margin-bottom: 30px;
+
 	a {
 		display: inline-block;
 		color: #ffffff;
@@ -883,12 +884,12 @@ img {
 		padding: 12px 0;
 		width: 100px;
 		border: none;
-		outline: none;
-		cursor: pointer;
-	}
-	.active {
-		background-color: #F2504A;
-	}
+    outline: none;
+    
+    &:focus, &:hover {
+      background-color: #555;
+    }
+  }
 }
 
 .carousel-cast__container {

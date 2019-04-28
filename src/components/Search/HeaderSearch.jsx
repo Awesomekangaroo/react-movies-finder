@@ -12,6 +12,10 @@ class HeaderSearch extends Component {
     this.setState({ isOpen: false })
   }
 
+  handleSearchPress = () => {
+    this.setState({ isOpen: false })
+  }
+
   setSearchValue = e => {
     if (e.target.value.trim() !== '') {
       this.setState({
@@ -52,7 +56,7 @@ class HeaderSearch extends Component {
           />
 
           {isOpen && (
-            <TypeAhead query={query} />
+            <TypeAhead query={query} handleSearchPress={this.handleSearchPress} />
           )}
         </form>
       </section>

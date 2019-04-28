@@ -71,7 +71,7 @@ class TypeAhead extends Component {
 
   render() {
     const { searchResults } = this.state
-    const { query } = this.props
+    const { query, handleSearchPress } = this.props
 
     return (
       (searchResults && query.length > 1) && (
@@ -85,6 +85,7 @@ class TypeAhead extends Component {
                 title={item.title}
                 name={item.name}
                 id={item.id}
+                handleSearchPress={handleSearchPress}
                 handleRefLink={this.handleRefLink}
               />
             )}

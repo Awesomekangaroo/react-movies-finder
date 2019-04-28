@@ -10,7 +10,7 @@ class SearchItem extends PureComponent {
   }
 
   render() {
-    const { title, id, name } = this.props
+    const { title, id, name, handleSearchPress } = this.props
 
     return (
       <li>
@@ -20,6 +20,7 @@ class SearchItem extends PureComponent {
             state: {id}
           }}
           innerRef={link => this.searchItem = link}
+          onClick={handleSearchPress}
         >
           {title || name}
         </Link>
