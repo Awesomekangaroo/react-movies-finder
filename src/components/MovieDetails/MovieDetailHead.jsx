@@ -57,7 +57,9 @@ class MovieDetailHead extends PureComponent {
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href={`https://www.google.com/search?q=${title}+showtimes`}>
+                href={`https://www.google.com/search?q=${title}+showtimes`}
+                arial-label={`Search tickets for ${title}`}
+              >
                 TICKETS
               </a>
             </div>

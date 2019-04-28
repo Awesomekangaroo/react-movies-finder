@@ -116,59 +116,59 @@ img {
 	opacity: 0.5;
 }
 
-.trailer-modal {
-	position: fixed;
+.overlay__backdrop {
+  position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
+  z-index: 100;
 	bottom: 0;
-	z-index: 100;
-  margin: 0 auto;
-  padding: 50% 1rem;
-  width: 100%;
   background: rgba(0, 0, 0, 0.6);
+}
+
+.trailer-modal {
+  position: absolute;
+  top: 20%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  max-width: 40rem;
+  padding: 10px 10px 40px;
+  background-color: #fff;
 }
 
 .trailer-modal__header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-	padding: 20px 10px 20px;
-	border: 1px solid #eee;
+  padding: 20px 0 10px;
+  margin-bottom: 20px;
+  align-items: center;
   background-color: #ffffff;
+  border-bottom: 1px solid #eee;
   font-family: $font-stack-sans;
   
 	&--title {
-		width: 70%;
+    max-width: 70%;
 		white-space: normal;
-		vertical-align: middle;
-		font-size: 18px;
+    font-size: 18px;
 		color: #000;
   }
   
-	button {
-    font-size: 15px;
-		outline: none;
-		background-color: inherit;
-		border: none;
-		color: red;
-    cursor: pointer;
-    
-    &:focus {
-      border: 1px dotted blue;
-      background: #eee;
-    }
-    
-		span {
-			&:after {
-				content: 'x';
-				font-weight: bold;
-				font-size: inherit;
-				margin-left: 5px;
-				color: #000;
-			}
-		}
-	}
+}
+
+.trailer-modal__close {
+  font-size: 20px;
+  outline: none;
+  background-color: 0;
+  border: none;
+  color: purple;
+  cursor: pointer;
+  
+  &:focus {
+    background: #eee;
+    outline: 1px solid #000;
+  }
 }
 
 .trailer-modal__content {
@@ -728,7 +728,7 @@ img {
 
 .movie__head-top {
 	display: inline-block;
-	width: 50%;
+	width: 60%;
 	text-align: center;
 	vertical-align: top;
 }
@@ -871,11 +871,15 @@ img {
 	border-bottom: 1px solid #eee;
 	padding-bottom: 25px;
 	overflow-x: scroll;
-	white-space: nowrap;
+  white-space: nowrap;
 }
 
 .movie-detail__cast--container {
   font-family: $font-stack-sans;
+
+  @media #{$bp-large-max} {
+    padding: 0 10px;
+  }
   
 	.header__title {
 		margin-bottom: 15px;
@@ -914,10 +918,19 @@ img {
 .movie-body__information {
   font-family: $font-stack-sans;
 
+  @media #{$bp-large-max} {
+    padding: 0 10px;
+  }
+
   .header__title {
     margin-bottom: 2rem;
 		font-size: 18px;
 		font-weight: bold;
+  }
+
+  p {
+    line-height: 140%;
+    font-size: 1.2rem;
   }
 }
 
@@ -973,8 +986,10 @@ img {
 .movie-trailers__container {
 	margin-top: 25px;
 	font-family: $font-stack-sans;
-	border-bottom: 1px solid #eee;
-	 h3 {
+  border-bottom: 1px solid #eee;
+
+  h3 {
+    padding: 0 10px;
 		font-size: 18px;
 		font-weight: bold;
 		line-height: 30px;
@@ -986,21 +1001,20 @@ img {
 
 .movie-trailers__carousel {
 	padding: 20px 0;
-	min-height: 150px;
 	overflow-x: scroll;
-	white-space: nowrap;
-	text-align: center;
+  white-space: nowrap;
 }
 
 .movie-trailers__carousel--item {
-	display: inline-block;
-	width: 190px;
-	height: 150px;
-	margin: 5px;
-	vertical-align: top;
+  display: inline-block;
+	width: 300px;
+  vertical-align: top;
+  cursor: pointer;
+  
 	&:first-child {
 		margin-left: 5px;
-	}
+  }
+
 	img {
 		display: block;
 		width: 100%;
@@ -1015,7 +1029,8 @@ img {
   font-family: $font-stack-sans;
   
 	.header__title {
-		margin-bottom: 2rem;
+    margin-bottom: 2rem;
+    padding: 0 10px;
 		font-size: 18px;
 		font-weight: bold;
 	}
@@ -1294,11 +1309,6 @@ img {
 		span {
 			font-size: 15px;
 		}
-	}
-
-	.movie-trailers__carousel--item {
-		width: 300px;
-		height: 250px;
 	}
 
 	.movie-detail__cast--container {

@@ -22,24 +22,22 @@ class MovieDetailBodyTrailers extends Component {
         <section>
           <div className="movie-trailers__container">
             <h3>Trailers</h3>
-            <div className="movie-trailers__carousel">
-              <ul>
-                {videos.map((item, index) =>
-                  <li
-                    key={`trailer-${index}`}
-                    className="movie-trailers__carousel--item"
+            <ul className="movie-trailers__carousel">
+              {videos.map((item, index) =>
+                <li
+                  key={`trailer-${index}`}
+                  className="movie-trailers__carousel--item"
+                >
+                  <button
+                    type="button"
+                    onClick={() => this.setState({ activeModal: item })}
+                    ref={modal => this.currentModal = modal}
                   >
-                    <button
-                      type="button"
-                      onClick={() => this.setState({ activeModal: item })}
-                      ref={modal => this.currentModal = modal}
-                    >
-                      <img src={`https://i.ytimg.com/vi/${item.key}/sddefault.jpg`} alt={`Trailer: ${item.name}`} />
-                    </button>
-                  </li>
-                )}
-              </ul>
-            </div>
+                    <img src={`https://i.ytimg.com/vi/${item.key}/sddefault.jpg`} alt={`Trailer: ${item.name}`} />
+                  </button>
+                </li>
+              )}
+            </ul>
           </div>
 
           {activeModal && (

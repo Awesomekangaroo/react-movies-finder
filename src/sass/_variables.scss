@@ -1,6 +1,9 @@
 $bp-large:                      "only screen and (min-width: 768px)";        // "768px" - Tablet in portrait mode
 $bp-medium-plus:                      "only screen and (min-width: 600px)";
 
+// Max-width breakpoints
+$bp-large-max:                  "only screen and (max-width: 767px)";
+
 // Colors
 
 // Fonts
