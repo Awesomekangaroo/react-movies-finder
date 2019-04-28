@@ -13,8 +13,8 @@ class MovieDetailCast extends PureComponent {
             cast.slice(0, 8).map(member => 
               <li key={`Tile-${member.name}`} className="carousel-cast__item">
                 <img
-                  src={profileBasePath + member.profile_path}
-                  alt={'Profile of ' + member.name}
+                  src={`${profileBasePath}${member.profile_path}`}
+                  alt={member.name}
                 />
                 <div className="carousel-cast__info--names">
                   <p>{member.name}</p>

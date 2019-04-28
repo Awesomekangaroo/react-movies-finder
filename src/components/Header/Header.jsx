@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import NavMenu from './NavMenu';
 import HeaderSearch from '../Search/HeaderSearch'
 import { ReactComponent as Logo } from '../../static/images/logo.svg'
-import { isBreakpointLarge } from  '../../util/breakpoints'
+import { isBreakpointLarge } from '../../util/breakpoints'
 
 class Header extends Component {
   state = {
@@ -22,7 +22,7 @@ class Header extends Component {
     }))
   }
 
-  toggleMenu = e => {
+  toggleMenu = () => {
     this.setState(prevState => ({
       isNavOpen: !prevState.isNavOpen
     }))
@@ -38,15 +38,18 @@ class Header extends Component {
             className="search-container__button"
             type="button"
             onClick={this.toggleSearch}
-            title="Open search"
-            aria-label="Open search"
+            title="open search"
+            aria-label="open search"
+            disabled={isBreakpointLarge}
           >
-            <span className="search__icon"></span>
+            <span className="search__icon" aria-hidden></span>
             <small className="is-visually-hidden">search for movies</small>
           </button>
 
-          {isSearchOpen && (
-            <HeaderSearch />
+          {(isSearchOpen || isBreakpointLarge) && (
+            <HeaderSearch
+              isBreakpointLarge={isBreakpointLarge}
+            />
           )}
 
           <Logo

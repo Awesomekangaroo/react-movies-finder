@@ -159,6 +159,7 @@ img {
 
 .trailer-modal__close {
   font-size: 20px;
+  font-weight: 600;
   outline: none;
   background-color: 0;
   border: none;
@@ -166,8 +167,7 @@ img {
   cursor: pointer;
   
   &:focus {
-    background: #eee;
-    outline: 1px solid #000;
+    outline: 1px dotted #000;
   }
 }
 
@@ -256,7 +256,19 @@ img {
 		letter-spacing: 1px;
 		border: 1px solid #ccc;
 		outline: none;
-	}
+  }
+  
+  @media #{$bp-large} {
+    position: initial;
+    background: 0;
+    border: 0;
+    max-width: 30%;
+
+    &__input {
+      border: 0;
+      border-bottom: 1px solid;
+    }
+  }
 }
 
 .typeahead-form {
@@ -270,12 +282,14 @@ img {
 	background-color: #ffffff;
 	overflow-y: scroll;
 	text-align: left;
-	font-family: $font-stack-sans;
+  font-family: $font-stack-sans;
+
 	p {
 		display: inline-block;
 		color: #000;
 		text-transform: capitalize;
-	}
+  }
+
 	li {
 		padding: 10px 0 7px 20px;
 		border-bottom: 1px solid #eee;
@@ -300,7 +314,13 @@ img {
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
-	}
+  }
+  
+  @media #{$bp-large} {
+    position: absolute;
+    max-height: 300px;
+    overflow: scroll;
+  }
 }
 
 .mobile-menu__button {
@@ -323,7 +343,7 @@ img {
     }
   }
 
-  @media #{$bp-medium-plus} {
+  @media #{$bp-large} {
     display: none;
   }
 }
@@ -1238,8 +1258,8 @@ img {
 		padding: 10px;
 		max-width: 1000px;
 		border: none;
-		background: -webkit-linear-gradientlinear-gradient(to top, transparent 0, rgba(0, 0, 0, 0.8) 100%), -webkit-linear-gradientlinear-gradient(to bottom, transparent 0, rgba(50, 44, 30, 0.5) 100%);
-		background: linear-gradient(to top, transparent 0, rgba(0, 0, 0, 0.8) 100%), linear-gradient(to bottom, transparent 0, rgba(50, 44, 30, 0.5) 100%);
+		background: -webkit-linear-gradientlinear-gradient(to top, transparent 0, rgba(0, 0, 0, 1) 100%), -webkit-linear-gradientlinear-gradient(to bottom, transparent 0, rgba(50, 44, 30, 0.8) 100%);
+		background: linear-gradient(to top, transparent 0, rgba(0, 0, 0, 1) 100%), linear-gradient(to bottom, transparent 0, rgba(50, 44, 30, 0.8) 100%);
 		&:after {
 			content: ' ';
 			clear: both;

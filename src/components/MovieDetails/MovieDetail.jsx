@@ -56,10 +56,7 @@ class MovieDetail extends Component {
                 <MovieDetailReviews reviews={movieInfo.reviews.results} />
               </div>
               <div className="one-third column">
-                <section
-                  className="movie-body__meta--container"
-                  aria-label="Movie Meta"
-                >
+                <aside className="movie-body__meta--container">
                   <MovieDetailBodyMeta
                     status={movieInfo.status}
                     original_language={movieInfo.original_language}
@@ -71,7 +68,7 @@ class MovieDetail extends Component {
                     title={movieInfo.title}
                     productionCompanies={movieInfo.production_companies}
                   />
-                </section>
+                </aside>
               </div>
             </div>
           </div>

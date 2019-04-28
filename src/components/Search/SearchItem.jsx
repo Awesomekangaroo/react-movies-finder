@@ -20,7 +20,7 @@ class SearchItem extends PureComponent {
           }}
           innerRef={link => this.searchItem = link}
         >
-          <p>{title || name}</p>
+          {title || name}
         </Link>
       </li>
     )

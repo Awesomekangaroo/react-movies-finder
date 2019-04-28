@@ -5,11 +5,19 @@ class HeaderSearch extends Component {
   state = {
     query: '',
     results: null,
+    isOpen: false,
+  }
+
+  handleEscapeKey = () => {
+    this.setState({ isOpen: false })
   }
 
   setSearchValue = e => {
     if (e.target.value.length > 1) {
-      this.setState({ query: e.target.value })
+      this.setState({
+        query: e.target.value,
+        isOpen: true,
+      })
       return
     }
 
@@ -17,10 +25,14 @@ class HeaderSearch extends Component {
   }
 
   render() {
-    const { query } = this.state
+    const { query, isOpen } = this.state
+    const { isBreakpointLarge } = this.props
 
     return (
-      <section className="header-search">
+      <section
+        className={`header-search ${isBreakpointLarge && 'is-expanded'}`}
+        onKeyDown={e => e.key === 'Escape' && this.handleEscapeKey()}
+      >
         <form className="header-search__form" role="search">
           <label
             htmlFor="movie-search"
@@ -40,7 +52,7 @@ class HeaderSearch extends Component {
             onChange={this.setSearchValue}
           />
 
-          {query.length > 1 && (
+          {isOpen && (
             <TypeAhead query={query} />
           )}
         </form>
