@@ -20,8 +20,15 @@ class MovieDetail extends Component {
     this.fetchMovieById()
   }
 
-  async fetchMovieById() {
-    const movieId = this.props.location.state.id
+  componentDidUpdate(nextState) {
+    const newSearch = nextState.location.state.id
+    if (newSearch) {
+      this.fetchMovieById(newSearch)
+    }
+  }
+
+  async fetchMovieById(id) {
+    const movieId = this.props.location.state.id || id
     const data = await getSearchResult(`https://api.themoviedb.org/3/movie/${movieId}?api_key=`, '&append_to_response=videos,images,credits,releases,reviews')
 
     this.setState({

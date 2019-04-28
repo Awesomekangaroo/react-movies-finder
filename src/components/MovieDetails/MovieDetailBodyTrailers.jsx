@@ -21,8 +21,8 @@ class MovieDetailBodyTrailers extends Component {
       <div className="container">
         <section>
           <div className="movie-trailers__container">
-            <h3>Trailers</h3>
-            <ul className="movie-trailers__carousel">
+            <h3 id="trailerTitle">Trailers</h3>
+            <ul className="movie-trailers__carousel" aria-labelledby="trailerTitle">
               {videos.map((item, index) =>
                 <li
                   key={`trailer-${index}`}

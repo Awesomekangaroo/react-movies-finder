@@ -7,7 +7,7 @@ class TypeAhead extends Component {
   state = {
     searchResults: false,
     itemRefs: [],
-    currentFocus: 1,
+    currentFocus: 0,
   }
 
   componentWillReceiveProps(nextProps) {
@@ -31,37 +31,42 @@ class TypeAhead extends Component {
     }))
   }
 
-  handleKeyDown = e => {
-    e.preventDefault()
+  handleKeyNavigation = e => {
     const { currentFocus, itemRefs } = this.state
 
     if (e.key === 'ArrowUp') {
-      if (currentFocus === 1) {
-        this.setState({ currentFocus: itemRefs.length }, () => {
-          itemRefs[itemRefs.length].focus()
+      e.preventDefault()
+      // Check if first item, then rotate to end of list.
+      if (currentFocus === 0) {
+        this.setState({ currentFocus: itemRefs.length - 1 }, () => {
+          itemRefs[itemRefs.length - 1].focus()
         })
-        return
+      } else {
+        this.setState({ currentFocus: currentFocus - 1 }, () => {
+          itemRefs[currentFocus - 1].focus()
+        })
       }
 
-      this.setState({ currentFocus: currentFocus - 1 }, () => {
-        itemRefs[currentFocus - 1].focus()
-      })
       return
     }
 
     if (e.key === 'ArrowDown') {
-      if (currentFocus === itemRefs.length) {
+      e.preventDefault()
+      // Check if last item, then rotate to start of list.
+      if (currentFocus === itemRefs.length - 1) {
         this.setState({ currentFocus: 0 }, () => {
           itemRefs[0].focus()
         })
-        return
+      } else {
+        this.setState({ currentFocus: currentFocus + 1 }, () => {
+          itemRefs[currentFocus + 1].focus()
+        })
       }
 
-      this.setState({ currentFocus: currentFocus + 1 }, () => {
-        itemRefs[currentFocus].focus()
-      })
       return
     }
+
+    // if (e.key === 'Tab')
   }
 
   render() {
@@ -69,10 +74,10 @@ class TypeAhead extends Component {
     const { query } = this.props
 
     return (
-      searchResults && (
-        <div className="typeahead-form" onKeyDown={this.handleKeyDown}>
+      (searchResults && query.length > 1) && (
+        <div className="typeahead-form">
           <h3>Search results: {query}</h3>
-          <ul>
+          <ul onKeyDown={this.handleKeyNavigation}>
             {searchResults.map((item, index) =>
               <SearchItem
                 key={`search-${index}`}

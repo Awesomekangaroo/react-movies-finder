@@ -4,7 +4,7 @@ import TypeAhead from './TypeAhead'
 class HeaderSearch extends Component {
   state = {
     query: '',
-    results: null,
+    results: false,
     isOpen: false,
   }
 
@@ -13,15 +13,14 @@ class HeaderSearch extends Component {
   }
 
   setSearchValue = e => {
-    if (e.target.value.length > 1) {
+    if (e.target.value.trim() !== '') {
       this.setState({
         query: e.target.value,
         isOpen: true,
       })
       return
     }
-
-    this.setState({ query: '' })
+    this.setState({ query: '', isOpen: false })
   }
 
   render() {

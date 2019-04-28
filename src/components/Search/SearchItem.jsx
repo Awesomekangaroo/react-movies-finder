@@ -11,12 +11,13 @@ class SearchItem extends PureComponent {
 
   render() {
     const { title, id, name } = this.props
+
     return (
       <li>
         <Link
           to={{
             pathname: `/movie/${id}/${title}`,
-            state: {...this.props}
+            state: {id}
           }}
           innerRef={link => this.searchItem = link}
         >
