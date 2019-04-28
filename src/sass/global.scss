@@ -88,6 +88,11 @@ img {
   z-index: 100;
 
   @include box-shadow(0px, -1px, 9px, 0px, rgba(0,0,0, 0.6));
+
+  @media #{$bp-large} {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 }
 
 .nav-header--detail {
@@ -779,9 +784,8 @@ img {
 	margin-top: -40px;
 	left: 8px;
 	max-width: 100px;
-	-webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
-	-moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
-	box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+  @include box-shadow(0px, 0px, 15px, 0px, rgba(0,0,0,0.75));
+
 	img {
 		vertical-align: middle;
 	}
@@ -916,7 +920,7 @@ img {
 	margin-right: 20px;
 	vertical-align: top;
 	border: 1px solid #eee;
-	box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.6);
+  @include box-shadow(0px, 2px, 5px, 0px, rgba(0, 0, 0, 0.6));
 	img {
 		display: inline-block;
 		width: 100%;
@@ -1234,7 +1238,8 @@ img {
 		position: unset;
 		margin-bottom: 0;
 		background-color: #f5f5f5;
-		box-shadow: 0 2px 4px 0 rgba(0,0,0,0.08);
+    @include box-shadow(0, 2px, 4px, 0, rgba(0,0,0,0.08));
+
 		.mobile-return--btn {
 			color: #000;
 		}

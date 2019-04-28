@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
-
 class NavMenu extends PureComponent {
   componentDidMount() {
     this.navContainer && this.navContainer.focus()
@@ -14,9 +13,8 @@ class NavMenu extends PureComponent {
 		return (
       <div
         className="nav-menu__container"
-        onKeyDown={e => e.key === 'Escape'? toggleMenu() : null}
+        onKeyDown={e => e.key === 'Escape' && toggleMenu()}
         ref={container => this.navContainer = container}
-        tabIndex="0"
       >
 				<ul className="nav-menu__top">
 					<li>

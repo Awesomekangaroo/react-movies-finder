@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 import NavMenu from './NavMenu';
 import HeaderSearch from '../Search/HeaderSearch'
@@ -52,10 +53,13 @@ class Header extends Component {
             />
           )}
 
-          <Logo
-            className="navigation__logo"
-            role="img"
-          />
+          <Link to={'/'}>
+            <Logo
+              className="navigation__logo"
+              role="img"
+              aria-label="react movies"
+            />
+          </Link>
 
           <button
             className="mobile-menu__button"
