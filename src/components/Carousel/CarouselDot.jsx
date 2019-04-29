@@ -16,11 +16,15 @@ class CarouselDot extends PureComponent {
       <li>
         <button
           className={isActive}
-          type="button"
           title={`Slide ${index + 1} of ${slideLength}`}
           aria-label={`Slide ${index + 1} of ${slideLength}`}
           onClick={() => handleDots(index)}
-        ></button>
+          type="button"
+        >
+          <span className="is-visually-hidden">
+            carousel ${index +1}
+          </span>
+        </button>
       </li>
     )
   }
