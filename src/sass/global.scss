@@ -429,7 +429,7 @@ img {
 
 /* Slide Index Carousel */
 .carousel-slider--container {
-	position: relative;
+	// position: relative;
   width: 100%;
   min-height: calc(40vh - 20px);
   margin: 0 auto;
@@ -438,9 +438,6 @@ img {
   background: transparent;
   
 	ul {
-    // display: flex;
-    // flex-wrap: nowrap;
-    // overflow: scroll;
     list-style-type: none;
 
     @media #{$bp-large-max} {
@@ -496,23 +493,6 @@ img {
       content: ' ...';
       font-size: inherit;
     }
-	}
-}
-
-.carousel__arrow {
-	position: absolute;
-	display: none;
-	top: 40%;
-	font-size: 14px;
-	color: #f4645f;
-	cursor: pointer;
-	z-index: 5;
-	opacity: .75;
-	&.arrow-left {
-		left: 15px;
-	}
-	&.arrow-right {
-		right: 15px;
 	}
 }
 
@@ -1226,19 +1206,6 @@ img {
 	.banner-block.index-promo {
 		display: inline-block;
 		max-width: 50%;
-	}
-
-	.carousel__arrow {
-		display: block;
-		text-align: center;
-		.fa {
-			width: 45px;
-			height: 45px;
-			background-color: #eee;
-			&:before {
-				font-size: 40px;
-			}
-		}
 	}
 
 	.slide-item__title {

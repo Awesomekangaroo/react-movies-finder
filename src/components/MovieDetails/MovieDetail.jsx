@@ -38,42 +38,66 @@ class MovieDetail extends Component {
   }
 
   render() {
-    const { movieInfo } = this.state
+    const {
+      movieInfo,
+      movieInfo: {
+        backdrop_path,
+        poster_path,
+        vote_average,
+        tagline,
+        overview,
+        runtime,
+        title,
+        genres,
+        credits,
+        videos,
+        reviews,
+        original_language,
+        budget,
+        revenue,
+        homepage,
+        status,
+        release_date,
+        production_companies,
+      }
+    } = this.state
 
     return (
       movieInfo && (
         <Layout>
           <div className="movie-detail__container">
             <MovieDetailHead
-              backdrop={movieInfo.backdrop_path}
-              poster={movieInfo.poster_path}
-              average={movieInfo.vote_average}
-              tagline={movieInfo.tagline}
-              overview={movieInfo.overview}
-              runtime={movieInfo.runtime}
-              title={movieInfo.title}
-              genres={movieInfo.genres}
+              backdrop={backdrop_path}
+              poster={poster_path}
+              average={vote_average}
+              tagline={tagline}
+              overview={overview}
+              runtime={runtime}
+              title={title}
+              genres={genres}
             />
             <div className="movie-detail__body">
               <div className="two-third column">
-                <MovieDetailCast profile={movieInfo.credits} />
-                <MovieDetailBodyInfo overview={movieInfo.overview} />
+                <MovieDetailCast profile={credits} />
+                <MovieDetailBodyInfo overview={overview} />
                 <MovieDetailBodyTrailers
-                  videos={movieInfo.videos.results.slice(0, 4)} />
-                <MovieDetailReviews reviews={movieInfo.reviews.results} />
+                  videos={videos.results.slice(0, 4)} />
+                {reviews.results.length > 0 && (
+                  <MovieDetailReviews reviews={reviews.results} />
+                )}
               </div>
               <div className="one-third column">
                 <aside className="movie-body__meta--container">
                   <MovieDetailBodyMeta
-                    status={movieInfo.status}
-                    original_language={movieInfo.original_language}
-                    runtime={movieInfo.runtime}
-                    budget={movieInfo.budget}
-                    revenue={movieInfo.revenue}
-                    homepage={movieInfo.homepage}
-                    releaseDate={movieInfo.release_date}
-                    title={movieInfo.title}
-                    productionCompanies={movieInfo.production_companies}
+                    status={status}
+                    original_language={original_language}
+                    runtime={runtime}
+                    budget={budget}
+                    revenue={revenue}
+                    homepage={homepage}
+                    releaseDate={release_date}
+                    title={title}
+                    productionCompanies={production_companies}
                   />
                 </aside>
               </div>

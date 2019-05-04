@@ -16,7 +16,7 @@ class SearchItem extends PureComponent {
       <li>
         <Link
           to={{
-            pathname: `/movie/${id}/${title}`,
+            pathname: `/movie/${id}/${title || name}`,
             state: {id}
           }}
           innerRef={link => this.searchItem = link}

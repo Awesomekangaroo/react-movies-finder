@@ -65,15 +65,6 @@ class Carousel extends Component {
     return (
       popularMovies && (
         <div className="carousel-slider--container">
-          {/* <button
-            className="carousel__arrow arrow-left"
-            type="button"
-            title="previous slide"
-            aria-label="previous slide"
-            onClick={this.goToPrevSlide}
-          >
-            <i className="fa fa-2x fa-angle-left" aria-hidden></i>
-          </button> */}
           <ul className="carousel-slides">
             {
               popularMovies.map((slide, index) =>
@@ -86,15 +77,6 @@ class Carousel extends Component {
               )
             }
           </ul>
-          {/* <button
-            className="carousel__arrow arrow-right"
-            type="button"
-            title="next slide"
-            aria-label="next slide"
-            onClick={e => this.goToNextSlide(e)}
-          >
-            <i className="fa fa-2x fa-angle-right" aria-hidden></i>
-          </button> */}
 
           <ul className="carousel-slider--dots">
             {
