@@ -36,4 +36,9 @@ SearchItem.propTypes = {
   handleRefLink: PropTypes.func,
 }
 
+SearchItem.defaultProps = {
+  title: '',
+  name: '',
+}
+
 export default SearchItem
