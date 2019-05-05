@@ -3,7 +3,7 @@ React Movie Database Search
 
 An web application where you are able to search for movies and its related meta information. Searching for movies returns the movie's related information including the poster, cast, synposis, trailers, and user reviews. Data available courtesy of [theMovieDB](https://www.themoviedb.org/) API.
 
-[The MovieDB brand](https://www.themoviedb.org/assets/2/v4/logos/408x161-powered-by-rectangle-green-bb4301c10ddc749b4e79463811a68afebeae66ef43d17bcfd8ff0e60ded7ce99.png)
+![The MovieDB brand](https://www.themoviedb.org/assets/2/v4/logos/408x161-powered-by-rectangle-green-bb4301c10ddc749b4e79463811a68afebeae66ef43d17bcfd8ff0e60ded7ce99.png "TMDB logo")
 
 
 Purpose of application
