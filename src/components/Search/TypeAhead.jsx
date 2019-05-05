@@ -22,7 +22,7 @@ class TypeAhead extends Component {
     const query = this.props.query || nextProps.query
     try {
       const data = await getSearchResult('https://api.themoviedb.org/3/search/multi?api_key=', query, '&query=')
-      if (data.status === 200) {
+      if (data.status === 200 || data.total_results) {
         this.setState({ searchResults: data.results })
       } else {
         this.setState({ searchResults: ['Nothing found ...'] })

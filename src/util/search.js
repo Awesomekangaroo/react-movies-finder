@@ -5,9 +5,13 @@ export const getSearchResult = async (url, query = '', parameters = '') => {
 
   try {
     const data = await fetch(endpoint)
-    const result = await data.json()
 
-    return result
+    if (data.status === 200) {
+      const result = await data.json()
+      return result
+    }
+
+    return data
   }
   catch (err) {
     return err

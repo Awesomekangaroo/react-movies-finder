@@ -20,10 +20,9 @@ class MovieDetail extends Component {
     this.fetchMovieById()
   }
 
-  componentDidUpdate(nextState) {
-    const newSearch = nextState.location.state.id
-    if (newSearch) {
-      this.fetchMovieById(newSearch)
+  componentDidUpdate(prevProps,nextState) {
+    if (this.props.location !== prevProps.location) {
+      this.fetchMovieById(nextState.movieId)
     }
   }
 
