@@ -108,6 +108,36 @@ img {
   }
 }
 
+.notfound__page {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 700px;
+  padding: 3rem 1rem;
+  font-family: $font-stack-sans;
+
+  @media #{$bp-medium-plus} {
+    margin: 0;
+    padding: 5rem 3rem;
+    margin-right: auto;
+  }
+
+  h1 {
+    font-size: 2rem;
+    line-height: 120%;
+    margin-bottom: 1rem;
+    text-align: center;
+
+    @media #{$bp-medium-plus} {
+      text-align: initial;
+    }
+  }
+
+  p {
+    line-height: 120%;
+    font-size: 1rem;
+  }
+}
+
 .modal-backdrop {
 	position: fixed;
 	top: 0;
@@ -474,7 +504,6 @@ img {
 
 	&.active {
     display: block;
-    // visibility: visible;
     @media #{$bp-large} {
       display: flex;
     }

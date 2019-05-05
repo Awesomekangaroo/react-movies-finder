@@ -8,7 +8,7 @@ class Layout extends PureComponent {
     return (
       <Fragment>
         <Header />
-          { this.props.children }
+        {this.props.children}
         <Footer />
       </Fragment>
     )

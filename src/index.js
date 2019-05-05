@@ -3,7 +3,7 @@ import { render } from 'react-dom'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import App from './components/App'
-import NotFound from './components/NotFound'
+import NotFound from './components/NotFound/NotFound'
 import MovieDetail from './components/MovieDetails/MovieDetail'
 
 import './sass/global.scss'
