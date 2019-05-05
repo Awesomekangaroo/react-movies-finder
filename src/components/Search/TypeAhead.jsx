@@ -21,7 +21,7 @@ class TypeAhead extends Component {
   async handleSearchQuery (nextProps) {
     const query = this.props.query || nextProps.query
     try {
-      const data = await getSearchResult('https://api.themoviedb.org/3//multi?api_key=', query, '&query=')
+      const data = await getSearchResult('https://api.themoviedb.org/3/search/multi?api_key=', query, '&query=')
       if (data.status === 200) {
         this.setState({ searchResults: data.results })
       } else {
