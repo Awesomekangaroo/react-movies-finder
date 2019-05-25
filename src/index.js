@@ -1,6 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import * as serviceWorker from './serviceWorker'
 
 import App from './components/App'
 import NotFound from './components/NotFound/NotFound'
@@ -21,3 +22,4 @@ const Root = () => {
 }
 
 render(<Root />, document.getElementById('root'))
+serviceWorker.register()
