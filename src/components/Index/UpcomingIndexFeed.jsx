@@ -15,7 +15,9 @@ class UpcomingIndexFeed extends Component {
   async getUpcomingMovies() {
     const data = await getSearchResult("https://api.themoviedb.org/3/movie/upcoming?api_key=", "&language=en-US&page=1")
 
-    this.setState({ upcomingMovies: data.results.slice(0, 10) })
+    if (data.results && data.results.length > 0) {
+      this.setState({ upcomingMovies: data.results.slice(0, 10) })
+    }
   }
 
   render() {
