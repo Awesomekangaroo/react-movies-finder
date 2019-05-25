@@ -1,0 +1,16 @@
+{
+  "short_name": "TMDBMovies",
+  "name": "Movies Inquiry",
+  "icons": [
+    {
+      "src": "logo.svg",
+      "type": "image/x-icon",
+      "sizes": "144px 144px 64x64 32x32 24x24 16x16"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#eee",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#eee"
+}
