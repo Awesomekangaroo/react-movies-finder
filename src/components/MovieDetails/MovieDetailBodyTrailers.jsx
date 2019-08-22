@@ -28,13 +28,18 @@ class MovieDetailBodyTrailers extends Component {
                   key={`trailer-${index}`}
                   className="movie-trailers__carousel--item"
                 >
-                  <button
-                    type="button"
+                  <div
+                    role="button"
                     onClick={() => this.setState({ activeModal: item })}
-                    ref={modal => this.currentModal = modal}
+                    onKeyPress={e => {
+                      e.preventDefault()
+                      if (e.key === 'Enter' || e.key === ' ') this.setState({ activeModal: item })
+                    }}
+                    tabIndex="0"
+                    aria-label={`Open video trailer ${item.name}`}
                   >
                     <img src={`https://i.ytimg.com/vi/${item.key}/sddefault.jpg`} alt={`Trailer: ${item.name}`} />
-                  </button>
+                  </div>
                 </li>
               )}
             </ul>

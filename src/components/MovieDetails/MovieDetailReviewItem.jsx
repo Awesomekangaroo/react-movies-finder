@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 class MovieDetailReviewItem extends Component {
   state = {
-    isButtonActive: null
+    isButtonActive: false
   }
 
   toggleShowMore = () => {
@@ -41,7 +41,7 @@ class MovieDetailReviewItem extends Component {
           aria-label="Show more content"
           onClick={() => this.toggleShowMore()}
         >
-          Show More
+          {isButtonActive ? 'Show Less' : 'Show More'}
         </button>
       </div>
     )

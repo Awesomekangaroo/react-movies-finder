@@ -34,7 +34,7 @@ class MovieDetailHead extends PureComponent {
             </div>
             <header className="movie__head-top">
               <div className="movie__head--genre">
-                <span>{genres[0] && genres[0].name}</span> |
+                <span>{genres && genres[0].name}</span> |
 								<span>{runtime} mins</span>
               </div>
               <div className="movie__head--title">

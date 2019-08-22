@@ -43,7 +43,7 @@ class OpenModal extends PureComponent {
           <div className="trailer-modal__content">
             <iframe
               title={name}
-              src={`http://www.youtube.com/embed/${videoKey}`}
+              src={`https://www.youtube.com/embed/${videoKey}`}
               allowFullScreen="allowFullScreen"
               frameBorder="0">
             </iframe>
